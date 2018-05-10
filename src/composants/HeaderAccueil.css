@@ -1,0 +1,57 @@
+.background{
+	width: 100%;
+	height: 697px;
+	background-image: url("./background-vert.jpg");
+	background-size: 100%;
+	padding: 70px  0 0 240px;
+}
+.header{
+	
+}
+h2{
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+.titreMeContacter{
+	margin-top: 50px;
+}
+.textHeader{
+	color: white; 
+	font-size: 50px;
+	
+}
+p{
+	font-size: 18px;
+}
+.petitTitre{
+	padding-left:40px;
+}
+.glyfTitre{
+	float: left;
+}
+
+.photoIdentite{
+	background-image: url("./identite.jpg");
+	background-size: 100%;
+}
+/****************************************** 
+*     Compétences 
+******************************************/
+.competences .ligne .libelle {
+	
+ font-size: 1.3em;       
+} 
+.competences .ligne .classement { 
+    
+    background: scroll transparent url("../pointDeCompetences.png") no-repeat; 
+    background-size: 100%; 
+    width: 165px;
+    height: 27px;
+} 
+.competences .ligne .classement0 { background-position: 0 -142px; }
+.competences .ligne .classement1 { background-position: 0 -112px; }
+.competences .ligne .classement2 { background-position: 0 -84px; } 
+.competences .ligne .classement3 {background-position: 0 -56px; }
+.competences .ligne .classement4 { background-position: 0 -28px; } 
+.competences .ligne .classement5 { background-position: 0 0px; } 
+      
