@@ -1,0 +1,33 @@
+.realisation .petitTitre, .realisation .glyfTitre{
+	color: #30b4ac;
+}
+.margin{
+	margin-bottom: 50px; 
+}
+.uneRea{
+	height: 167px;
+	background-size: 100%;
+	
+	border: solid 5px #222;
+}
+.realisation .texte{
+	font-size: 22px;
+	font-family: champagneGras;
+	text-align: center;
+}
+.randonnee{
+	background-image: url("../images/rando.png");
+
+}
+.ptidej{
+	background-image: url("../images/ptidej.png");
+}
+.pendu{
+	background-image: url("../images/cuisiner.png");
+}
+.cuisiner{
+	background-image: url("../images/cuisiner.png");
+}
+.domotique{
+	background-image: url("../images/homeControl.png");
+}

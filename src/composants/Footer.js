@@ -5,10 +5,17 @@ import './Footer.css'
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
+import Button from 'react-bootstrap/lib/Button';
 
 
 
 class Footer extends Component {
+
+constructor(props) {
+    super(props);
+    
+  }
+
   render() {
     return (
     	
@@ -28,8 +35,8 @@ class Footer extends Component {
 				        	Ou <a>Cliquez ici</a></p>	      	
 						</Col>
 						<Col xs={12} md={4}>
-							<h3>Me CV :</h3>
-							<button>Consultez mon CV</button>	      	
+							<h3>Mon CV :</h3>
+							<button className="btn" >Consultez mon CV</button>	      	
 						</Col>
 					</Row>
 					<Row className="ligneSeparation">

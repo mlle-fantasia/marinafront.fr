@@ -27,19 +27,15 @@ class MenuNavigation extends Component {
               <NavItem eventKey={2} href="#">
                 CV
               </NavItem>
-              <NavItem eventKey={1} href="#">
+              <NavItem eventKey={3} href="#">
                 Journal
               </NavItem>
-              <NavDropdown eventKey={3} title="Réalisations" id="basic-nav-dropdown">
-                <MenuItem eventKey={3.1}>jeu du pendu-React</MenuItem>
-                <MenuItem eventKey={3.2}>mini jeu de combat-PHP Objet</MenuItem>
-                <MenuItem eventKey={3.3}>un site de randonnées</MenuItem>
-                <MenuItem divider />
-                <MenuItem eventKey={3.3}>Pour les loisirs</MenuItem>
-              </NavDropdown>
+              <NavItem eventKey={4} href="#">
+                Réalisations
+              </NavItem>
             </Nav>
-            <Nav pullRight>
-              <NavItem eventKey={2} href="#">
+            <Nav >
+              <NavItem eventKey={5} href="#">
                 Me contacter
               </NavItem>
             </Nav>
@@ -50,3 +46,6 @@ class MenuNavigation extends Component {
 }
 
 export default MenuNavigation;
+
+
+

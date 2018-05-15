@@ -1,0 +1,80 @@
+@font-face {
+font-family: 'MlleCamille';
+src: url('../font/Mademoiselle Camille L.ttf');
+}
+@font-face {
+font-family: 'ChampagneGras';
+src: url('../font/Champagne & Limousines Bold.ttf');
+}
+@font-face {
+font-family: 'Champagne';
+src: url('../font/Champagne & Limousines.ttf');
+}
+h2{
+	margin-top: 50px;
+	margin-bottom: 20px;
+	color: #fff;
+	font-family: MlleCamille;
+}
+.quelquesMots h2{
+	color: #fff;
+}
+.quelquesMots{
+	background-color: #30b4ac;
+	padding-left: 400px;
+}
+.quelquesMots .text{
+	padding-bottom: 60px;
+	
+}
+
+.titreMeContacter{
+	margin-top: 50px;
+}
+.titreHeader{
+	margin: 0;
+	color: white; 
+	font-size: 50px;
+}
+.textHeader{
+	color: white; 
+	font-family: 'Champagne';
+	font-size: 40px;
+	padding-left: 60px;
+}
+
+p{
+	font-size: 22px;
+	font-family: 'ChampagneGras';
+}
+.petitTitre{
+	padding-left:40px;
+}
+.glyfTitre{
+	float: left;
+}
+.actuellemnt{
+	background-color: #fff;
+	padding-left: 400px;
+	padding-bottom: 60px;
+	
+}
+.actuellemnt h2{
+	color:  #30b4ac;
+}
+.petitTitre{
+	font-family: MlleCamille;
+	font-size: 100px;
+}
+.identite{
+	position: absolute;
+	top: 743px;
+	right: 0;
+    float: right;
+    padding: 0;
+    width: 31%;
+    height: 748px;
+    background-image: url(../images/identite2.jpg);
+    background-size: 100%;
+}
+
