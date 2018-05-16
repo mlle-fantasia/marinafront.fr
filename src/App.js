@@ -5,6 +5,12 @@ import { BrowserRouter, Route, Link } from 'react-router-dom'
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
+import Nav  from 'react-bootstrap/lib/Nav';
+import Navbar from 'react-bootstrap/lib/Navbar';
+import NavItem from 'react-bootstrap/lib/NavItem';
+import NavDropdown from 'react-bootstrap/lib/NavDropdown';
+import MenuItem from 'react-bootstrap/lib/MenuItem';
+
 
 import Footer from './composants/Footer.js';
 import MenuNavigation from './composants/MenuNavigation.js';
@@ -63,12 +69,34 @@ return page;
                     onClick={(e) => this.lienClick(e, {nom})}/>
                   ));
 
+    const listeLiensNav = LIENS.map((nom, etat, index) =>(
+                  <MenuNavigation
+                    nom= {nom}
+                    onClick={(e) => this.lienClick(e, {nom})}/>
+                  ));
+
 
 
     return (
       <div>
-        <MenuNavigation/>
+
+        <Navbar inverse collapseOnSelect>
+          <Navbar.Header>
+            <Navbar.Brand>
+              <a href="../app.js">Marina Front</a>
+            </Navbar.Brand>
+            <Navbar.Toggle />
+          </Navbar.Header>
+          <Navbar.Collapse>
+            <Nav>
+
+              {listeLiensNav}
         
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+        
+
           {renderPage.map(el => {
                     return <div >
                        {el} 

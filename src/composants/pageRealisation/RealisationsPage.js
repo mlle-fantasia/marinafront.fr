@@ -27,7 +27,7 @@ class RealisationsPage extends Component {
 				<Col xs={12} sm={6} md={4} className="margin">
 					<div className="uneRea ptidej">
 					</div>
-					<div className="texte">Un site one page</div>
+					<div className="texte">Une landing page one page</div>
 				</Col>
 				<Col xs={12} sm={6} md={4} className="margin">
 					<div className="uneRea pendu">
