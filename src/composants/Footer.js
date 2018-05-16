@@ -19,7 +19,7 @@ constructor(props) {
   render() {
     return (
     	
-			<Row className="footer">
+			<div className="footer">
 				<Grid>
 					<Row>
 						<Col xs={12} md={4}>
@@ -43,7 +43,7 @@ constructor(props) {
 						<p>Ce site à été réalisé avec React-Bootstrap</p>
 					</Row>
 				</Grid>
-			</Row>
+			</div>
 		
     );
   }

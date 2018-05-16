@@ -79,7 +79,7 @@ class CvPage extends Component {
 							      	<p>Suite Adobe</p>
 							    </Col>
 							     <Col xs={12} md={3}>
-							      	<h3>J'ai des progrès à faire sur :</h3>
+							      	<h3>J'ai une marge de progression sur :</h3>
 							      	<p>PHP</p>
 							      	<p>SQL</p>
 							      	<p>React</p>
@@ -87,9 +87,10 @@ class CvPage extends Component {
 							    </Col>
 							     <Col xs={12} md={3}>
 							      	<h3>J'ai les bases en :</h3>
-							      	<p>SSI</p>
+							      	<p>Sécurité Informatique (SSI)</p>
 							      	<p>Git</p>
 							      	<p>Java</p>
+							      	<p>Methode Agile</p>
 							    </Col>
 							    <Col xs={12} md={3}>
 							      	<h3>J'apprendrai prochainement :</h3>

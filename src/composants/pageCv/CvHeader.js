@@ -12,12 +12,14 @@ class CvHeader extends Component {
 		    return (
 			    <div className="headerCv">
 				    <Grid fluid>
-						<Row className="texte">
-							<Col xs={12} md={12}>
-							    Mon CV est disponible au format PDF :  
-							    <button className="btn">Mon CV</button>
-							</Col>
-						</Row>
+					    <Grid>
+							<Row className="texte">
+								<Col xs={12} md={12}>
+								    Mon CV est disponible au format PDF :  
+								    <button className="btn">Mon CV</button>
+								</Col>
+							</Row>
+						</Grid>
 					</Grid>
 				</div>
 		    );

@@ -18,12 +18,13 @@ h2{
 }
 .quelquesMots h2{
 	color: #fff;
+	margin-bottom: 20px;
 }
 .quelquesMots{
 	background-color: #30b4ac;
 	padding-left: 400px;
 }
-.quelquesMots .text{
+.quelquesMots .texte{
 	padding-bottom: 60px;
 	
 }

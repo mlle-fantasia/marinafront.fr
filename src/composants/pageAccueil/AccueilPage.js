@@ -17,7 +17,7 @@ class AccueilPage extends Component {
 	    <div className="identite">
 		 </div>
 		        <Row className="quelquesMots">
-		        	<Col xs={12} md={6} className="text">
+		        	<Col xs={12} md={6} className="texte">
 		        		<h2><span className="glyfTitre glyphicon glyphicon-comment"></span><div className="petitTitre">En quelques mots,</div></h2>
 		        		<p>Titulaire d’un bac plus 4 en architecture intérieure et n’ayant pas trouvé ma vocation dans ce secteur, 
 		        		j’ai cherché un autre domaine dans lequel m’épanouir. Je l’ai trouvé dans l’informatique et plus précisément 
