@@ -12,50 +12,10 @@
 	color: #222;
 	width: 150px;
 }
-.CompetencesCv .petitTitre {
-	
-	font-size: 100px;
-	margin: 0;
-}
 
-.parcours .glyfTitre{
-	color: #30b4ac;
+a{
+	color: #6d6c6c;
 }
-.ligne{
-	height: 2px;
-	background-color:  #30b4ac;
-	width: 50%;
-}
-.parcours .petitTitre {
-	color: #30b4ac;
-	padding-bottom: 5px;
-	margin-bottom: 0;
-	font-size: 80px;
-}
-.parcours{
-	margin-bottom: 50px;
-}
-.bordureGauche{
-	border-left: solid 2px #30b4ac;
-	border-bottom: solid 2px #30b4ac;
-	padding: 20px 30px;
-	font-size: 18px;
-}
-.bordureDroite{
-	border-right:  solid 2px #30b4ac;
-	border-bottom: solid 2px #30b4ac;
-	padding: 20px 30px;
-	font-size: 18px;
-}
-.facebookMF{
-	padding: 5px 30px;
-}
-.competencesDecription{
-	padding-top: 40px;
-	text-align: justify;
-	padding-bottom: 20px;
-}
-.competenceListe{
-	text-align: center;
-	padding-bottom: 50px;
+a:hover {
+    color: #165a55;
 }

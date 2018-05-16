@@ -14,8 +14,8 @@ class CvPage extends Component {
 			    	
 					<Grid className="parcours">
 						  <Row >
-							    <Col xs={12} md={6}>
-							      	<h2><span className="glyfTitre glyphicon glyphicon-comment"></span><div className="petitTitre">Mon parcours en quelques lignes :</div></h2>
+							    <Col xs={12} md={12}>
+							      	<h2><span className="glyfTitre glyphicon glyphicon-road"></span><div className="petitTitre">Mon parcours en quelques lignes :</div></h2>
 							    </Col>
 						  </Row>
 						  <Row className="ligne">
@@ -25,31 +25,31 @@ class CvPage extends Component {
 						  </Row>
 						  <Row className="bordureGauche">
 							    <Col xs={12} md={12}>
-							      	Etudes en architecture intérieure, bac plus 4 obtenu
+							      	Etudes en architecture intérieure, BAC +4 obtenu
 							    </Col>
 						  </Row>
 						  <Row className="bordureDroite">
 							    <Col xs={12} md={12}>
-							      	Création de mon auto-entreprise MlleFantasia : <br/>création de bijoux fantaisie et ventes sur les marchés artisanaux
+							      	Création de mon auto-entreprise MlleFantasia : <br/>Création de bijoux fantaisie et ventes sur les marchés artisanaux
 							    </Col>
 						  </Row>
 						  <Row className="bordureGauche facebookMF">
 							    <Col xs={12} md={12}>
-							      	Lien vers le facebook de MlleFantasia
+							      	<a href="https://www.facebook.com/mademoisellefantasia">www.facebook.com/mademoisellefantasia</a>
 							    </Col>
 						  </Row>
 						  <Row className="bordureDroite">
 							    <Col xs={12} md={12}>
-							      	Quelques experiences de vendeuse en magasin:<br/>
-								 	-Vendeuse caissière dans les magasins Casa (Grasse et VilleneuveLoubet(06) )<br/>
-									-Conseillère vendeuse en mobilier et responsable du rayon libre service(décoration) dans le magasin Fly (antibes(06))<br/><br/>
+							      	Quelques expériences de vendeuse en magasin :<br/>
+								 	-Vendeuse caissière dans les magasins Casa (Grasse et Villeneuve-Loubet(06))<br/>
+									-Conseillère vendeuse en mobilier et responsable du rayon libre service (décoration) dans le magasin Fly (Antibes(06))<br/><br/>
 
 									Ceci en me formant chez moi dans le développement Web en vue d’une réorientation professionnelle
 							    </Col>
 						  </Row>
 						  <Row className="bordureGauche">
 							    <Col xs={12} md={12}>
-							      	Formation Developpement et administration systeme d’information expert , greta du var
+							      	Formation Développement et Administration Système d’Information Expert (DASIE), Greta du var
 							    </Col>
 						  </Row>
 					</Grid>
@@ -59,7 +59,7 @@ class CvPage extends Component {
 								<Grid>
 									<Row>
 									    <Col xs={12} md={12}>
-									      	<h2><span className="glyfTitre glyphicon glyphicon-comment"></span><div className="petitTitre">Mes competences :</div></h2>
+									      	<h2><span className="glyfTitre glyphicon glyphicon-wrench"></span><div className="petitTitre">Mes competences :</div></h2>
 									    </Col>
 								    </Row>
 								</Grid>
@@ -69,10 +69,10 @@ class CvPage extends Component {
 					<Grid >
 						  <Row className="competencesDecription">
 							    <Col xs={12} md={12}>
-							      	<p>Les Competences listées ci-dessous, je les ai acquises : <br/> - premièrement grace à de nombreux cours et documentation
-							      	sur internet (openclassrooms, developper.net, stack overflow, W3schools et bien d autres) et en imaginant et créant divers 
-							      	sites internet que vous pourrez observer dans l'onglet "Réalisations" (ou <a>ici</a>). <br/>
-							      	- Deuxièmement grace à la formation Développement et Administration Systeme d'Information Expert que j'ai suivie avec grand interet de Janvier à mai 2018.</p>
+							      	<p>Les Competences listées ci-dessous, je les ai acquises : <br/> - premièrement grâce à de nombreux cours et documentation
+							      	sur internet (openclassrooms, developper.net, stack overflow, W3schools et bien d'autres) et en imaginant et créant divers 
+							      	sites internet que vous pourrez observer dans l'onglet "Réalisations". <br/>
+							      	- Deuxièmement, grâce à la formation Développement et Administration Systeme d'Information Expert que j'ai suivie avec grand intérêt de janvier à mai 2018.</p>
 							    </Col>
 						  </Row>
 						  <Row className="competenceListe">

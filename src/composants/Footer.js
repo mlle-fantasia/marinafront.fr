@@ -33,17 +33,17 @@ constructor(props) {
 							<h3>Me contacter :</h3>
 				        	<p> marinafront@hotmail.fr<br/>
 				        	 06 02 10 85 07<br/>
-				        	Ou <a>Cliquez ici</a></p>	      	
+				        	</p>	      	
 						</Col>
 						<Col xs={12} sm={4} md={4}>
 							<h3>Mon CV :</h3>
 							<button className="btn" >
-							<a href="./composants/pdf/CV 2018.pdf">Consultez mon CV</a>
+							<a href={require('../assets/pdf/CV2018.pdf')} target="_blank">Consultez mon CV</a>
 							</button>	      	
 						</Col>
 					</Row>
 					<Row className="ligneSeparation">
-						<p>Ce site à été réalisé avec React-Bootstrap</p>
+						<p>Ce site a été réalisé avec React-Bootstrap</p>
 					</Row>
 				</Grid>
 			</div>

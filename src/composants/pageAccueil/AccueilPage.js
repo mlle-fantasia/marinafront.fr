@@ -26,7 +26,8 @@ class AccueilPage extends Component {
 		    	 <Row className="actuellemnt">
 		        	<Col xs={12} md={7} mdOffset={3} className="texte" >
 		        		<h2><span className="glyfTitre glyphicon glyphicon-refresh"></span><div className="petitTitre">Actuellement :</div></h2>
-		        		<p>Je suis à la recherche d'un travail comme développeuse web dans la région toulonnaise.<br/> Et je me forme en continu de chez moi.</p>
+		        		<p>Je suis actuellement à la recherche d'un emploi de développeuse web (front-end / back-end) dans la région toulonnaise.
+							<br/>En attente de vos défis je continue de me former.</p>
 		        	</Col>
 		        </Row>
 		    </Col>

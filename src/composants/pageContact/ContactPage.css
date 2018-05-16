@@ -1,0 +1,14 @@
+.contact h2 {
+	color:#30b4ac;
+}
+.contact{
+	padding-bottom: 70px;
+}
+.meSuivre a {
+	width: 70%;
+}
+@media only screen and (max-width: 600px) {
+    .meSuivre a {
+	width: 100%;
+}
+}

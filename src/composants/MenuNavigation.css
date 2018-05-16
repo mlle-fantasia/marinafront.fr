@@ -6,5 +6,32 @@
     border-radius: 0;
 }
 .navbar-inverse {
-    background-color: #fff;
+    background-image: none;
 }
+.navbar-inverse .navbar-nav>li>a:hover{
+	color: #676565;
+}
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a{
+     text-shadow: none; 
+}
+.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
+    color:#676565;
+}
+.navbar-brand{
+	padding: 10px 15px;
+}
+.navbar-brand img{
+	height: 100%;
+	float: left;
+	margin-right: 5px;
+}
+.marque{
+	float: right;
+	margin-top: 5px;
+	color: #30b4ac;
+}
+.navbar-inverse .navbar-toggle {
+    border-color: #c5c5c5;
+    }
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+    background-color:  #c5c5c5;}

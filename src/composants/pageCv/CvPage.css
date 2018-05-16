@@ -1,3 +1,50 @@
+.CompetencesCv .petitTitre {
+	
+	font-size: 40px;
+	margin: 0;
+}
+
+.parcours .glyfTitre{
+	color: #30b4ac;
+}
+.ligne{
+	height: 2px;
+	background-color:  #30b4ac;
+	width: 50%;
+}
+.parcours .petitTitre {
+	color: #30b4ac;
+	padding-bottom: 5px;
+	margin-bottom: 0;
+	font-size: 40px;
+}
+.parcours{
+	margin-bottom: 50px;
+}
+.bordureGauche{
+	border-left: solid 2px #30b4ac;
+	border-bottom: solid 2px #30b4ac;
+	padding: 20px 30px;
+	font-size: 18px;
+}
+.bordureDroite{
+	border-right:  solid 2px #30b4ac;
+	border-bottom: solid 2px #30b4ac;
+	padding: 20px 30px;
+	font-size: 18px;
+}
+.facebookMF{
+	padding: 5px 30px;
+}
+.competencesDecription{
+	padding-top: 40px;
+	text-align: justify;
+	padding-bottom: 20px;
+}
+.competenceListe{
+	text-align: center;
+	padding-bottom: 50px;
+}
 @media only screen and (max-width: 600px) {
     .CompetencesCv .petitTitre, .parcours .petitTitre{
         font-size: 65px;

@@ -20,5 +20,9 @@ h3{
 	font-family: Champagne;
 	font-size: 30px;
 }
-
-
+a{
+	color:#6d6c6c;
+}
+a:hover {
+    color: #165a55;
+}

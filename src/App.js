@@ -24,8 +24,10 @@ import RealisationsPage from './composants/pageRealisation/RealisationsPage.js';
 import CvHeader from './composants/pageCv/CvHeader.js';
 import CvPage from './composants/pageCv/CvPage.js';
 
+import ContactPage from './composants/pageContact/ContactPage.js';
 
-const LIENS = ['CV','Realisations','Contact'];
+
+const LIENS = ['CV','Réalisations','Contact'];
 
 class App extends Component {
 
@@ -44,12 +46,15 @@ lienClick(e, newPage){
   let page = [];
   let retourPage;
 
-  if( newPage.nom == 'Realisations'){
+  if( newPage.nom == 'Réalisations'){
      page= [<CvHeader/>,<RealisationsPage/>];
   }
   if( newPage.nom == 'CV'){
      page= [<CvHeader/>,<CvPage/>];
-  } 
+  }
+  if( newPage.nom == 'Contact'){
+     page= [<CvHeader/>,<ContactPage/>];
+  }  
 
 this.setState({ renderPage: page});
 
@@ -83,15 +88,14 @@ return page;
         <Navbar inverse collapseOnSelect>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="../app.js">Marina Front</a>
+              
+              <a href="/"><img src={require("./composants/images/logoInfo50px.png")}/><div className="marque">Marina Front</div></a>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav>
-
               {listeLiensNav}
-        
             </Nav>
           </Navbar.Collapse>
         </Navbar>
@@ -104,7 +108,7 @@ return page;
                 })}
     
    
-        
+     
             <div className="liens">
                 <Grid fluid>
                     <Row>
@@ -114,7 +118,9 @@ return page;
                     </Row>
                 </Grid>
             </div>
+
         <Footer/>
+
       </div>
       );
   }
