@@ -59,7 +59,7 @@ class CvPage extends Component {
 								<Grid>
 									<Row>
 									    <Col xs={12} md={12}>
-									      	<h2><span className="glyfTitre glyphicon glyphicon-wrench"></span><div className="petitTitre">Mes competences :</div></h2>
+									      	<h2><span className="glyfTitre glyphicon glyphicon-wrench"></span><div className="petitTitre">Mes compétences :</div></h2>
 									    </Col>
 								    </Row>
 								</Grid>
@@ -69,7 +69,7 @@ class CvPage extends Component {
 					<Grid >
 						  <Row className="competencesDecription">
 							    <Col xs={12} md={12}>
-							      	<p>Les Competences listées ci-dessous, je les ai acquises : <br/> - premièrement grâce à de nombreux cours et documentation
+							      	<p>Les Compétences listées ci-dessous, je les ai acquises : <br/> - premièrement grâce à de nombreux cours et documentation
 							      	sur internet (openclassrooms, developper.net, stack overflow, W3schools et bien d'autres) et en imaginant et créant divers 
 							      	sites internet que vous pourrez observer dans l'onglet "Réalisations". <br/>
 							      	- Deuxièmement, grâce à la formation Développement et Administration Systeme d'Information Expert que j'ai suivie avec grand intérêt de janvier à mai 2018.</p>

@@ -27,7 +27,7 @@ constructor(props) {
 								<p>Marina Front<br/>
 								Développeuse Web<br/>
 								région toulonnaise<br/>
-								<a href="../app.js">retour à l'accueil</a></p>        	
+								<a href="/">retour à l'accueil</a></p>        	
 						</Col>
 						<Col xs={12} sm={4} md={4}>
 							<h3>Me contacter :</h3>

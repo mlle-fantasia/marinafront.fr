@@ -14,9 +14,10 @@
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a{
      text-shadow: none; 
 }
-.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
     color:#676565;
 }
+
 .navbar-brand{
 	padding: 10px 15px;
 }
@@ -28,7 +29,7 @@
 .marque{
 	float: right;
 	margin-top: 5px;
-	color: #30b4ac;
+	color: #39d2c9;
 }
 .navbar-inverse .navbar-toggle {
     border-color: #c5c5c5;
