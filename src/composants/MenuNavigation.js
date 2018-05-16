@@ -21,15 +21,11 @@ class MenuNavigation extends Component {
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav>
-              <NavItem eventKey={1} href="#">
-                Accueil
-              </NavItem>
+             
               <NavItem eventKey={2} href="#">
                 CV
               </NavItem>
-              <NavItem eventKey={3} href="#">
-                Journal
-              </NavItem>
+              
               <NavItem eventKey={4} href="#">
                 Réalisations
               </NavItem>

@@ -15,13 +15,19 @@ class AccueilHeader extends Component {
     return (
     	<Grid fluid>
     		<Row  className="header">
-		    	<Col xsHidden md={12} className="background ">
-				        <h1 className="titreHeader">Bonjour ! </h1> 
-				        <p className="textHeader"> Je suis <strong>développeuse</strong> informatique <br/> passionnée par l univers du <strong>Web</strong></p>	
-			    </Col>
+
+  		    	<Col xsHidden md={12} className="background ">
+                <Row>
+                  <Col xsHidden md={6} mdOffset={1}>
+    				        <h1 className="titreHeader">Bonjour ! </h1> 
+    				        <p className="textHeader"> Je suis <strong>développeuse</strong> informatique <br/> passionnée par l'univers du <strong>Web</strong></p>
+                  </Col >
+                </Row>
+  			    </Col>
+
 	    	</Row>     
-        </Grid>
-      );
+      </Grid>
+    );
   }
 }
 

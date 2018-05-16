@@ -1,0 +1,5 @@
+@media only screen and (max-width: 600px) {
+    .CompetencesCv .petitTitre, .parcours .petitTitre{
+        font-size: 65px;
+    }
+}

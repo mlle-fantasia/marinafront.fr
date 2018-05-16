@@ -15,7 +15,7 @@ import Col from 'react-bootstrap/lib/Col';
 
 const BtnLien = ({nom, etat, index, onClick}) =>
 
-               <Col xs={12} md={4}>
+               <Col xs={12} sm={4} md={4}>
 					<button className={`center-block ${etat}`} onClick={() => onClick(nom)}>
 						<div className={nom}></div>
 						<div className="text">{nom}</div>

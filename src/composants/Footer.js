@@ -22,21 +22,24 @@ constructor(props) {
 			<div className="footer">
 				<Grid>
 					<Row>
-						<Col xs={12} md={4}>
+						<Col xs={12} sm={4} md={4}>
 								<h3>Mes Infos :</h3>
 								<p>Marina Front<br/>
 								Développeuse Web<br/>
-								région toulonnaise</p>        	
+								région toulonnaise<br/>
+								<a href="../app.js">retour à l'accueil</a></p>        	
 						</Col>
-						<Col xs={12} md={4}>
+						<Col xs={12} sm={4} md={4}>
 							<h3>Me contacter :</h3>
 				        	<p> marinafront@hotmail.fr<br/>
 				        	 06 02 10 85 07<br/>
 				        	Ou <a>Cliquez ici</a></p>	      	
 						</Col>
-						<Col xs={12} md={4}>
+						<Col xs={12} sm={4} md={4}>
 							<h3>Mon CV :</h3>
-							<button className="btn" >Consultez mon CV</button>	      	
+							<button className="btn" >
+							<a href="./composants/pdf/CV 2018.pdf">Consultez mon CV</a>
+							</button>	      	
 						</Col>
 					</Row>
 					<Row className="ligneSeparation">

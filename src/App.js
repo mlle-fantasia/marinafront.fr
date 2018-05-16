@@ -19,7 +19,7 @@ import CvHeader from './composants/pageCv/CvHeader.js';
 import CvPage from './composants/pageCv/CvPage.js';
 
 
-const LIENS = ['Realisations','CV','Contact'];
+const LIENS = ['CV','Realisations','Contact'];
 
 class App extends Component {
 

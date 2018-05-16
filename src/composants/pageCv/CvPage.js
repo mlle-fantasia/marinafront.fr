@@ -56,9 +56,13 @@ class CvPage extends Component {
 					<div className="CompetencesCv">
 				    	<Grid fluid>
 							  <Row className="texte">
-								    <Col xs={12} md={12}>
-								      	<h2><span className="glyfTitre glyphicon glyphicon-comment"></span><div className="petitTitre">Mes competences :</div></h2>
-								    </Col>
+								<Grid>
+									<Row>
+									    <Col xs={12} md={12}>
+									      	<h2><span className="glyfTitre glyphicon glyphicon-comment"></span><div className="petitTitre">Mes competences :</div></h2>
+									    </Col>
+								    </Row>
+								</Grid>
 							  </Row>
 						</Grid>
 					</div>

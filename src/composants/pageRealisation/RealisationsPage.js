@@ -19,34 +19,33 @@ class RealisationsPage extends Component {
 					<h2><span className="glyfTitre glyphicon glyphicon-comment"></span><div className="petitTitre">Quelques réalisations:</div></h2>
 				</Col>	
 		    </Row>
-		    <Row>
-		        <Col xs={12} md={4}  className="margin">
+		    <Row >
+		        <Col xs={12} sm={6} md={4} className="margin" >
 					<div className="uneRea randonnee"></div>
 					<div className="texte">Un site de randonnee complet</div>
 				</Col>
-				<Col xs={12} md={4}>
+				<Col xs={12} sm={6} md={4} className="margin">
 					<div className="uneRea ptidej">
 					</div>
 					<div className="texte">Un site one page</div>
 				</Col>
-				<Col xs={12} md={4}>
+				<Col xs={12} sm={6} md={4} className="margin">
 					<div className="uneRea pendu">
 					</div>
 					<div className="texte">Un TP React</div>
 				</Col>	
-		    </Row>
-		    <Row>
-		        <Col xs={12} md={4} className="margin">
+		    
+		        <Col xs={12} sm={6} md={4} className="margin">
 					<div className="uneRea cuisiner">
 					</div>
 					<div className="texte">Un site de cuisine</div>
 				</Col>
-				<Col xs={12} md={4}>
+				<Col xs={12} sm={6} md={4} className="margin">
 					<div className="uneRea domotique">
 					</div>
 					<div className="texte">Projet tutoré en groupe</div>
 				</Col>
-				<Col xs={12} md={4}>
+				<Col xs={12} sm={6} md={4}>
 					<div className=" ">
 					</div>
 				</Col>	
