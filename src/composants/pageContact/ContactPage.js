@@ -29,11 +29,11 @@ class ContactPage extends Component {
 				</Col>
 				<Col xs={8} xsOffset={2} sm={12} md={6} className="meSuivre">
 					<h3>Me suivre :</h3>
-		        		<a className="btn btn-block btn-social btn-linkedin">
+		        		<a href="https://www.linkedin.com/in/marina-front-20353565/" target="_blank" className="btn btn-block btn-social btn-linkedin">
 		        			<span className="fa fa-linkedin"></span>
 		        			 Suivez moi sur LinkedIn
 		        		</a>
-		        		<a className="btn btn-block btn-social btn-github">
+		        		<a href="https://github.com/mlle-fantasia" target="_blank" className="btn btn-block btn-social btn-github">
 		        			<span className="fa fa-github"></span>
 		        			 Suivez moi sur GitHub
 		        		</a>

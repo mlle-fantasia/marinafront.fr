@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types'
 import './CvPage.css'
+import '@ladjs/bootstrap-social/bootstrap-social.css'
+import 'font-awesome/css/font-awesome.css'
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
@@ -25,31 +27,34 @@ class CvPage extends Component {
 						  </Row>
 						  <Row className="bordureGauche">
 							    <Col xs={12} md={12}>
-							      	Etudes en architecture intérieure, BAC +4 obtenu
+							      	<p>Etudes en architecture intérieure, BAC +4 obtenu</p>
 							    </Col>
 						  </Row>
 						  <Row className="bordureDroite">
 							    <Col xs={12} md={12}>
-							      	Création de mon auto-entreprise MlleFantasia : <br/>Création de bijoux fantaisie et ventes sur les marchés artisanaux
+							      	<p>Création de mon auto-entreprise MlleFantasia : <br/>Création de bijoux fantaisie et ventes sur les marchés artisanaux</p>
 							    </Col>
 						  </Row>
 						  <Row className="bordureGauche facebookMF">
 							    <Col xs={12} md={12}>
-							      	<a href="https://www.facebook.com/mademoisellefantasia">www.facebook.com/mademoisellefantasia</a>
+							      	<a href="https://www.facebook.com/mademoisellefantasia" target="_blank" className="btn btn-block btn-social btn-facebook">
+		        						<span className="fa fa-facebook"></span>
+		        			 				Mlle Fantasia
+		        					</a>
 							    </Col>
 						  </Row>
 						  <Row className="bordureDroite">
 							    <Col xs={12} md={12}>
-							      	Quelques expériences de vendeuse en magasin :<br/>
+							      	<p>Quelques expériences de vendeuse en magasin :<br/>
 								 	-Vendeuse caissière dans les magasins Casa (Grasse et Villeneuve-Loubet(06))<br/>
 									-Conseillère vendeuse en mobilier et responsable du rayon libre service (décoration) dans le magasin Fly (Antibes(06))<br/><br/>
 
-									Ceci en me formant chez moi dans le développement Web en vue d’une réorientation professionnelle
+									Ceci en me formant chez moi dans le développement Web en vue d’une réorientation professionnelle</p>
 							    </Col>
 						  </Row>
 						  <Row className="bordureGauche">
 							    <Col xs={12} md={12}>
-							      	Formation Développement et Administration Système d’Information Expert (DASIE), Greta du var
+							      	<p>Formation Développement et Administration Système d’Information Expert (DASIE), Greta du var</p>
 							    </Col>
 						  </Row>
 					</Grid>

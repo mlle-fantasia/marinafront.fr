@@ -11,6 +11,7 @@
 	height: 2px;
 	background-color:  #30b4ac;
 	width: 50%;
+	margin: 0;
 }
 .parcours .petitTitre {
 	color: #30b4ac;
@@ -26,12 +27,14 @@
 	border-bottom: solid 2px #30b4ac;
 	padding: 20px 30px;
 	font-size: 18px;
+	margin: 0;
 }
 .bordureDroite{
 	border-right:  solid 2px #30b4ac;
 	border-bottom: solid 2px #30b4ac;
 	padding: 20px 30px;
 	font-size: 18px;
+	margin: 0;
 }
 .facebookMF{
 	padding: 5px 30px;
@@ -45,8 +48,19 @@
 	text-align: center;
 	padding-bottom: 50px;
 }
+.facebookMF a{
+	width: 50%;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
 @media only screen and (max-width: 600px) {
     .CompetencesCv .petitTitre, .parcours .petitTitre{
-        font-size: 65px;
+        font-size: 30px;
+    }
+    .facebookMF a{
+    	width: 100%;
+    }
+    .bordureDroite, .bordureGauche{
+    	 padding: 20px 10px;
     }
 }
