@@ -18,15 +18,14 @@ class AccueilPage extends Component {
 		    	<Row className="quelquesMots">
 		        	<Col xs={12} md={7} mdOffset={3} className="texte">
 		        		<h2><span className="glyfTitre glyphicon glyphicon-comment"></span><div className="petitTitre">En quelques mots :</div></h2>
-		        		<p>Titulaire d’un BAC +4 en architecture intérieure et n’ayant pas trouvé ma vocation dans ce secteur, 
-		        		j’ai cherché un autre domaine dans lequel m’épanouir. Je l’ai trouvé dans l’informatique et plus précisément 
-		        		dans le développement web qui est, petit à petit, devenu une passion. Aujourd hui je souhaite en faire mon métier.</p>
+		        		<p>Après un BAC +4 en architecture intérieure, je me suis réorientée vers l'informatique et plus précisément le développement web qui est devenu une passion.
+		        		 Ma dernière formation et mes recherches personnelles m'ont permis d'avoir de bonnes bases dans de nombreux langages. </p>
 		        	</Col>
 		    	</Row>
 		    	 <Row className="actuellemnt">
 		        	<Col xs={12} md={7} mdOffset={3} className="texte" >
 		        		<h2><span className="glyfTitre glyphicon glyphicon-refresh"></span><div className="petitTitre">Actuellement :</div></h2>
-		        		<p>Je suis actuellement à la recherche d'un emploi de développeuse web (front-end / back-end) dans la région toulonnaise.
+		        		<p>Je suis actuellement à la recherche d'un emploi de développeuse web (front-end / back-end) dans la région de Sophia Antipolis.
 							<br/>En attente de vos défis je continue de me former.</p>
 		        	</Col>
 		        </Row>
