@@ -34,6 +34,7 @@ BtnLien.propTypes={
 		'pageInactive',
 	]).isRequired,
 	onClick : PropTypes.func.isRequired,
+	
 }
 
 export default BtnLien;

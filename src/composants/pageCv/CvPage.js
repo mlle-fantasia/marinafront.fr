@@ -89,25 +89,21 @@ class CvPage extends Component {
 									Ceci en me formant chez moi dans le développement Web en vue d’une réorientation professionnelle</p>
 							    </Col>
 						  </Row>
-						  <Row className="bordureGauche ">
+						  <Row className="bordureGauche facebookMF">
 							    <Col xs={12} md={12}>
 							      	<p>Création de mon auto-entreprise MlleFantasia : <br/>Création de bijoux fantaisie et ventes sur les marchés artisanaux</p>
+							      	<a href="https://www.facebook.com/mademoisellefantasia" target="_blank" rel="noopener noreferrer" className="btn btn-block btn-social btn-facebook">
+		        						<span className="fa fa-facebook"></span>
+		        			 				Mlle Fantasia
+		        					</a>
 							    </Col>
 						  </Row>
 						  <Row className="bordureDroite facebookMF">
 							    <Col xs={12} md={12}>
-							    	<a href="https://www.facebook.com/mademoisellefantasia" target="_blank" rel="noopener noreferrer" className="btn btn-block btn-social btn-facebook">
-		        						<span className="fa fa-facebook"></span>
-		        			 				Mlle Fantasia
-		        					</a>
-							      	
-							    </Col>
-						  </Row>
-						  <Row className="bordureGauche">
-							    <Col xs={12} md={12}>
 							      	<p>Etudes en architecture intérieure, BTS et Diplôme Supérieur d'Arts Appliqués</p>
 							    </Col>
 						  </Row>
+						  
 					</Grid>
 					
 					

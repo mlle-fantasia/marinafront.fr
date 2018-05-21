@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
+
 import './App.css';
 
-import Grid from 'react-bootstrap/lib/Grid';
-import Row from 'react-bootstrap/lib/Row';
-import Nav  from 'react-bootstrap/lib/Nav';
-import Navbar from 'react-bootstrap/lib/Navbar';
-
+import {Grid, Row, Nav, Navbar } from 'react-bootstrap';
 
 import Footer from './composants/Footer.js';
 import MenuNavigation from './composants/MenuNavigation.js';
@@ -35,7 +32,7 @@ state= {
 
 lienClick(e, newPage){ 
 
-  const {} = this.state;
+
 
   this.setState({ pageActive: newPage, renderPage: []});
   let page = [];
@@ -66,6 +63,7 @@ getEtat(nom){
     const listeLiens = LIENS.map((nom, etat) =>(
                   <BtnLien
                     nom= {nom}
+                    key={nom.id}
                     onClick={(e) => this.lienClick(e, {nom})}
                     etat = {this.getEtat(nom)}/>
                   ));
@@ -73,6 +71,7 @@ getEtat(nom){
     const listeLiensNav = LIENS.map((nom) =>(
                   <MenuNavigation
                     nom= {nom}
+                    key={nom.id}
                     onClick={(e) => this.lienClick(e, {nom})}/>
                   ));
 

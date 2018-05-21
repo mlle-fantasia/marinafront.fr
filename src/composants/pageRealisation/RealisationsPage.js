@@ -21,7 +21,7 @@ class RealisationsPage extends Component {
 		    <Row >
 		        <Col xs={12} sm={6} md={4} className="margin" >
 					<div className="uneRea randonnee"></div>
-					<div className="texte">Un site de randonnee complet</div>
+					<div className="texte">Un site de randonnée complet</div>
 				</Col>
 				<Col xs={12} sm={6} md={4} className="margin">
 					<div className="uneRea ptidej">
