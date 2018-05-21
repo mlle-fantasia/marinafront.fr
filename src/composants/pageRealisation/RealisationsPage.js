@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import PropTypes from 'prop-types'
 import './RealisationsPage.css'
 import '@ladjs/bootstrap-social/bootstrap-social.css'
 import 'font-awesome/css/font-awesome.css'

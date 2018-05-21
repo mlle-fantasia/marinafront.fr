@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
 import './CvPage.css'
 import '@ladjs/bootstrap-social/bootstrap-social.css'
 import 'font-awesome/css/font-awesome.css'
@@ -13,69 +12,16 @@ class CvPage extends Component {
 	  render() {
 		    return (
 		    	<div>
-			    	
-					<Grid className="parcours">
-						  <Row >
+			    	<Grid >
+			    			<Row >
 							    <Col xs={12} md={12}>
-							      	<h2><span className="glyfTitre glyphicon glyphicon-road"></span><div className="petitTitre">Mon parcours en quelques lignes :</div></h2>
+							      	<h2><span className="glyfTitre glyphicon glyphicon-wrench"></span><div className="petitTitre">Mes compétences :</div></h2>
 							    </Col>
 						  </Row>
-						  <Row className="ligne">
-							    <Col xs={12} md={5}>
-							      	
-							    </Col>
-						  </Row>
-						  <Row className="bordureGauche">
-							    <Col xs={12} md={12}>
-							      	<p>Etudes en architecture intérieure, BAC +4 obtenu</p>
-							    </Col>
-						  </Row>
-						  <Row className="bordureDroite">
-							    <Col xs={12} md={12}>
-							      	<p>Création de mon auto-entreprise MlleFantasia : <br/>Création de bijoux fantaisie et ventes sur les marchés artisanaux</p>
-							    </Col>
-						  </Row>
-						  <Row className="bordureGauche facebookMF">
-							    <Col xs={12} md={12}>
-							      	<a href="https://www.facebook.com/mademoisellefantasia" target="_blank" className="btn btn-block btn-social btn-facebook">
-		        						<span className="fa fa-facebook"></span>
-		        			 				Mlle Fantasia
-		        					</a>
-							    </Col>
-						  </Row>
-						  <Row className="bordureDroite">
-							    <Col xs={12} md={12}>
-							      	<p>Quelques expériences de vendeuse en magasin :<br/>
-								 	-Vendeuse caissière dans les magasins Casa (Grasse et Villeneuve-Loubet(06))<br/>
-									-Conseillère vendeuse en mobilier et responsable du rayon libre service (décoration) dans le magasin Fly (Antibes(06))<br/><br/>
-
-									Ceci en me formant chez moi dans le développement Web en vue d’une réorientation professionnelle</p>
-							    </Col>
-						  </Row>
-						  <Row className="bordureGauche">
-							    <Col xs={12} md={12}>
-							      	<p>Formation Développement et Administration Système d’Information Expert (DASIE), Greta du var</p>
-							    </Col>
-						  </Row>
-					</Grid>
-					<div className="CompetencesCv">
-				    	<Grid fluid>
-							  <Row className="texte">
-								<Grid>
-									<Row>
-									    <Col xs={12} md={12}>
-									      	<h2><span className="glyfTitre glyphicon glyphicon-wrench"></span><div className="petitTitre">Mes compétences :</div></h2>
-									    </Col>
-								    </Row>
-								</Grid>
-							  </Row>
-						</Grid>
-					</div>
-					<Grid >
 						  <Row className="competencesDecription">
 							    <Col xs={12} md={12}>
-							      	<p>Les Compétences listées ci-dessous, je les ai acquises : <br/> - premièrement grâce à de nombreux cours et documentation
-							      	sur internet (openclassrooms, developper.net, stack overflow, W3schools et bien d'autres) et en imaginant et créant divers 
+							      	<p>Les Compétences listées ci-dessous, je les ai acquises : <br/> - Premièrement grâce à de nombreux cours et documentations
+							      	sur internet (openclassrooms, developpez.com, stack overflow, W3schools et bien d'autres) et en imaginant et créant divers 
 							      	sites internet que vous pourrez observer dans l'onglet "Réalisations". <br/>
 							      	- Deuxièmement, grâce à la formation Développement et Administration Systeme d'Information Expert que j'ai suivie avec grand intérêt de janvier à mai 2018.</p>
 							    </Col>
@@ -109,6 +55,62 @@ class CvPage extends Component {
 							    </Col>
 						  </Row>
 					</Grid>
+					<div className="parcours">
+				    	<Grid fluid>
+							  <Row className="texte">
+								<Grid>
+									<Row>
+									    <Col xs={12} md={12}>
+									      	<h2><span className="glyfTitre glyphicon glyphicon-road"></span><div className="petitTitre">Mon parcours en quelques lignes :</div></h2>
+									    </Col>
+								    </Row>
+								</Grid>
+							  </Row>
+						</Grid>
+					</div>
+					<Grid className="parcoursDetails">
+						  
+						  <Row className="ligne">
+							    <Col xs={12} md={5}>
+							      	
+							    </Col>
+						  </Row>
+						  <Row className="bordureGauche">
+							    <Col xs={12} md={12}>
+							      	<p>Validation de la Formation Développement et Administration Système d’Information Expert (DASIE), Greta du var</p>
+							    </Col>
+						  </Row>
+						  <Row className="bordureDroite">
+							    <Col xs={12} md={12}>
+							      	<p>Quelques expériences de vendeuse en magasin :<br/>
+								 	-Vendeuse caissière dans les magasins Casa (Grasse et Villeneuve-Loubet(06))<br/>
+									-Conseillère vendeuse en mobilier et responsable du rayon libre service (décoration) dans le magasin Fly (Antibes(06))<br/><br/>
+
+									Ceci en me formant chez moi dans le développement Web en vue d’une réorientation professionnelle</p>
+							    </Col>
+						  </Row>
+						  <Row className="bordureGauche ">
+							    <Col xs={12} md={12}>
+							      	<p>Création de mon auto-entreprise MlleFantasia : <br/>Création de bijoux fantaisie et ventes sur les marchés artisanaux</p>
+							    </Col>
+						  </Row>
+						  <Row className="bordureDroite facebookMF">
+							    <Col xs={12} md={12}>
+							    	<a href="https://www.facebook.com/mademoisellefantasia" target="_blank" rel="noopener noreferrer" className="btn btn-block btn-social btn-facebook">
+		        						<span className="fa fa-facebook"></span>
+		        			 				Mlle Fantasia
+		        					</a>
+							      	
+							    </Col>
+						  </Row>
+						  <Row className="bordureGauche">
+							    <Col xs={12} md={12}>
+							      	<p>Etudes en architecture intérieure, BTS et Diplôme Supérieur d'Arts Appliqués</p>
+							    </Col>
+						  </Row>
+					</Grid>
+					
+					
 
 				</div>
 		    );

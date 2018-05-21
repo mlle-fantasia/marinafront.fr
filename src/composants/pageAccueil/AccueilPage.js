@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import PropTypes from 'prop-types'
 import './AccueilPage.css'
 import '@ladjs/bootstrap-social/bootstrap-social.css'
 import 'font-awesome/css/font-awesome.css'
@@ -18,7 +17,7 @@ class AccueilPage extends Component {
 		    	<Row className="quelquesMots">
 		        	<Col xs={12} md={7} mdOffset={3} className="texte">
 		        		<h2><span className="glyfTitre glyphicon glyphicon-comment"></span><div className="petitTitre">En quelques mots :</div></h2>
-		        		<p>Après un BAC +4 en architecture intérieure, je me suis réorientée vers l'informatique et plus précisément le développement web qui est devenu une passion.
+		        		<p>Après un cursus d'études superieures en architecture intérieure, je me suis réorientée vers l'informatique et plus précisément le développement web qui est devenu une passion.
 		        		 Ma dernière formation et mes recherches personnelles m'ont permis d'avoir de bonnes bases dans de nombreux langages. </p>
 		        	</Col>
 		    	</Row>

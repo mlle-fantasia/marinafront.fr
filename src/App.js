@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter, Route, Link } from 'react-router-dom'
 
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
-import Col from 'react-bootstrap/lib/Col';
 import Nav  from 'react-bootstrap/lib/Nav';
 import Navbar from 'react-bootstrap/lib/Navbar';
-import NavItem from 'react-bootstrap/lib/NavItem';
-import NavDropdown from 'react-bootstrap/lib/NavDropdown';
-import MenuItem from 'react-bootstrap/lib/MenuItem';
 
 
 import Footer from './composants/Footer.js';
@@ -44,37 +39,38 @@ lienClick(e, newPage){
 
   this.setState({ pageActive: newPage, renderPage: []});
   let page = [];
-  let retourPage;
 
-  if( newPage.nom == 'Réalisations'){
+  if( newPage.nom === 'Réalisations'){
      page= [<CvHeader/>,<RealisationsPage/>];
   }
-  if( newPage.nom == 'CV'){
+  if( newPage.nom === 'CV'){
      page= [<CvHeader/>,<CvPage/>];
   }
-  if( newPage.nom == 'Contact'){
+  if( newPage.nom === 'Contact'){
      page= [<CvHeader/>,<ContactPage/>];
   }  
 
 this.setState({ renderPage: page});
 
-
-
 return page;
+}
+getEtat(nom){
+  const {pageActive} = this.state;
+  return pageActive.nom === nom ? 'pageActive' : 'pageInactive' ;
 }
 
 
-
   render() {
-    const {renderPage, pageActive } = this.state
+    const {renderPage} = this.state
 
-    const listeLiens = LIENS.map((nom, etat, index) =>(
+    const listeLiens = LIENS.map((nom, etat) =>(
                   <BtnLien
                     nom= {nom}
-                    onClick={(e) => this.lienClick(e, {nom})}/>
+                    onClick={(e) => this.lienClick(e, {nom})}
+                    etat = {this.getEtat(nom)}/>
                   ));
 
-    const listeLiensNav = LIENS.map((nom, etat, index) =>(
+    const listeLiensNav = LIENS.map((nom) =>(
                   <MenuNavigation
                     nom= {nom}
                     onClick={(e) => this.lienClick(e, {nom})}/>
@@ -89,7 +85,7 @@ return page;
           <Navbar.Header>
             <Navbar.Brand>
               
-              <a href="/"><img src={require("./composants/images/logoInfo50px.png")}/><div className="marque">Marina Front</div></a>
+              <a href="/"><img src={require("./composants/images/logoInfo50px.png")} alt="logo Marina Front"/><div className="marque">Marina Front</div></a>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>

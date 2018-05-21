@@ -40,9 +40,7 @@ p{
 	font-size: 22px;
 	font-family: 'ChampagneGras';
 }
-.petitTitre{
-	padding-left:40px;
-}
+
 .glyfTitre{
 	float: left;
 }
@@ -55,6 +53,8 @@ p{
 .petitTitre{
 	font-family: Ink;
 	font-size: 50px;
+	padding-left:40px;
+	font-size: 40px;
 }
 .identite{
     padding: 0;
@@ -63,6 +63,9 @@ p{
     background-size: 100%;
     background-repeat: no-repeat;
 
+}
+.quelquesMots .petitTitre, .quelquesMots .glyfTitre{
+	color: #fff;	
 }
 
 @media only screen and (max-width: 600px) {

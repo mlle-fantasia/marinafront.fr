@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-import PropTypes from 'prop-types'
 import './MenuNavigation.css'
 
 import NavItem from 'react-bootstrap/lib/NavItem';
 
 
-const MenuNavigation = ({nom, etat, index, onClick}) =>
+const MenuNavigation = ({nom, onClick}) =>
   
-                <NavItem className={`${etat}`} onClick={() => onClick(nom)}>
+                <NavItem onClick={() => onClick(nom)}>
                   {nom}
                 </NavItem> 
 

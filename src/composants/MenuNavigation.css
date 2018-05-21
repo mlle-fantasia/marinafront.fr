@@ -9,14 +9,15 @@
     background-image: none;
 }
 .navbar-inverse .navbar-nav>li>a:hover{
-	color: #676565;
+	color: #22807a;
 }
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a{
      text-shadow: none; 
 }
-.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
-    color:#676565;
+.navbar-inverse .navbar-nav>li>a:focus{
+    color:#22807a;
 }
+
 
 .navbar-brand{
 	padding: 10px 15px;
