@@ -12,6 +12,7 @@ import Col from 'react-bootstrap/lib/Col';
 
 
 
+
 const BtnLien = ({nom, etat, onClick}) =>
 
                <Col xs={12} sm={4} md={4}>

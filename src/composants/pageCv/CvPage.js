@@ -75,12 +75,12 @@ class CvPage extends Component {
 							      	
 							    </Col>
 						  </Row>
-						  <Row className="bordureGauche">
+						  <Row className="bordure">
 							    <Col xs={12} md={12}>
 							      	<p>Validation de la Formation Développement et Administration Système d’Information Expert (DASIE), Greta du var</p>
 							    </Col>
 						  </Row>
-						  <Row className="bordureDroite">
+						  <Row className="bordure">
 							    <Col xs={12} md={12}>
 							      	<p>Quelques expériences de vendeuse en magasin :<br/>
 								 	-Vendeuse caissière dans les magasins Casa (Grasse et Villeneuve-Loubet(06))<br/>
@@ -89,7 +89,7 @@ class CvPage extends Component {
 									Ceci en me formant chez moi dans le développement Web en vue d’une réorientation professionnelle</p>
 							    </Col>
 						  </Row>
-						  <Row className="bordureGauche facebookMF">
+						  <Row className="bordure facebookMF">
 							    <Col xs={12} md={12}>
 							      	<p>Création de mon auto-entreprise MlleFantasia : <br/>Création de bijoux fantaisie et ventes sur les marchés artisanaux</p>
 							      	<a href="https://www.facebook.com/mademoisellefantasia" target="_blank" rel="noopener noreferrer" className="btn btn-block btn-social btn-facebook">
@@ -98,7 +98,7 @@ class CvPage extends Component {
 		        					</a>
 							    </Col>
 						  </Row>
-						  <Row className="bordureDroite facebookMF">
+						  <Row className="bordure facebookMF">
 							    <Col xs={12} md={12}>
 							      	<p>Etudes en architecture intérieure, BTS et Diplôme Supérieur d'Arts Appliqués</p>
 							    </Col>

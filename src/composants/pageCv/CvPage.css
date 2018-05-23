@@ -11,8 +11,7 @@
 .ligne{
 	height: 2px;
 	background-color:  #30b4ac;
-	width: 50%;
-	margin: 0;
+	margin:25px 0 0 0;
 }
 .parcours{
 	background-color:  #30b4ac;
@@ -29,23 +28,21 @@
 	margin-top: 30px;
 	margin-bottom: 100px;
 }
-.bordureGauche{
+.bordure{
+	border-bottom: solid 2px #30b4ac;
+	padding: 20px 30px;
+	font-size: 18px;
+	margin: 0;
+}
+.bordure:nth-child(odd){
 	border-left: solid 2px #30b4ac;
-	border-bottom: solid 2px #30b4ac;
-	padding: 20px 30px;
-	font-size: 18px;
-	margin: 0;
+	
 }
-.bordureDroite{
+.bordure:nth-child(even){
 	border-right:  solid 2px #30b4ac;
-	border-bottom: solid 2px #30b4ac;
-	padding: 20px 30px;
-	font-size: 18px;
-	margin: 0;
+	
 }
-.facebookMF{
-	padding: 5px 30px;
-}
+
 .competencesDecription{
 	padding-top: 40px;
 	text-align: justify;

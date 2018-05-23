@@ -44,7 +44,7 @@ lienClick(e, newPage){
      page= [<CvHeader/>,<CvPage/>];
   }
   if( newPage.nom === 'Contact'){
-     page= [<CvHeader/>,<ContactPage/>];
+     page= [<ContactPage/>];
   }  
 
 this.setState({ renderPage: page});
