@@ -7,7 +7,8 @@ import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 
-
+ const MESSAGESUCCESS="We have received your message and will get in touch shortly. Thanks!";
+ const MESSAGEERROR ="Sorry, there has been an error.  Please try again later";
 
 class ContactPage extends Component {
   render() {

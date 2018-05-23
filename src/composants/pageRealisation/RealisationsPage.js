@@ -6,11 +6,38 @@ import 'font-awesome/css/font-awesome.css'
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
-
-
+import axios from 'axios';
 
 class RealisationsPage extends Component {
+
+
+ state = {
+      realisations: []
+    }
+
+
+  componentDidMount() {
+   		axios.get("http://api.marinafront.fr").then((response)=>{
+   			if(response.data.error){
+   				console.log("tu as une erreur");
+   				return true;
+   			}
+           const realisations =response.data.payload;
+           this.setState({realisations});
+        });
+
+
+  };
+/*
+  componentWillUnmount() {
+    this.serverRequest.abort();
+  };*/
+
   render() {
+
+  	const {realisations} = this.state;
+
+
     return (
 	    <Grid className="realisation">
 		    <Row>
@@ -19,35 +46,12 @@ class RealisationsPage extends Component {
 				</Col>	
 		    </Row>
 		    <Row >
-		        <Col xs={12} sm={6} md={4} className="margin" >
-					<div className="uneRea randonnee"></div>
-					<div className="texte">Un site de randonnée complet</div>
-				</Col>
-				<Col xs={12} sm={6} md={4} className="margin">
-					<div className="uneRea ptidej">
-					</div>
-					<div className="texte">Une landing page one page</div>
-				</Col>
-				<Col xs={12} sm={6} md={4} className="margin">
-					<div className="uneRea pendu">
-					</div>
-					<div className="texte">Un TP React</div>
-				</Col>	
-		    
-		        <Col xs={12} sm={6} md={4} className="margin">
-					<div className="uneRea cuisiner">
-					</div>
-					<div className="texte">Un site de cuisine</div>
-				</Col>
-				<Col xs={12} sm={6} md={4} className="margin">
-					<div className="uneRea domotique">
-					</div>
-					<div className="texte">Projet tutoré en groupe</div>
-				</Col>
-				<Col xs={12} sm={6} md={4}>
-					<div className=" ">
-					</div>
-				</Col>	
+		     {realisations.map((object, i) => 
+		     	<Col xs={12} sm={6} md={4} key={i} className="margin" >
+					<div className={`uneRea ${object.image}`}></div>
+					<div className="texte">{object.titre}</div>
+				</Col>)}
+		        
 		    </Row>
         </Grid>
       );
