@@ -91,3 +91,10 @@ p{
 		margin-top: 50px;
 	}
 }
+
+@media (min-width: 400px) and (max-width: 770px) {
+	.identite{
+	  width: 400px;
+	  margin: auto;
+	}
+}
