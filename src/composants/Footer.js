@@ -30,9 +30,9 @@ class Footer extends Component {
 						</Col>
 						<Col xs={12} sm={4} md={4}>
 							<h3>Mon CV :</h3>
-							<button className="btn" >
-							<a href={require('../assets/pdf/CV2018.pdf')} target="_blank">Consultez mon CV</a>
-							</button>	      	
+							<a href={require('../assets/pdf/CV2018.pdf')} target="_blank">
+								<button className="btn">Mon CV</button>
+							</a>	      	
 						</Col>
 					</Row>
 					<Row className="ligneSeparation">
