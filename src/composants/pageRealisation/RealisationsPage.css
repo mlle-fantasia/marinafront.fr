@@ -32,8 +32,11 @@
 .domotique{
 	background-image: url("../images/homeControl.png");
 }
-.aside{
-	text-align: center;
+.uneImage{
+
+}
+.listeAside{
+	margin-bottom: 40px;
 }
 @media (min-width: 400px) and (max-width: 770px) {
 	.margin .uneRea{
