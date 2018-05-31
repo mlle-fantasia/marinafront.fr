@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-//css/bootstrap
 import './App.css';
+
 import {Grid, Row, Nav, Navbar } from 'react-bootstrap';
 
 import Footer from './composants/Footer.js';
