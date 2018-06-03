@@ -18,6 +18,8 @@ class RealisationsPage extends Component {
         article: [],
         images:[],
         articleDemande : '',
+        photoIndex: 0,
+        isOpen: false,
 
     }
 
@@ -63,7 +65,7 @@ class RealisationsPage extends Component {
                 }
                 let newImages = response.data.payloadImages;
                 this.setState({images : newImages});
-                console.log(newImages);
+
         });
 
 
@@ -76,10 +78,10 @@ class RealisationsPage extends Component {
 
 
     render() {
-        const {realisations, article,images, articleDemande} = this.state;
+        const {realisations, article,images, articleDemande,  photoIndex, isOpen} = this.state;
 
 
-            const imagestest = [
+            /*const imagestest = [
                 {
                     src: '../images/imprimEcranEx.jpg',
                     title: "captures d'écran",
@@ -90,10 +92,10 @@ class RealisationsPage extends Component {
                     title: "captures d'écran",
                     description: 'image description'
                 }
-            ];
+            ];*/
 
 
-            console.log(imagestest);
+
         /*const listeImages =images.map((object, i) =>
             <div key={i}>
 
@@ -171,14 +173,36 @@ class RealisationsPage extends Component {
                         </div>
                     </Col>
                     <Col xs={12} sm={4} md={3} className="images">
-                        <h3 className="galerieTitre">Les images</h3>
-                        <Lightbox images={imagestest}
-                                  isOpen={this.state.lightboxIsOpen}
-                                  onClickPrev={this.gotoPrevious}
-                                  onClickNext={this.gotoNext}
-                                  onClose={this.closeLightbox}
-                        />
+                        <div>
+                            <h3 className="galerieTitre">Les images</h3>
 
+                            <button type="button" onClick={() => this.setState({ isOpen: true })}>
+                                Open Lightbox
+                            </button>
+
+                            <div className="galerieImages">
+
+                                {isOpen && (
+                                    <Lightbox
+                                        mainSrc={images[photoIndex]}
+                                        nextSrc={images[(photoIndex + 1) % images.length]}
+                                        prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+                                        onCloseRequest={() => this.setState({ isOpen: false })}
+                                        onMovePrevRequest={() =>
+                                            this.setState({
+                                                photoIndex: (photoIndex + images.length - 1) % images.length,
+                                            })
+                                        }
+                                        onMoveNextRequest={() =>
+                                            this.setState({
+                                                photoIndex: (photoIndex + 1) % images.length,
+                                            })
+                                        }
+                                    />
+                                )}
+
+                            </div>
+                        </div>
                     </Col>
                 </Row>
             </Grid>

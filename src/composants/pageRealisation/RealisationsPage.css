@@ -38,6 +38,9 @@
 .listeAside{
 	margin-bottom: 40px;
 }
+.galerieImages img{
+	width: 100%;
+}
 @media (min-width: 400px) and (max-width: 770px) {
 	.margin .uneRea{
 	  width: 300px;
