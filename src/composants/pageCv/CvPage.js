@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CvHeader from './CvHeader.js';
 import './CvPage.css'
 import '@ladjs/bootstrap-social/bootstrap-social.css'
 import 'font-awesome/css/font-awesome.css'
@@ -12,6 +13,7 @@ class CvPage extends Component {
 	  render() {
 		    return (
 		    	<div>
+					<CvHeader/>
 			    	<Grid >
 			    			<Row >
 							    <Col xs={12} md={12}>

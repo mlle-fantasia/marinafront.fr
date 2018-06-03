@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import CvHeader from '../pageCv/CvHeader.js';
 import './RealisationsPage.css'
 import '@ladjs/bootstrap-social/bootstrap-social.css'
 import 'font-awesome/css/font-awesome.css'
@@ -38,6 +38,8 @@ class RealisationsPage extends Component {
 
 
     return (
+    	<div>
+        <CvHeader/>
 	    <Grid className="realisation">
 		    <Row>
 		        <Col xs={12} md={6}>
@@ -53,6 +55,7 @@ class RealisationsPage extends Component {
 		        
 		    </Row>
         </Grid>
+		</div>
       );
   }
 }
