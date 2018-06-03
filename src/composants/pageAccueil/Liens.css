@@ -4,7 +4,7 @@
 	padding-bottom: 50px;
 
 }  
-.Réalisations{
+.Realisations{
 	background-image: url(../images/realisations.png);
 } 
 .CV{
@@ -16,7 +16,7 @@
 .Contact{
 	background-image: url(../images/contact.png);
 } 
-.Réalisations, .CV, .Blog, .Contact{
+.Realisations, .CV, .Blog, .Contact{
 	margin : auto;
 	width: 100px;
     height: 100px;
