@@ -21,7 +21,7 @@ class Footer extends Component {
 									Développeuse Web<br/>
 									région toulonnaise<br/>
 									<Link to = "/">
-										<a>retour à l'accueil</a>
+										<div>retour à l'accueil</div>
 									</Link>
 								</p>
 						</Col>

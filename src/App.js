@@ -11,14 +11,11 @@ import Footer from './composants/Footer.js';
 import AccueilPage from './composants/pageAccueil/AccueilPage.js';
 
 
+
 const LIENVERSACCUEIL = [{route: "/", nom:"retour à l'accueil", component: AccueilPage, exact: true}];
 
 
 class App extends Component {
-
-state= {
-  pageActive : 'Accueil',
-}
 
 
 
@@ -29,12 +26,12 @@ getEtat(nom){
 
 
   render() {
-    const {} = this.state
+
 
     const listeLiens = this.props.tabLiens.map((element) =>(
                       <Link to={element.route}>
                           <Col xs={12} sm={4} md={4}>
-                              <div className={`center-block ${Route.path == element.route ? 'pageActive' : 'pageInactive'}`} >
+                              <div className={`center-block ${Route.path === element.route ? 'pageActive' : 'pageInactive'}`} >
                                   <div className={element.icon}></div>
                                   <div className="text">{element.nom}</div>
                               </div>
@@ -44,17 +41,19 @@ getEtat(nom){
 
 
       const listeLiensNav = this.props.tabLiens.map((element) => (
-                  <NavItem>
-                      <Link to={element.route}>
+
+
+                          <NavItem componentClass={Link} href={element.route} to={element.route} >
                           {element.nom}
-                      </Link>
-                  </NavItem>
+                          </NavItem>
+
+
 
       ));
 
-      const LienAccueil = LIENVERSACCUEIL.map((element) =>(
+      const LienAccueil = LIENVERSACCUEIL.map((element, i) =>(
           <Link to={element.route}>
-              <div>
+              <div key={i}>
                   <img src={require("./composants/images/logoInfo50px.png")} alt="logo Marina Front"/>
                   <div className="marque">Marina Front</div>
               </div>
@@ -79,6 +78,7 @@ getEtat(nom){
                 </Nav>
               </Navbar.Collapse>
             </Navbar>
+
 
               <Route path="/" exact component={AccueilPage}/>
               {this.props.tabRoute}
