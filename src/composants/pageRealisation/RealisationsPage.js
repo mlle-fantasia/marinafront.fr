@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
+
 import Lightbox from 'react-images';
+import CvHeader from '../pageCv/CvHeader.js';
 import './RealisationsPage.css';
 import '@ladjs/bootstrap-social/bootstrap-social.css';
 import 'font-awesome/css/font-awesome.css';

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {Link} from 'react-router-dom'
 import './Footer.css'
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
@@ -18,9 +18,12 @@ class Footer extends Component {
 						<Col xs={12} sm={4} md={4}>
 								<h3>Mes Infos :</h3>
 								<p>Marina Front<br/>
-								Développeuse Web<br/>
-								région toulonnaise<br/>
-								<a href="/">retour à l'accueil</a></p>        	
+									Développeuse Web<br/>
+									région toulonnaise<br/>
+									<Link to = "/">
+										<a>retour à l'accueil</a>
+									</Link>
+								</p>
 						</Col>
 						<Col xs={12} sm={4} md={4}>
 							<h3>Me contacter :</h3>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import AccueilHeader from './AccueilHeader.js';
 import './AccueilPage.css'
 import '@ladjs/bootstrap-social/bootstrap-social.css'
 import 'font-awesome/css/font-awesome.css'
@@ -12,6 +12,8 @@ import Col from 'react-bootstrap/lib/Col';
 class AccueilPage extends Component {
   render() {
     return (
+    	<div>
+		<AccueilHeader/>
 	    <Grid fluid className="sansPadding">
 	    	<Col xs={12} sm={6} md={8}>
 		    	<Row className="quelquesMots">
@@ -34,6 +36,7 @@ class AccueilPage extends Component {
 		 		</div>
 		    </Col>
         </Grid>
+		</div>
       );
   }
 }
