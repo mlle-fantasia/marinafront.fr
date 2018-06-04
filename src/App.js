@@ -9,45 +9,18 @@ import {Grid, Row,Col, Nav, Navbar, NavItem } from 'react-bootstrap';
 //component
 import Footer from './composants/Footer.js';
 import AccueilPage from './composants/pageAccueil/AccueilPage.js';
-import RealisationsPage from './composants/pageRealisation/RealisationsPage.js';
-import CvPage from './composants/pageCv/CvPage.js';
-import ContactPage from './composants/pageContact/ContactPage.js';
 
 
 const LIENVERSACCUEIL = [{route: "/", nom:"retour à l'accueil", component: AccueilPage, exact: true}];
 
-const LIENS = [
-    {route: "/cv", nom: "CV", component: CvPage, exact: false, icon: "CV"},
-    {route: "/realisations", nom: "Réalisation", component: RealisationsPage, exact: false, icon: "Realisations"},
-    {route: "/contact", nom: "Contact", component: ContactPage, exact: false, icon: "Contact"}
-];
 
 class App extends Component {
 
 state= {
   pageActive : 'Accueil',
-  //renderPage : [<AccueilHeader/>,<AccueilPage/>],
-
 }
 
 
-lienClick(e, newPage){
-  /*this.setState({ pageActive: newPage, renderPage: []});
-  let page = [];
-
-  if( newPage.nom === 'Réalisations'){
-     page= [<CvHeader/>,<RealisationsPage/>];
-  }
-  if( newPage.nom === 'CV'){
-     page= [<CvHeader/>,<CvPage/>];
-  }
-  if( newPage.nom === 'Contact'){
-     page= [<ContactPage/>];
-  }  
-
-this.setState({ renderPage: page});
-return page;*/
-}
 
 getEtat(nom){
   const {pageActive} = this.state;
@@ -58,7 +31,7 @@ getEtat(nom){
   render() {
     const {} = this.state
 
-    const listeLiens = LIENS.map((element) =>(
+    const listeLiens = this.props.tabLiens.map((element) =>(
                       <Link to={element.route}>
                           <Col xs={12} sm={4} md={4}>
                               <div className={`center-block ${Route.path == element.route ? 'pageActive' : 'pageInactive'}`} >
@@ -70,7 +43,7 @@ getEtat(nom){
                   ));
 
 
-      const listeLiensNav = LIENS.map((element) => (
+      const listeLiensNav = this.props.tabLiens.map((element) => (
                   <NavItem>
                       <Link to={element.route}>
                           {element.nom}
@@ -87,11 +60,6 @@ getEtat(nom){
               </div>
           </Link>
       ));
-
-      const listeLiensRouter = LIENS.map((element) => (
-          <Route path={element.route} exact={element.exact} component={element.component}/>
-      ));
-
 
 
     return (
@@ -113,7 +81,7 @@ getEtat(nom){
             </Navbar>
 
               <Route path="/" exact component={AccueilPage}/>
-              {listeLiensRouter}
+              {this.props.tabRoute}
 
              <div className="liens">
                 <Grid fluid>

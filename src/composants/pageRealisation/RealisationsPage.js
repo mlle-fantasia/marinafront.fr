@@ -83,45 +83,6 @@ class RealisationsPage extends Component {
         const {realisations, article,images, articleDemande,  photoIndex, isOpen} = this.state;
 
 
-            /*const imagestest = [
-                {
-                    src: '../images/imprimEcranEx.jpg',
-                    title: "captures d'écran",
-                    description: 'image description'
-                },
-                {
-                    src: '../images/diagramCasUtilisationexemples.jpg',
-                    title: "captures d'écran",
-                    description: 'image description'
-                }
-            ];*/
-
-
-
-        /*const listeImages =images.map((object, i) =>
-            <div key={i}>
-
-                <Lightbox
-                    images={[
-                        { src: '{object.image}' },
-
-                    ]}
-                    isOpen={this.state.lightboxIsOpen}
-                    onClickPrev={this.gotoPrevious}
-                    onClickNext={this.gotoNext}
-                    onClose={this.closeLightbox}
-                />
-            </div>);
-
-        /*const listeImage = images.map((object, i) =>
-            <div key={i}>
-
-                    <div className="uneImage" onClick={() => {this.handleClickeUneImage()}}>
-                        <img src={object.image} alt={object.alt}/>
-                    </div>
-            </div>
-        );*/
-
         let listeAside = realisations.map((object, i) => {
             if (object.id !== articleDemande) {
                 return (
