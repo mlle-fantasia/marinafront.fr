@@ -1,62 +1,79 @@
 @font-face {
-font-family: 'MlleCamille';
-src: url('../font/Mademoiselle Camille L.ttf');
-}
-@font-face {
-font-family: 'ChampagneGras';
-src: url('../font/Champagne & Limousines Bold.ttf');
-}
-@font-face {
-font-family: 'Champagne';
-src: url('../font/Champagne & Limousines.ttf');
-}
-@font-face {
-font-family: 'Ink';
-src: url('../font/Inkfree.ttf');
-}
-h2{
-	margin-top: 50px;
-	margin-bottom: 20px;
-	color: #fff;
-	font-family: MlleCamille;
-}
-.sansPadding{
-	padding: 0;
-}
-.quelquesMots h2{
-	color: #fff;
-	margin-bottom: 20px;
-}
-.quelquesMots{
-	background-color: #30b4ac;
-
-}
-.quelquesMots .texte, .actuellemnt .texte{
-	padding-bottom: 60px;
-	text-align: justify;	
+    font-family: 'MlleCamille';
+    src: url('../font/Mademoiselle Camille L.ttf');
 }
 
-p{
-	font-size: 22px;
-	font-family: 'ChampagneGras';
+@font-face {
+    font-family: 'ChampagneGras';
+    src: url('../font/Champagne & Limousines Bold.ttf');
 }
 
-.glyfTitre{
-	float: left;
+@font-face {
+    font-family: 'Champagne';
+    src: url('../font/Champagne & Limousines.ttf');
 }
-.actuellemnt{
-	background-color: #fff;	
+
+@font-face {
+    font-family: 'Ink';
+    src: url('../font/Inkfree.ttf');
 }
-.actuellemnt h2{
-	color:  #30b4ac;
+
+h2 {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: #fff;
 }
-.petitTitre{
-	font-family: Ink;
-	font-size: 50px;
-	padding-left:40px;
-	font-size: 40px;
+
+h4 {
+    font-family: Champagne;
+    color: #30b4ac;
+    font-size: 25px;
 }
-.identite{
+
+.sansPadding {
+    padding: 0;
+}
+
+.quelquesMots h2 {
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.quelquesMots {
+    background-color: #30b4ac;
+
+}
+
+.quelquesMots .texte, .actuellemnt .texte {
+    padding-bottom: 60px;
+    text-align: justify;
+}
+
+p {
+    font-size: 22px;
+    font-family: 'ChampagneGras';
+}
+
+.glyfTitre {
+    float: left;
+}
+
+.actuellemnt {
+    background-color: #fff;
+}
+
+.actuellemnt h2 {
+    color: #30b4ac;
+}
+
+.petitTitre {
+    font-family: Ink;
+    font-size: 50px;
+    padding-left: 40px;
+    font-size: 40px;
+}
+
+.identite {
     padding: 0;
     height: 748px;
     background-image: url(../images/identite2.jpg);
@@ -64,37 +81,42 @@ p{
     background-repeat: no-repeat;
 
 }
-.quelquesMots .petitTitre, .quelquesMots .glyfTitre{
-	color: #fff;	
+
+.quelquesMots .petitTitre, .quelquesMots .glyfTitre {
+    color: #fff;
 }
 
 @media only screen and (max-width: 600px) {
-    .petitTitre{
+    .petitTitre {
         font-size: 32px;
     }
 }
 
 @media only screen and (max-width: 1024px) {
-	.petitTitre{
+    .petitTitre {
         font-size: 32px;
     }
-    p{
-    	font-size: 15px;
+
+    p {
+        font-size: 15px;
     }
-    .identite{
-    	height: 458px;
-	}
-	.quelquesMots .texte, .actuellemnt .texte{
-		padding-bottom: 10px;
-	}
-	h2{
-		margin-top: 50px;
-	}
+
+    .identite {
+        height: 458px;
+    }
+
+    .quelquesMots .texte, .actuellemnt .texte {
+        padding-bottom: 10px;
+    }
+
+    h2 {
+        margin-top: 50px;
+    }
 }
 
 @media (min-width: 400px) and (max-width: 770px) {
-	.identite{
-	  width: 400px;
-	  margin: auto;
-	}
+    .identite {
+        width: 400px;
+        margin: auto;
+    }
 }

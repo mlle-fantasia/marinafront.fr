@@ -8,36 +8,31 @@ import 'font-awesome/css/font-awesome.css'
 import Col from 'react-bootstrap/lib/Col';
 
 
-
-
-
-
-
 const BtnLien = ({nom, etat}) =>
 
-               <Col xs={12} sm={4} md={4}>
-					<button className={`center-block ${etat}`} >
+    <Col xs={12} sm={4} md={4}>
+        <button className={`center-block ${etat}`}>
 
-						<div className={nom}></div>
-						<div className="text">{nom}</div>
+            <div className={nom}></div>
+            <div className="text">{nom}</div>
 
-					</button>
-				</Col>
-            
+        </button>
+    </Col>
+
 
 BtnLien.defaultProps = {
-  etat: 'pageInactive'
+    etat: 'pageInactive'
 }
 
 
-BtnLien.propTypes={
-	nom: PropTypes.string.isRequired,
-	etat : PropTypes.oneOf([
-		'pageActive',
-		'pageInactive',
-	]).isRequired,
-	onClick : PropTypes.func.isRequired,
-	
+BtnLien.propTypes = {
+    nom: PropTypes.string.isRequired,
+    etat: PropTypes.oneOf([
+        'pageActive',
+        'pageInactive',
+    ]).isRequired,
+    onClick: PropTypes.func.isRequired,
+
 }
 
 export default BtnLien;

@@ -1,21 +1,24 @@
-.headerCv, .CompetencesCv{
-	background-color:  #30b4ac;
-}
-.headerCv .texte{
-	padding: 40px 0;
-	font-size: 18px;
-	color: white;
-	text-align: right;
-}
-.headerCv button{
-	margin-left: 20px;
-	color: #222;
-	width: 150px;
+.headerCv, .CompetencesCv {
+    background-color: #30b4ac;
 }
 
-a{
-	color: #6d6c6c;
+.headerCv .texte {
+    padding: 40px 0;
+    font-size: 18px;
+    color: white;
+    text-align: right;
 }
+
+.headerCv button {
+    margin-left: 20px;
+    color: #222;
+    width: 150px;
+}
+
+a {
+    color: #6d6c6c;
+}
+
 a:hover {
     color: #22807a;
 }

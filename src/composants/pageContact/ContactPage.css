@@ -1,42 +1,50 @@
-.contact{
-	background-color: #30b4ac;
-}
-.contact .petitTitre, .contact .glyfTitre  {
-	color: #fff ;
+.contact {
+    background-color: #30b4ac;
 }
 
-.detailContact{
-	padding-bottom: 70px;
+.contact .petitTitre, .contact .glyfTitre {
+    color: #fff;
+}
+
+.detailContact {
+    padding-bottom: 70px;
 }
 
 .meSuivre a {
-	width: 100%;
+    width: 100%;
 }
-.meSuivre{
-	margin-left: 0px;
+
+.meSuivre {
+    margin-left: 0px;
     margin-top: 56px;
     padding-left: 77px;
 }
-.formulaireContact{
+
+.formulaireContact {
     margin-left: 0px;
     margin-top: 67px;
 }
-.labelContact{
-	font-size: 20px;
-	font-family: 'ChampagneGras';
+
+.labelContact {
+    font-size: 20px;
+    font-family: 'ChampagneGras';
 }
-textarea{
-	height: 100px;
+
+textarea {
+    height: 100px;
 }
-.resultatForm{
-	color:#30b4ac;
+
+.resultatForm {
+    color: #30b4ac;
 }
+
 @media only screen and (max-width: 600px) {
     .meSuivre a {
-		width: 100%;
-	}
-	.meSuivre{
-		padding-left: 0px;
-		margin-top: 0;
-	}
+        width: 100%;
+    }
+
+    .meSuivre {
+        padding-left: 0px;
+        margin-top: 0;
+    }
 }

@@ -1,82 +1,99 @@
 .parcours .petitTitre {
-	font-size: 40px;
-	margin: 0;
-}
-.petitTitre{
-	color: #30b4ac;
-}
-.glyfTitre{
-	color: #30b4ac;
-}
-.ligne{
-	height: 2px;
-	background-color:  #30b4ac;
-	margin:25px 0 0 0;
-}
-.parcours{
-	background-color:  #30b4ac;
-}
-.parcours .glyfTitre{
-	color:  #fff;
-}
-.parcours .petitTitre {
-	color: #fff;
-	padding-bottom: 5px;
-	margin-bottom: 0;
-}
-.parcoursDetails{
-	margin-top: 30px;
-	margin-bottom: 100px;
-}
-.bordure{
-	border-bottom: solid 2px #30b4ac;
-	padding: 20px 30px;
-	font-size: 18px;
-	margin: 0;
-}
-.bordure:nth-child(odd){
-	border-left: solid 2px #30b4ac;
-	
-}
-.bordure:nth-child(even){
-	border-right:  solid 2px #30b4ac;
-	
+    font-size: 40px;
+    margin: 0;
 }
 
-.competencesDecription{
-	padding-top: 40px;
-	text-align: justify;
-	padding-bottom: 20px;
+.petitTitre {
+    color: #30b4ac;
 }
-.competenceListe{
-	text-align: center;
-	padding-bottom: 50px;
+
+.glyfTitre {
+    color: #30b4ac;
 }
-.facebookMF a{
-	width: 50%;
-	margin-top: 5px;
-	margin-bottom: 5px;
+
+.ligne {
+    height: 2px;
+    background-color: #30b4ac;
+    margin: 25px 0 0 0;
 }
+
+.parcours {
+    background-color: #30b4ac;
+}
+
+.parcours .glyfTitre {
+    color: #fff;
+}
+
+.parcours .petitTitre {
+    color: #fff;
+    padding-bottom: 5px;
+    margin-bottom: 0;
+}
+
+.parcoursDetails {
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+.bordure {
+    border-bottom: solid 2px #30b4ac;
+    padding: 20px 30px;
+    font-size: 18px;
+    margin: 0;
+}
+
+.bordure:nth-child(odd) {
+    border-left: solid 2px #30b4ac;
+
+}
+
+.bordure:nth-child(even) {
+    border-right: solid 2px #30b4ac;
+
+}
+
+.competencesDecription {
+    padding-top: 40px;
+    text-align: justify;
+    padding-bottom: 20px;
+}
+
+.competenceListe {
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+.facebookMF a {
+    width: 50%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 .btn-facebook {
     background-color: #30b4ac;
     border-color: #22807a;
 }
+
 .btn-facebook:hover {
     background-color: #22807a;
     border-color: #0f3a37;
 }
-.btn-social > :first-child, .btn-social-icon > :first-child{
-	font-size: 20px !important;
+
+.btn-social > :first-child, .btn-social-icon > :first-child {
+    font-size: 20px !important;
 }
 
 @media only screen and (max-width: 600px) {
-    .parcours .petitTitre, .parcours .petitTitre{
+    .parcours .petitTitre, .parcours .petitTitre {
         font-size: 30px;
     }
-    .facebookMF a{
-    	width: 100%;
+
+    .facebookMF a {
+        width: 100%;
     }
-    .bordureDroite, .bordureGauche{
-    	 padding: 20px 10px;
+
+    .bordureDroite, .bordureGauche {
+        padding: 20px 10px;
     }
 }

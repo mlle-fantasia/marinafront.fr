@@ -1,49 +1,81 @@
-.realisation .petitTitre, .realisation .glyfTitre{
-	color: #30b4ac;
+.realisation .petitTitre, .realisation .glyfTitre {
+    color: #30b4ac;
 }
-.margin{
-	margin-bottom: 50px; 
+
+.margin {
+    margin-bottom: 50px;
 
 }
-.uneRea{
-	height: 167px;
-	background-size: 100%;
-	
-	border: solid 5px #222;
+
+.uneRea {
+    height: 167px;
+    background-size: 100%;
+
+    border: solid 5px #222;
 }
-.realisation .texte{
-	font-size: 22px;
-	font-family: champagneGras;
-	text-align: center;
+
+.realisation .texte {
+    font-size: 22px;
+    font-family: champagneGras;
+    text-align: center;
 }
-.randonnee{
-	background-image: url("../images/rando.png");
+
+.randonnee {
+    background-image: url("../images/rando.png");
 
 }
-.ptidej{
-	background-image: url("../images/ptidej.png");
+
+.ptidej {
+    background-image: url("../images/ptidej.png");
 }
-.pendu{
-	background-image: url("../images/pendu.png");
+
+.pendu {
+    background-image: url("../images/pendu.png");
 }
-.cuisiner{
-	background-image: url("../images/cuisiner.png");
+
+.cuisiner {
+    background-image: url("../images/cuisiner.png");
 }
-.domotique{
-	background-image: url("../images/homeControl.png");
+
+.domotique {
+    background-image: url("../images/homeControl.png");
 }
-.uneImage{
+
+.unArticle p {
+    font-size: 18px;
+    text-align: justify;
+}
+
+.uneImage {
 
 }
-.listeAside{
-	margin-bottom: 40px;
+
+.listeAside {
+    margin-bottom: 40px;
 }
-.galerieImages img{
-	width: 100%;
+
+.galerieImages img {
+    width: 100%;
 }
+
 @media (min-width: 400px) and (max-width: 770px) {
-	.margin .uneRea{
-	  width: 300px;
-	  margin: auto;
-	}
+    .margin .uneRea {
+        width: 300px;
+        margin: auto;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+    .unArticle p {
+        font-size: 14px;
+    }
+
+    h3 {
+        font-size: 23px;
+    }
+
+    h4 {
+        font-size: 19px;
+    }
 }

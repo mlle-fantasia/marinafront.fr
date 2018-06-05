@@ -1,40 +1,21 @@
 import React, {Component} from 'react';
-
+import PropTypes from 'prop-types';
 import CvHeader from '../pageCv/CvHeader.js';
 import './RealisationsPage.css';
 import '@ladjs/bootstrap-social/bootstrap-social.css';
 import 'font-awesome/css/font-awesome.css';
 import {Grid, Row, Col} from 'react-bootstrap';
 import {Link} from 'react-router-dom'
-import axios from 'axios';
-
-const API = "http://api-marinafront";
 
 
 class RealisationsPage extends Component {
 
-    state = {
-        realisations: [],
-    }
-
-
-    componentDidMount() {
-        axios.get(API + "/realisation-article.php").then((response) => {
-            if (response.data.error) {
-
-                console.log("tu as une erreur");
-                return true;
-            }
-            const realisations = response.data.payloadArticle;
-            this.setState({realisations});
-            console.log(realisations);
-
-        });
+    static contextTypes = {
+        tabRea: PropTypes.array
     };
 
-
     render() {
-        const {realisations} = this.state;
+        // const {realisations} = this.state;
 
         return (
 
@@ -49,10 +30,10 @@ class RealisationsPage extends Component {
                         </Col>
                     </Row>
                     <Row>
-                        {realisations.map((object, i) =>
-                            <Link to={"/realisations/"+object.id}>
-                                <Col xs={12} sm={6} md={4} key={i} className="margin">
-                                    <div className={`uneRea ${object.image}`} ></div>
+                        {this.context.tabRea.map((object, i) =>
+                            <Link to={"/realisations/" + object.id} key={i}>
+                                <Col xs={12} sm={6} md={4} className="margin">
+                                    <div className={`uneRea ${object.image}`}></div>
                                     <div className="texte">{object.titre}</div>
                                 </Col>
                             </Link>

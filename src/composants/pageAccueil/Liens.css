@@ -1,40 +1,49 @@
-.liens{
-	background-color:  #30b4ac;
-	padding-top: 60px;
-	padding-bottom: 50px;
+.liens {
+    background-color: #30b4ac;
+    padding-top: 60px;
+    padding-bottom: 50px;
 
-}  
-.Realisations{
-	background-image: url(../images/realisations.png);
-} 
-.CV{
-	background-image: url(../images/cv.png);
-} 
-.Blog{
-	background-image: url(../images/blog.png);
-} 
-.Contact{
-	background-image: url(../images/contact.png);
-} 
-.Realisations, .CV, .Blog, .Contact{
-	margin : auto;
-	width: 100px;
+}
+
+.Realisations {
+    background-image: url(../images/realisations.png);
+}
+
+.CV {
+    background-image: url(../images/cv.png);
+}
+
+.Blog {
+    background-image: url(../images/blog.png);
+}
+
+.Contact {
+    background-image: url(../images/contact.png);
+}
+
+.Realisations, .CV, .Blog, .Contact {
+    margin: auto;
+    width: 100px;
     height: 100px;
-	background-size: 100%;
+    background-size: 100%;
 }
-.liens .text{
-	color: #fff;
-	font-size: 20px;
-	text-align: center;
+
+.liens .text {
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
 }
-.liens button{
-	background-color: #0000;
-	border: 0;
+
+.liens button {
+    background-color: #0000;
+    border: 0;
 }
-.pageActive{
-	opacity : 0.5 ;
-	margin-bottom: 10px;
+
+.pageActive {
+    opacity: 0.5;
+    margin-bottom: 10px;
 }
+
 .pageInactive {
     margin-bottom: 10px;
 }

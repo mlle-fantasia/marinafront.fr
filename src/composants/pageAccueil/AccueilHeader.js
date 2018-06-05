@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 //import PropTypes from 'prop-types'
 import './AccueilHeader.css'
@@ -9,26 +9,25 @@ import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
 
 
-
 class AccueilHeader extends Component {
-  render() {
-    return (
-    	<Grid fluid>
-    		<Row  className="header">
+    render() {
+        return (
+            <Grid fluid>
+                <Row className="header">
 
-  		    	<Col xsHidden md={12} className="background ">
-                <Row>
-                  <Col xsHidden md={6} mdOffset={1}>
-    				        <h1 className="titreHeader">Bonjour ! </h1> 
-    				        <p className="textHeader"> Je suis <strong>développeuse</strong> informatique <br/> passionnée par l'univers du <strong>Web</strong></p>
-                  </Col >
+                    <Col xsHidden md={12} className="background ">
+                        <Row>
+                            <Col xsHidden md={6} mdOffset={1}>
+                                <h1 className="titreHeader">Bonjour ! </h1>
+                                <p className="textHeader"> Je suis <strong>développeuse</strong> informatique <br/> passionnée par l'univers du <strong>Web</strong></p>
+                            </Col>
+                        </Row>
+                    </Col>
+
                 </Row>
-  			    </Col>
-
-	    	</Row>     
-      </Grid>
-    );
-  }
+            </Grid>
+        );
+    }
 }
 
 export default AccueilHeader;
