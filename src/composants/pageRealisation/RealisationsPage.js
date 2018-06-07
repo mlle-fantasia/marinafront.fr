@@ -15,7 +15,6 @@ class RealisationsPage extends Component {
     };
 
     render() {
-        // const {realisations} = this.state;
 
         return (
 

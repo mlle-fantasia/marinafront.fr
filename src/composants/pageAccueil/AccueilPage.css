@@ -24,11 +24,6 @@ h2 {
     color: #fff;
 }
 
-h4 {
-    font-family: Champagne;
-    color: #30b4ac;
-    font-size: 25px;
-}
 
 .sansPadding {
     padding: 0;
@@ -68,9 +63,8 @@ p {
 
 .petitTitre {
     font-family: Ink;
-    font-size: 50px;
     padding-left: 40px;
-    font-size: 40px;
+    font-size: 50px;
 }
 
 .identite {
