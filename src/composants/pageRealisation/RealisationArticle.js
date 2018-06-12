@@ -72,9 +72,18 @@ class RealisationArticle extends Component {
 
 
     render() {
-        const {article, articleDemande,photos} = this.state;
+        const {article, articleDemande, photos} = this.state;
 
-
+        const galerie = photos.length !== 0 ?
+                    (<div>
+                        <h3 className="galerieTitre">Les images</h3>
+                        <div>
+                            <div className="mt-5 galerieImages">
+                                <MyLightbox photos={photos}/>
+                            </div>
+                        </div>
+                    </div>)
+                    :(<div></div>);
 
         return (
             <div>
@@ -101,14 +110,7 @@ class RealisationArticle extends Component {
                             </Row>
                         </Col>
                         <Col xs={12} sm={4} md={3} className="images">
-                            <div>
-                                <h3 className="galerieTitre">Les images</h3>
-                                <div>
-                                    <div className="mt-5 galerieImages">
-                                        <MyLightbox photos={photos}/>
-                                    </div>
-                                </div>
-                            </div>
+                            {galerie}
                             <div className="listeAsideCSS">
                                 <h3 className="asideTitre">Les autres réalisations</h3>
                                 <p className="asideTexte">

@@ -38,6 +38,8 @@ class RouteComposant extends Component {
                 {route: "/cv", nom: "CV", component: CvPage, exact: true, icon: "CV", link: true},
                 {route: "/realisations", nom: "Réalisations", component: RealisationsPage, exact: true, icon: "Realisations", link: true},
                 {route: "/realisations/:id", component: RealisationArticle, exact: false, link: false},
+                {route: "/realisations/5", component: RealisationsPage, exact: true, link: false},
+                {route: "/realisations/3", component: RealisationsPage, exact: true, link: false},
                 {route: "/contact", nom: "Contact", component: ContactPage, exact: true, icon: "Contact", link: true}
             ];
 
