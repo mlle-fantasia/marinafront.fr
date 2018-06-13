@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 //route
-import { Route, BrowserRouter} from 'react-router-dom'
-import { HashLink as Link } from 'react-router-hash-link';
+import {Route, BrowserRouter} from 'react-router-dom'
+import {HashLink as Link} from 'react-router-hash-link';
 //css
 import './App.css';
 import './composants/MenuNavigation.css';
@@ -28,7 +28,7 @@ class App extends Component {
 
 
         const listeLiens = this.props.tabLiens.map((element, i) => (
-            <Link to={element.route+"#top"} key={i}>
+            <Link to={element.route + "#top"} key={i}>
                 <Col xs={12} sm={4} md={4}>
                     <div className={`center-block ${Route.path === element.route ? 'pageActive' : 'pageInactive'}`}>
                         <div className={element.icon}></div>

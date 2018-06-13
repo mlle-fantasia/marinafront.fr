@@ -19,7 +19,9 @@
     font-family: champagneGras;
     text-align: center;
 }
-
+.sitePerso {
+    background-image: url("../images/sitePerso.png");
+}
 .randonnee {
     background-image: url("../images/rando.png");
 
@@ -44,6 +46,7 @@
 .unArticle p {
     font-size: 18px;
     text-align: justify;
+    font-weight: 500;
 }
 .titreArticle{
     font-size: 60px;
