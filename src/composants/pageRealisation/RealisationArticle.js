@@ -12,17 +12,6 @@ import ListeAsideRealisations from "./ListeAsideRealisations";
 
 const API = "http://api-marinafront";
 
-// const photos = [
-//     {src: '/images/imprimEcranEx.jpg', width: 4, height: 3},
-//     {src: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(98).jpg', width: 4, height: 7},
-//     {src: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(131).jpg', width: 4, height: 7},
-//     {src: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(123).jpg', width: 4, height: 7},
-//     {src: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(118).jpg', width: 4, height: 7},
-//     {src: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(128).jpg', width: 4, height: 7},
-//     {src: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(133).jpg', width: 4, height: 7},
-//     {src: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(132).jpg', width: 4, height: 3},
-//     {src: 'https://mdbootstrap.com/img/Photos/Horizontal/Nature/12-col/img%20(115).jpg', width: 4, height: 3},
-// ];
 
 
 class RealisationArticle extends Component {
@@ -61,7 +50,8 @@ class RealisationArticle extends Component {
             console.log("coucou2");
             let article = response.data.payloadArticle;
             this.setState({article});
-            console.log(article);
+
+
         });
 
         axios.get(API + "/realisation-images.php?id=" + articleDemande).then((response) => {
@@ -76,36 +66,10 @@ class RealisationArticle extends Component {
         });
     }
 
-    // shouldComponentUpdate(){
-    //     const {articleDemande,article,photos} = this.state;
-    //     axios.get(API + "/realisation-article.php?id=" + articleDemande).then((response) => {
-    //         if (response.data.error) {
-    //             console.log("tu as une erreur");
-    //             return true;
-    //         }
-    //         console.log("update1");
-    //         let newarticle = response.data.payloadArticle;
-    //         if(newarticle!== article){
-    //             this.setState({article : newarticle});
-    //         }else{}
-    //     });
-    //
-    //     axios.get(API + "/realisation-images.php?id=" + articleDemande).then((response) => {
-    //         if (response.data.error) {
-    //             console.log("tu as une erreur");
-    //             return true;
-    //         }
-    //         console.log("update2");
-    //         let newphotos = response.data.payloadImages;
-    //         if(newphotos!== photos){
-    //             this.setState({photos : newphotos});
-    //         }
-    //     });
-    // }
 
 
     render() {
-        const {article, articleDemande, photos} = this.state;
+        const {article, articleDemande, photos, lien} = this.state;
 
         const galerie = photos.length !== 0 ?
             (<div>
@@ -118,13 +82,26 @@ class RealisationArticle extends Component {
             </div>)
             : (<div></div>);
 
+
+        const leLiens = article.lien ?
+            (<div>
+                <h3 className="galerieTitre">Les liens</h3>
+                <div>
+                    <div className="mt-5 galerieImages">
+                        <a href ={article.lien} target ="_bank" rel="noopener noreferre" className="btn">{article.lienNom}</a>
+                    </div>
+                </div>
+            </div>)
+            : (<div></div>);
+
+
         return (
             <div>
                 <Grid className="article">
                     <Row>
                         <Col xs={12} md={9} className="unArticle">
                             <Row>
-                                <Col xs={12} md={12}>
+                                <Col xs={12} md={12} className="texteArticle">
                                     <h2>
                                         <div className="titreArticle">{article.titre}</div>
                                     </h2>
@@ -143,6 +120,7 @@ class RealisationArticle extends Component {
                             </Row>
                         </Col>
                         <Col xs={12} sm={4} md={3} className="images">
+                            {leLiens}
                             {galerie}
                             <div className="listeAsideCSS">
                                 <h3 className="asideTitre">Les autres réalisations</h3>

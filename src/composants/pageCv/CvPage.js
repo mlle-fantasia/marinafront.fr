@@ -6,6 +6,13 @@ import 'font-awesome/css/font-awesome.css'
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
+// import CodeHighlight from 'react-code-highlight';
+//
+// // import all the styles
+// import "react-syntax-highlight/lib/style.css";
+// import "highlight.js/styles/xcode.css";
+
+
 
 
 class CvPage extends Component {
@@ -111,7 +118,6 @@ class CvPage extends Component {
                     </Row>
 
                 </Grid>
-
 
             </div>
         );
