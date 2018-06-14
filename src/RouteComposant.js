@@ -11,7 +11,7 @@ import RealisationsPage from "./composants/pageRealisation/RealisationsPage";
 import RealisationArticle from "./composants/pageRealisation/RealisationArticle";
 import axios from 'axios';
 
-const API = "http://api-marinafront";
+const API = "http://api.marinafront.fr";
 
 
 class RouteComposant extends Component {

@@ -10,7 +10,7 @@ import PropTypes from 'prop-types';
 import MyLightbox from "./MyLightbox";
 import ListeAsideRealisations from "./ListeAsideRealisations";
 
-const API = "http://api-marinafront";
+const API = "http://api.marinafront.fr";
 
 
 
