@@ -69,7 +69,7 @@ class RealisationArticle extends Component {
 
 
     render() {
-        const {article, articleDemande, photos, lien} = this.state;
+        const {article, articleDemande, photos} = this.state;
 
         const galerie = photos.length !== 0 ?
             (<div>

@@ -25,7 +25,7 @@ class ListeAsideRealisations extends Component {
         const {articleDemande} = this.state;
 
         let listAside = this.context.tabRea.filter((object) => {
-            if (parseInt(object.id) === parseInt(articleDemande)) {
+            if (parseInt(object.id, 10) === parseInt(articleDemande, 10)) {
                 return false;
             }
             return object;
