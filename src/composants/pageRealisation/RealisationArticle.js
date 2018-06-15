@@ -88,7 +88,7 @@ class RealisationArticle extends Component {
                 <h3 className="galerieTitre">Les liens</h3>
                 <div>
                     <div className="mt-5 galerieImages">
-                        <a href ={article.lien} target ="_bank" rel="noopener noreferre" className="btn">{article.lienNom}</a>
+                        <a href ={article.lien} target ="_bank" rel="noopener noreferre" className="btn form-control btn-lien">{article.lienNom}</a>
                     </div>
                 </div>
             </div>)
@@ -107,19 +107,19 @@ class RealisationArticle extends Component {
                                     </h2>
                                     <RawHtml.div className="texte">{article.contenu}</RawHtml.div>
                                 </Col>
-                                <Col xs={12} md={6}>
+                                <Col xs={12} md={6} sm={6}>
                                     <Link to={"/realisations#top"}>
                                         <button className="form-control btnRetour">retour à la liste des réalisations</button>
                                     </Link>
                                 </Col>
-                                <Col xs={12} md={6}>
+                                <Col xs={12} md={6} sm={6}>
                                     <a href="#top">
                                         <button className="form-control btnRetour">retour en haut de la page</button>
                                     </a>
                                 </Col>
                             </Row>
                         </Col>
-                        <Col xs={12} sm={4} md={3} className="images">
+                        <Col xs={12} sm={12}  md={3} className="images">
                             {leLiens}
                             {galerie}
                             <div className="listeAsideCSS">

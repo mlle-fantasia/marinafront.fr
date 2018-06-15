@@ -76,10 +76,13 @@ h5 {
     color: #30b4ac;
     text-indent: 2em;
 }
-
+.btn-lien{
+    background-color: #e2e1e1;
+}
 .images{
     margin-top: 110px;
     padding: 20px;
+    text-align: center;
 }
 
 .listeAsideCSS p{
@@ -107,7 +110,13 @@ h5 {
     background-color: black;
     color: #6d6c6c;
 }
-@media only screen and (max-width: 600px) {
+@media (min-width: 400px) and (max-width: 768px) {
+    .galerieImages img {
+        width: 48%;
+        height: 200px;
+    }
+}
+@media only screen and (max-width: 768px) {
     .unArticle p {
         font-size: 14px;
     }
@@ -124,5 +133,17 @@ h5 {
     }
     .images{
         margin-top: 0px;
+    }
+    .galerieImages img {
+        width: 100%;
+        height: auto;
+    }
+    .btn-lien{
+        width: 50%;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .btn-lien{
+        width: 100%;
     }
 }

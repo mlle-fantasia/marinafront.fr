@@ -69,7 +69,7 @@ p {
 
 .identite {
     padding: 0;
-    height: 748px;
+    height: 675px;
     background-image: url(../images/identite2.jpg);
     background-size: 100%;
     background-repeat: no-repeat;
@@ -108,9 +108,30 @@ p {
     }
 }
 
-@media (min-width: 400px) and (max-width: 770px) {
+@media (min-width: 400px) and (max-width: 767px) {
     .identite {
         width: 400px;
         margin: auto;
+        background-color: #8b8e8e;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+    .petitTitre {
+        font-size: 32px;
+    }
+    p {
+        font-size: 18px;
+    }
+    .identite {
+        height: 500px;
+    }
+    .quelquesMots .texte, .actuellemnt .texte{
+        padding-bottom: 10px;
+    }
+}
+@media only screen and (max-width: 400px) {
+    .identite {
+        height: 429px;
     }
 }
