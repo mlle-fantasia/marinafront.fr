@@ -79,6 +79,10 @@ p {
 .quelquesMots .petitTitre, .quelquesMots .glyfTitre {
     color: #fff;
 }
+.navbar-inverse .navbar-toggle {
+    border-color: #969595;
+    background-color: #d6d3d3;
+}
 
 @media only screen and (max-width: 600px) {
     .petitTitre {
@@ -112,7 +116,9 @@ p {
     .identite {
         width: 400px;
         margin: auto;
-        background-color: #8b8e8e;
+    }
+    .sansPadding {
+        background-color: #a9a8a8;
     }
 }
 

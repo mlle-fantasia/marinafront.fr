@@ -101,21 +101,34 @@ h5 {
 }
 @media (min-width: 400px) and (max-width: 770px) {
     .margin .uneRea {
-        width: 300px;
+        width: 380px;
         margin: auto;
     }
 
 }
-.code {
-    background-color: black;
-    color: #6d6c6c;
-}
-@media (min-width: 400px) and (max-width: 768px) {
+
+@media only screen and (max-width: 990px) {
+    .unArticle p {
+        font-size: 16px;
+    }
+    .btn-lien{
+        width: 50%;
+    }
+    .images{
+        margin-top: 0px;
+    }
     .galerieImages img {
         width: 48%;
-        height: 200px;
+        height: 150px;
+    }
+    .texteArticle{
+        margin-bottom: 20px;
+    }
+    .titreArticle {
+        font-size: 50px;
     }
 }
+
 @media only screen and (max-width: 768px) {
     .unArticle p {
         font-size: 14px;
@@ -131,19 +144,27 @@ h5 {
     .unArticle{
         margin-bottom: 30px;
     }
-    .images{
-        margin-top: 0px;
+    .btnRetour{
+        margin: 3px auto;
     }
-    .galerieImages img {
-        width: 100%;
-        height: auto;
+    .titreArticle {
+        font-size: 40px;
     }
-    .btn-lien{
-        width: 50%;
+}
+@media (min-width: 400px) and (max-width: 768px) {
+    .btnRetour{
+        width: 300px;
     }
 }
 @media only screen and (max-width: 400px) {
     .btn-lien{
         width: 100%;
+    }
+    .galerieImages img {
+        width: 100%;
+        height: auto;
+    }
+    .titreArticle {
+        font-size: 35px;
     }
 }
