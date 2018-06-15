@@ -20,7 +20,7 @@ class AccueilPage extends Component {
                                 <h2><span className="glyfTitre glyphicon glyphicon-comment"></span>
                                     <div className="petitTitre">En quelques mots :</div>
                                 </h2>
-                                <p>Après un cursus d'études superieures en architecture intérieure, je me suis réorientée vers l'informatique et plus précisément le développement web qui est devenu
+                                <p>Après un cursus d'études supérieures en architecture intérieure, je me suis réorientée vers l'informatique et plus précisément le développement web qui est devenu
                                     une passion.
                                     Ma dernière formation et mes recherches personnelles m'ont permis d'avoir de bonnes bases dans de nombreux langages. </p>
                             </Col>
