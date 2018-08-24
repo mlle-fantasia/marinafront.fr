@@ -38,7 +38,7 @@ class Footer extends Component {
                         </Col>
                     </Row>
                     <Row className="ligneSeparation">
-                        <p>Ce site a été réalisé avec React-Bootstrap</p>
+                        <p>Ce site a été réalisé avec React-Bootstrap | <Link to="/mentions-legales">Mentions légales</Link></p>
                     </Row>
                 </Grid>
             </div>

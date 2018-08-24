@@ -9,6 +9,7 @@ import CvPage from "./composants/pageCv/CvPage";
 import ContactPage from "./composants/pageContact/ContactPage";
 import RealisationsPage from "./composants/pageRealisation/RealisationsPage";
 import RealisationArticle from "./composants/pageRealisation/RealisationArticle";
+import MentionsLegalesPage from "./composants/MentionsLegalesPage";
 import axios from 'axios';
 
 const API = "http://api.marinafront.fr";
@@ -38,7 +39,8 @@ class RouteComposant extends Component {
                 {route: "/cv", nom: "CV", component: CvPage, exact: true, icon: "CV", link: true},
                 {route: "/realisations", nom: "Réalisations", component: RealisationsPage, exact: true, icon: "Realisations", link: true},
                 {route: "/realisations/:id", component: RealisationArticle, exact: false, link: false},
-                {route: "/contact", nom: "Contact", component: ContactPage, exact: true, icon: "Contact", link: true}
+                {route: "/contact", nom: "Contact", component: ContactPage, exact: true, icon: "Contact", link: true},
+                {route: "/mentions-legales", nom: "mentions-legales", component: MentionsLegalesPage, exact: true,  link: false}
             ];
 
         let liensNavigation = LIENS.filter(function (element) {
