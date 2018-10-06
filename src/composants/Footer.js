@@ -18,7 +18,7 @@ class Footer extends Component {
                             <h3>Mes Infos :</h3>
                             <p>Marina Front<br/>
                                 Développeuse Web<br/>
-                                région toulonnaise<br/>
+                                région Sophia Antipolis<br/>
                                 <Link to="/">
                                     retour à l'accueil
                                 </Link>

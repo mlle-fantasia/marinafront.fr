@@ -30,7 +30,7 @@ class AccueilPage extends Component {
                                 <h2><span className="glyfTitre glyphicon glyphicon-refresh"></span>
                                     <div className="petitTitre">Actuellement :</div>
                                 </h2>
-                                <p>Je suis actuellement à la recherche d'un emploi de développeuse web (front-end / back-end) dans la région de Sophia Antipolis et de Toulon.
+                                <p>Je suis actuellement à la recherche d'un emploi de développeuse web (front-end / back-end) dans la région de Sophia Antipolis.
                                     <br/>En attente de vos défis je continue de me former.</p>
                             </Col>
                         </Row>

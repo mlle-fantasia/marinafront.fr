@@ -35,7 +35,7 @@ class ContactPage extends Component {
                                 <h3 className="titreMeContacter">Me contacter :</h3>
                                 <p><span className="glyphicon glyphicon-envelope"></span> marinafront@hotmail.fr</p>
                                 <p><span className="glyphicon glyphicon-earphone"></span> 06 02 10 85 07</p>
-                                <p><span className="glyphicon glyphicon-home"></span> 195 chemin des chênes<br/> 83130 LA GARDE</p>
+                                <p><span className="glyphicon glyphicon-home"></span> 33 rue de la soulane<br/> 06250 MOUGINS</p>
 
 
                                 <h3>Me suivre :</h3>
