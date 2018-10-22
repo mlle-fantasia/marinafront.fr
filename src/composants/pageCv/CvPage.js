@@ -56,12 +56,11 @@ class CvPage extends Component {
                             <p>Git</p>
                             <p>Java</p>
                             <p>Methode Agile</p>
-                            <p>Symfony 4</p>
-                            <p>Twig</p>
+                            <p>Symfony 4 / Doctrine / Twig</p>
                         </Col>
                         <Col xs={12} md={3}>
                             <h3>J'apprendrai prochainement :</h3>
-                            <p>Doctrine</p>
+                            <p>Sass</p>
                             <p>Angular</p>
                         </Col>
                     </Row>
