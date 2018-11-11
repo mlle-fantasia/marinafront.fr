@@ -64,6 +64,37 @@ class CvPage extends Component {
                             <p>Angular</p>
                         </Col>
                     </Row>
+                    <hr/>
+                    <Row className="certificationListe">
+                        <Col xs={12} md={12}>
+                            <h2><span className="glyfTitre glyphicon glyphicon-ok"></span>
+                                <div className="petitTitre">Mes Certifications :</div>
+                            </h2>
+                        </Col>
+                        <ul>
+                            <li>
+                                <p>Attestaion de Formation Développement et Administration Système d’Information Expert :
+                                    <a href={require('../../assets/pdf/attestationFormationGRETA.pdf')} target="_blank">
+                                        <button className="btn">Mon attestation</button>
+                                    </a>
+                                </p>
+                            </li>
+                            <li>
+                                <p>Certifiaction OpenClasseroom Réalisez une application web avec React.js :
+                                    <a href={require('../../assets/pdf/Certificat-OCReact.pdf')} target="_blank">
+                                        <button className="btn">Ma certification</button>
+                                    </a>
+                                </p>
+                            </li>
+                            <li>
+                                <p>Attestation de L'ANSSI Sécurité Informatique :
+                                    <a href={require('../../assets/pdf/attestation_secnumacademie.pdf')} target="_blank">
+                                        <button className="btn">Mon Attestation</button>
+                                    </a>
+                                </p>
+                            </li>
+                        </ul>
+                    </Row>
                 </Grid>
                 <div className="parcours">
                     <Grid fluid>

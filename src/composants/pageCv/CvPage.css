@@ -10,7 +10,6 @@
 .glyfTitre {
     color: #30b4ac;
 }
-
 .ligne {
     height: 2px;
     background-color: #30b4ac;
@@ -61,9 +60,21 @@
 
 .competenceListe {
     text-align: center;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
 }
-
+hr{
+    border-color: #30b4ac;
+    border-width: 2px;
+}
+.certificationListe button {
+    margin-left: 20px;
+    background-color:  #30b4ac;
+    color:#fff;
+    width: 150px;
+}
+.certificationListe{
+    padding-bottom: 70px;
+}
 .facebookMF a {
     width: 50%;
     margin-top: 5px;
