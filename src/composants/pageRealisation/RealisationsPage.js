@@ -33,7 +33,7 @@ class RealisationsPage extends Component {
                             <Link to={"/realisations/" + object.id} key={i}>
                                 <Col xs={12} sm={6} md={4} className="margin">
                                     <div className={`uneRea ${object.image}`}></div>
-                                    <div className="texte">{object.titre}</div>
+                                    <div className="texte">{object.titreLangages}</div>
                                 </Col>
                             </Link>
                         )}
