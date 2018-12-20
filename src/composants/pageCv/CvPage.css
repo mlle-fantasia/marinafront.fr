@@ -75,6 +75,11 @@ hr{
 .certificationListe{
     padding-bottom: 70px;
 }
+
+.languageUtilise{
+    text-shadow: #30b4ac 2px 2px 1px;
+}
+
 .facebookMF a {
     width: 50%;
     margin-top: 5px;

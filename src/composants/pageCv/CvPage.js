@@ -49,10 +49,10 @@ class CvPage extends Component {
                             <p>SQL</p>
                             <p>React</p>
                             <p>JS/jQuery</p>
+                            <p>Angular</p>
                         </Col>
                         <Col xs={12} md={3}>
                             <h3>J'ai les bases en :</h3>
-                            <p>Sécurité Informatique (SSI)</p>
                             <p>Git</p>
                             <p>Java</p>
                             <p>Methode Agile</p>
@@ -61,7 +61,7 @@ class CvPage extends Component {
                         <Col xs={12} md={3}>
                             <h3>J'apprendrai prochainement :</h3>
                             <p>Sass</p>
-                            <p>Angular</p>
+
                         </Col>
                     </Row>
                     <hr/>
@@ -73,23 +73,51 @@ class CvPage extends Component {
                         </Col>
                         <ul>
                             <li>
-                                <p>Attestaion de Formation Développement et Administration Système d’Information Expert :
+                                <p>Attestaion de Formation <strong className="languageUtilise">Développement et Administration Système d’Information Expert</strong> :
                                     <a href={require('../../assets/pdf/attestationFormationGRETA.pdf')} target="_blank">
                                         <button className="btn">Mon attestation</button>
                                     </a>
                                 </p>
                             </li>
                             <li>
-                                <p>Certifiaction OpenClasseroom Réalisez une application web avec React.js :
+                                <p>Certifiaction OpenClasseroom Réalisez une application web avec <strong className="languageUtilise">React.js</strong> :
                                     <a href={require('../../assets/pdf/Certificat-OCReact.pdf')} target="_blank">
                                         <button className="btn">Ma certification</button>
                                     </a>
                                 </p>
                             </li>
                             <li>
-                                <p>Attestation de L'ANSSI Sécurité Informatique :
+                                <p>Certifiaction OpenClasseroom Développez des applications Web avec  <strong className="languageUtilise">Angular</strong> :
+                                    <a href={require('../../assets/pdf/Certificat-OC-Angular.pdf')} target="_blank">
+                                        <button className="btn">Ma certification</button>
+                                    </a>
+                                </p>
+                            </li>
+                            <li>
+                                <p>Attestation de L'ANSSI <strong className="languageUtilise">Sécurité Informatique</strong> :
                                     <a href={require('../../assets/pdf/attestation_secnumacademie.pdf')} target="_blank">
                                         <button className="btn">Mon Attestation</button>
+                                    </a>
+                                </p>
+                            </li>
+                            <li>
+                                <p>Certifiaction OpenClasseroom Créez des pages web interactives avec  <strong className="languageUtilise">JavaScript</strong> :
+                                    <a href={require('../../assets/pdf/Certificat-OpenClassroomsJS.pdf')} target="_blank">
+                                        <button className="btn">Ma certification</button>
+                                    </a>
+                                </p>
+                            </li>
+                            <li>
+                                <p>Certifiaction OpenClasseroom Apprenez à coder avec <strong className="languageUtilise">JavaScript</strong> :
+                                    <a href={require('../../assets/pdf/Certificat-OpenClassroomsJS1.pdf')} target="_blank">
+                                        <button className="btn">Ma certification</button>
+                                    </a>
+                                </p>
+                            </li>
+                            <li>
+                                <p>Certifiaction OpenClasseroom Apprenez à créer votre site web avec <strong className="languageUtilise">HTML5 et CSS3</strong> :
+                                    <a href={require('../../assets/pdf/Certificat-OpenClassroomsHTMLCSS.pdf')} target="_blank">
+                                        <button className="btn">Ma certification</button>
                                     </a>
                                 </p>
                             </li>
