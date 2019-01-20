@@ -21,7 +21,7 @@ class MentionsLegalesPage extends Component {
 
                         <p>Statut du propriétaire : particulier<br />
                             Le Propriétaire est : Marina Front<br />
-                            Adresse postale du propriétaire : 195 chemin des chênes 83130 LA GARDE<br />
+                            Adresse postale du propriétaire : 33 rue de la soulane 06250 Mougins<br />
                             <br />
                             Le Créateur du site est : Marina Front<br />
                             Le Responsable de la  publication est : Marina Front<br />
