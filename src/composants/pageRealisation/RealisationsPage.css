@@ -3,28 +3,56 @@
 }
 
 .margin {
-    margin-bottom: 50px;
+    padding: 30px 0 50px 20px;
 
 }
 
 .uneRea {
     height: 167px;
     background-size: 100%;
-
+    margin-bottom: 20px;
     border: solid 5px #222;
+}
+.resumeRea{
+    font-size: 17px;
+    padding-top: 10px;
+}
+.titreRea{
+    color: #30b4ac;
 }
 
 .realisation .texte {
     font-size: 22px;
     font-family: champagneGras;
-    text-align: center;
 }
+.langagesRea{
+    font-size: 19px;
+    color: gray;
+}
+.btn-rea{
+    margin-left: 20px;
+    background-color: #30b4ac;
+    color: #fff;
+    width: 150px;
+}
+.btn-rea-suite{
+    background-color: #fff;
+    border: solid 1px #30b4ac;
+    color: #30b4ac;
+}
+.btn-lien-github{
+    width: 50%;
+    font-size: 17px;
+}
+.github{
+    margin: 20px 0 80px 20px;
+}
+
 .sitePerso {
     background-image: url("../images/sitePerso.png");
 }
 .randonnee {
     background-image: url("../images/rando.png");
-
 }
 
 .ptidej {
@@ -101,7 +129,6 @@ h5 {
 }
 @media (min-width: 400px) and (max-width: 770px) {
     .margin .uneRea {
-        width: 380px;
         margin: auto;
     }
 

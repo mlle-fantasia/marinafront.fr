@@ -12,7 +12,9 @@ import RealisationArticle from "./composants/pageRealisation/RealisationArticle"
 import MentionsLegalesPage from "./composants/MentionsLegalesPage";
 import axios from 'axios';
 
+
 const API = "http://api.marinafront.fr";
+// const API = "http://api-site-web";
 
 
 class RouteComposant extends Component {

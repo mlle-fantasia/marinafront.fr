@@ -41,16 +41,13 @@ class RealisationArticle extends Component {
     recupererInformationArticle(articleDemande) {
         // this.setState({articleDemande : articleDemande2});
 
-        console.log(articleDemande);
         axios.get(API + "/realisation-article.php?id=" + articleDemande).then((response) => {
             if (response.data.error) {
-                console.log("tu as une erreur");
+                console.log("il y a une erreur");
                 return true;
             }
-            console.log("coucou2");
             let article = response.data.payloadArticle;
             this.setState({article});
-
 
         });
 
@@ -59,7 +56,6 @@ class RealisationArticle extends Component {
                 console.log("tu as une erreur");
                 return true;
             }
-            console.log("coucou3");
             let photos = response.data.payloadImages;
             this.setState({photos});
             console.log(photos);
