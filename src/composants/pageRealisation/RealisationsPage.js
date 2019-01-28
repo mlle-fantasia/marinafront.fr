@@ -57,7 +57,7 @@ class RealisationsPage extends Component {
                     <Row>
                         <Col xs={12} md={6}>
                             <h3 className="github">
-                                Dépots Github :
+                                Dépôts Github :
                                 <a href="https://github.com/mlle-fantasia" target="_blank" rel="noopener noreferrer" >
                                    <button className="btn form-control btn-rea btn-lien-github">Les dépots des mes réalisations</button>
                                 </a>

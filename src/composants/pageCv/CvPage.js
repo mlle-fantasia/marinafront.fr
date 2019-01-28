@@ -95,6 +95,13 @@ class CvPage extends Component {
                                 </p>
                             </li>
                             <li>
+                                <p>Certification OpenClassroom Créez un site moderne et professionnel avec  <strong className="languageUtilise">WordPress 5</strong> :
+                                    <a href={require('../../assets/pdf/CertificatOC-WordPress.pdf')} target="_blank">
+                                        <button className="btn">Ma certification</button>
+                                    </a>
+                                </p>
+                            </li>
+                            <li>
                                 <p>Attestation de L'ANSSI <strong className="languageUtilise">Sécurité Informatique</strong> :
                                     <a href={require('../../assets/pdf/attestation_secnumacademie.pdf')} target="_blank">
                                         <button className="btn">Mon Attestation</button>
