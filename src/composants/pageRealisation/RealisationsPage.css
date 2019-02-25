@@ -116,7 +116,9 @@ h5 {
 .listeAsideCSS p{
     font-size: 17px;
 }
-
+.galerieImages .btnLienAside{
+    margin-bottom: 6px;
+}
 .galerieImages,.asideTexte{
     padding: 10px;
 }

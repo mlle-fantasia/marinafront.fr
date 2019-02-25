@@ -34,8 +34,8 @@ class RealisationsPage extends Component {
                     </Row>
                     <Row>
                         {this.context.tabRea.map((object, i) =>
-                            <div className="margin">
-                                <Link to={"/realisations/" + object.id + "#top"} key={i}>
+                            <div className="margin" key={i}>
+                                <Link to={"/realisations/" + object.id + "#top"} >
                                     <Col xs={12} sm={5} md={4} className="margin">
                                         <div className={`uneRea ${object.image}`}></div>
                                     </Col>
@@ -44,7 +44,7 @@ class RealisationsPage extends Component {
                                         <div className="texte titreRea">{object.titre} <span className="langagesRea">({object.Langages})</span></div>
 
                                         <p className="resumeRea">{object.resume}</p>
-                                        <Link to={"/realisations/" + object.id + "#top"} key={i}><button className="btn btn-rea btn-rea-suite">Lire la suite</button></Link>
+                                        <Link to={"/realisations/" + object.id + "#top"}><button className="btn btn-rea btn-rea-suite">Lire la suite</button></Link>
                                             <span>{object.site ?
                                         (<a href ={object.site} target ={object.target} rel="noopener noreferre"><button className="btn btn-rea">lien vers le site</button></a>)
                                         : ("")}</span>

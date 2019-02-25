@@ -11,7 +11,8 @@ import MyLightbox from "./MyLightbox";
 import ListeAsideRealisations from "./ListeAsideRealisations";
 import NavIcons from "../NavIcons";
 
-const API = "http://api.marinafront.fr";
+// const API = "http://api.marinafront.fr";
+const API = "http://api-site-web";
 
 
 
@@ -35,11 +36,13 @@ class RealisationArticle extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
+
         this.setState({articleDemande: nextProps.match.params.id});
         this.recupererInformationArticle(nextProps.match.params.id);
     }
 
     recupererInformationArticle(articleDemande) {
+
         // this.setState({articleDemande : articleDemande2});
 
         axios.get(API + "/realisation-article.php?id=" + articleDemande).then((response) => {
@@ -59,7 +62,6 @@ class RealisationArticle extends Component {
             }
             let photos = response.data.payloadImages;
             this.setState({photos});
-            console.log(photos);
         });
     }
 
@@ -80,12 +82,16 @@ class RealisationArticle extends Component {
             : (<div></div>);
 
 
-        const leLiens = article.lien ?
+        const leLiens = article.liens ?
             (<div>
                 <h3 className="galerieTitre">Les liens</h3>
                 <div>
                     <div className="mt-5 galerieImages">
-                        <a href ={article.lien} target ="_bank" rel="noopener noreferre" className="btn form-control btn-lien">{article.lienNom}</a>
+                        {article.liens.map ((a , i) =>
+                            <div className="btnLienAside" key={i}>
+                                <a href ={a.lien} target ="_bank" rel="noopener noreferre" className="btn form-control btn-lien">{a.lienNom}</a>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>)
@@ -117,6 +123,7 @@ class RealisationArticle extends Component {
                             </Row>
                         </Col>
                         <Col xs={12} sm={12}  md={3} className="images">
+
                             {leLiens}
                             {galerie}
                             <div className="listeAsideCSS">
