@@ -58,8 +58,8 @@ class RouteComposant extends Component {
             ));
 
         return (
-            <Provider tabRea={this.state.realisations}>
-                <App tabLiens={liensNavigation} tabRoute={listeLiensRouter}/>
+            <Provider tabRea={this.state.realisations} tabLiens={liensNavigation}>
+                <App tabRoute={listeLiensRouter}/>
             </Provider>
 
         );

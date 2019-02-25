@@ -9,6 +9,7 @@ import RawHtml from "react-raw-html"
 import PropTypes from 'prop-types';
 import MyLightbox from "./MyLightbox";
 import ListeAsideRealisations from "./ListeAsideRealisations";
+import NavIcons from "../NavIcons";
 
 const API = "http://api.marinafront.fr";
 
@@ -128,6 +129,7 @@ class RealisationArticle extends Component {
                     </Row>
 
                 </Grid>
+                <NavIcons/>
             </div>
         );
     }

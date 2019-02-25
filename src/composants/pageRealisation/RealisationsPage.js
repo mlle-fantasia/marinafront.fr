@@ -6,6 +6,7 @@ import '@ladjs/bootstrap-social/bootstrap-social.css';
 import 'font-awesome/css/font-awesome.css';
 import {Grid, Row, Col} from 'react-bootstrap';
 import {Link} from 'react-router-dom'
+import NavIcons from "../NavIcons";
 
 
 class RealisationsPage extends Component {
@@ -66,6 +67,9 @@ class RealisationsPage extends Component {
                         </Col>
                     </Row>
                 </Grid>
+
+                <NavIcons/>
+
             </div>
         );
     }

@@ -2,14 +2,18 @@ import {Component} from "react";
 import {Col, Grid, Row} from "react-bootstrap";
 import React from "react";
 import {HashLink as Link} from "react-router-hash-link";
+import PropTypes from 'prop-types';
 
 
 class NavIcons extends Component{
 
+    static contextTypes = {
+        tabLiens: PropTypes.array
+    };
 
     render(){
 
-        const listeLiens = this.props.tabLiens.map((element, i) => (
+        const listeLiens = this.context.tabLiens.map((element, i) => (
             <Link to={element.route + "#top"} key={i}>
                 <Col xs={12} sm={4} md={4}>
                     <div className="center-block">

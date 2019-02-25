@@ -6,6 +6,7 @@ import 'font-awesome/css/font-awesome.css'
 import Grid from 'react-bootstrap/lib/Grid';
 import Row from 'react-bootstrap/lib/Row';
 import Col from 'react-bootstrap/lib/Col';
+import NavIcons from "../NavIcons";
 
 
 class AccueilPage extends Component {
@@ -40,6 +41,9 @@ class AccueilPage extends Component {
                         </div>
                     </Col>
                 </Grid>
+
+                <NavIcons/>
+
             </div>
         );
     }

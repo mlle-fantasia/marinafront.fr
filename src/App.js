@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 //route
 import {Route, BrowserRouter} from 'react-router-dom'
 import {HashLink as Link} from 'react-router-hash-link';
@@ -27,11 +28,14 @@ class App extends Component {
         return pageActive.nom === nom ? 'pageActive' : 'pageInactive';
     }
 
+    static contextTypes = {
+        tabLiens: PropTypes.array
+    };
 
     render() {
 
 
-        const listeLiensNav = this.props.tabLiens.map((element, i) => (
+        const listeLiensNav = this.context.tabLiens.map((element, i) => (
             <NavItem componentClass={Link} href={element.route} to={element.route} key={i}>
                 {element.nom}
             </NavItem>
@@ -71,7 +75,6 @@ class App extends Component {
                     <Route path="/" exact component={AccueilPage}/>
                     {this.props.tabRoute}
 
-                    <NavIcons tabLiens={ this.props.tabLiens }/>
                     <Footer/>
 
                 </div>
