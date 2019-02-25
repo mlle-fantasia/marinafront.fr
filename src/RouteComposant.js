@@ -10,6 +10,7 @@ import ContactPage from "./composants/pageContact/ContactPage";
 import RealisationsPage from "./composants/pageRealisation/RealisationsPage";
 import RealisationArticle from "./composants/pageRealisation/RealisationArticle";
 import MentionsLegalesPage from "./composants/MentionsLegalesPage";
+import PagePendus from "./composants/pageRealisation/PagePendus";
 import axios from 'axios';
 
 
@@ -42,7 +43,8 @@ class RouteComposant extends Component {
                 {route: "/realisations", nom: "Réalisations", component: RealisationsPage, exact: true, icon: "Realisations", link: true},
                 {route: "/realisations/:id", component: RealisationArticle, exact: false, link: false},
                 {route: "/contact", nom: "Contact", component: ContactPage, exact: true, icon: "Contact", link: true},
-                {route: "/mentions-legales", nom: "mentions-legales", component: MentionsLegalesPage, exact: true,  link: false}
+                {route: "/mentions-legales", nom: "mentions-legales", component: MentionsLegalesPage, exact: true,  link: false},
+                {route: "/pendus", nom: "pendus", component: PagePendus, exact: true,  link: true}
             ];
 
         let liensNavigation = LIENS.filter(function (element) {

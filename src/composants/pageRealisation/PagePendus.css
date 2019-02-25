@@ -1,0 +1,120 @@
+.backgroundColor{
+    background-color:#333333;
+    height: 100%;
+    border-top: solid 1px gray;
+}
+.pendus{
+    background-image: url("../images/pendus.png");
+}
+.imageLogo{
+    width: 200px;
+}
+.marginTop{
+    padding: 100px 0 0 0;
+    color: #fff;
+}
+.marginBot{
+    margin: 0 0 100px 0;
+}
+
+.arriereplan{
+    position: absolute;
+    opacity: 0.3;
+    width: 50%;
+}
+
+
+.btn-jouer{
+    border: solid 1px;
+    border-radius: 20px 20px;
+    background-color: #61dafb;
+    box-shadow: 2px 2px 2px grey;
+}
+.btnReact{
+    border-color: #006884;
+    background-color: #61dafb;
+    color:#16323a;
+}
+.btnReact:hover{
+    background-color: #357688;
+}
+.btnAngular{
+    border-color:#350101;
+    background-color: #dd0330;
+}
+.btnAngular:hover{
+    background-color: #7d0202;
+}
+
+
+.cadre{
+    border: solid 1px gray;
+    border-radius: 5px 5px;
+    padding: 20px 15px 30px 15px;
+    min-height: 600px;
+    width: 75%;
+    margin: auto;
+}
+.cadrereact{
+    background-color:#a5dade8a;
+    box-shadow: 5px 5px 5px #096777;
+}
+.cadreAngular{
+    background-color:#f7afaf75;
+    box-shadow: 5px 5px 5px #770909;
+}
+.details p{
+    margin-top: 15px;
+    text-align: center;
+
+}
+
+@media screen and (max-width: 1024px){
+    .arriereplan{
+        position: absolute;
+        left: -20px;
+        top: 400px;
+        opacity: 0.3;
+        width: 100%;
+    }
+    .cadre{
+        min-height: 626px;
+        width: 100%;
+    }
+}
+@media screen and (max-width: 764px){
+    .cadre{
+        min-height: 626px;
+        width: 75%;
+        margin: auto;
+    }
+    .cadrereact{
+        margin-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .arriereplan{
+        position: absolute;
+        left: -20px;
+        opacity: 0.3;
+        width: 100%;
+    }
+    .marginTop{
+        padding-top: 30px ;
+    }
+    .navbar-brand{
+        font-size: 15px;
+    }
+
+    h1{
+        font-size: 34px;
+    }
+    h2{
+        font-size: 22px;
+    }
+    p{
+        font-size: 15px;
+    }
+
+}
