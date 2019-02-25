@@ -9,9 +9,11 @@ import './App.css';
 import './composants/MenuNavigation.css';
 import './composants/pageAccueil/Liens.css';
 import {Grid, Row, Col, Nav, Navbar, NavItem} from 'react-bootstrap';
+
 //component
 import Footer from './composants/Footer.js';
 import AccueilPage from './composants/pageAccueil/AccueilPage.js';
+import NavIcons from "./composants/NavIcons";
 
 
 const LIENVERSACCUEIL = [{route: "/", nom: "retour à l'accueil", component: AccueilPage, exact: true}];
@@ -27,18 +29,6 @@ class App extends Component {
 
 
     render() {
-
-
-        const listeLiens = this.props.tabLiens.map((element, i) => (
-            <Link to={element.route + "#top"} key={i}>
-                <Col xs={12} sm={4} md={4}>
-                    <div className="center-block">
-                        <div className={element.icon}></div>
-                        <div className="text">{element.nom}</div>
-                    </div>
-                </Col>
-            </Link>
-        ));
 
 
         const listeLiensNav = this.props.tabLiens.map((element, i) => (
@@ -81,16 +71,7 @@ class App extends Component {
                     <Route path="/" exact component={AccueilPage}/>
                     {this.props.tabRoute}
 
-                    <div className="liens">
-                        <Grid fluid>
-                            <Row>
-                                <Grid>
-                                    {listeLiens}
-                                </Grid>
-                            </Row>
-                        </Grid>
-                    </div>
-
+                    <NavIcons tabLiens={ this.props.tabLiens }/>
                     <Footer/>
 
                 </div>
