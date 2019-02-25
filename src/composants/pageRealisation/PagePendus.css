@@ -6,6 +6,12 @@
 .pendus{
     background-image: url("../images/pendus.png");
 }
+.pendus a{
+     color: #39d2c9;
+}
+.pendus h3{
+    color: #fff;
+}
 .imageLogo{
     width: 200px;
 }
@@ -14,7 +20,7 @@
     color: #fff;
 }
 .marginBot{
-    margin: 0 0 100px 0;
+    margin: 0 0 150px 0;
 }
 
 .arriereplan{
@@ -53,12 +59,14 @@
     border: solid 1px gray;
     border-radius: 5px 5px;
     padding: 20px 15px 30px 15px;
-    min-height: 600px;
+    min-height: 681px;
     width: 75%;
     margin: auto;
 }
 .cadre a{
     color: #fff;
+    font-size: 20px;
+    font-family: champagneGras;
 }
 
 .cadrereact{
@@ -72,6 +80,7 @@
 .details p{
     margin-top: 15px;
     text-align: center;
+    font-family: champagne;
 
 }
 

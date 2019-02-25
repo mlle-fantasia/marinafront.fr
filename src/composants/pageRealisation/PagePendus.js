@@ -2,6 +2,7 @@ import {Component} from 'react';
 import {Grid, Row, Col, Image} from 'react-bootstrap';
 import React from "react";
 import './PagePendus.css';
+import {Link} from "react-router-dom";
 
 class PagePendus extends Component{
 
@@ -17,11 +18,15 @@ class PagePendus extends Component{
                                     <h2 className="text-center">Testez et choisissez celle qui vous convient le mieux
                                         !</h2>
                                     <p className="text-center">J'ai réalisé deux jeux du pendu, L'un en
-                                        utilisant <strong>RéactJs</strong> et l'autre en utilisant <strong>Angular
+                                        utilisant <strong>ReactJs</strong> et l'autre en utilisant <strong>Angular
                                             6</strong>.
-                                        Les deux jeux sont presque identique. J'ai ainsi pu observer les différences
-                                        entre les deux langages.</p>
-                                    <p className="text-center">Vous pouvez cliquer sur les boutons et jouer.</p>
+                                        Les deux jeux sont presque identiques. J'ai ainsi pu observer les différences
+                                        entre les deux langages.
+                                        <Link to={"/realisations/4#top"}>
+                                            <span> Article React VS Angular</span>
+                                        </Link>
+                                    </p>
+                                    <h3 className="text-center">Vous pouvez cliquer sur les boutons et jouer.</h3>
                                 </Col>
                             </Row>
                         </div>

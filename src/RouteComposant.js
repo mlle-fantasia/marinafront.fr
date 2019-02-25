@@ -14,8 +14,8 @@ import PagePendus from "./composants/pageRealisation/PagePendus";
 import axios from 'axios';
 
 
-const API = "http://api.marinafront.fr";
-// const API = "http://api-site-web";
+// const API = "http://api.marinafront.fr";
+const API = "http://api-site-web";
 
 
 class RouteComposant extends Component {
@@ -44,7 +44,7 @@ class RouteComposant extends Component {
                 {route: "/realisations/:id", component: RealisationArticle, exact: false, link: false},
                 {route: "/contact", nom: "Contact", component: ContactPage, exact: true, icon: "Contact", link: true},
                 {route: "/mentions-legales", nom: "mentions-legales", component: MentionsLegalesPage, exact: true,  link: false},
-                {route: "/pendus", nom: "pendus", component: PagePendus, exact: true,  link: true}
+                {route: "/pendus", nom: "pendus", component: PagePendus, exact: true,  link: false}
             ];
 
         let liensNavigation = LIENS.filter(function (element) {

@@ -9,12 +9,12 @@ import {HashLink as Link} from 'react-router-hash-link';
 import './App.css';
 import './composants/MenuNavigation.css';
 import './composants/pageAccueil/Liens.css';
-import {Grid, Row, Col, Nav, Navbar, NavItem} from 'react-bootstrap';
+import { Nav, Navbar, NavItem} from 'react-bootstrap';
 
 //component
 import Footer from './composants/Footer.js';
 import AccueilPage from './composants/pageAccueil/AccueilPage.js';
-import NavIcons from "./composants/NavIcons";
+
 
 
 const LIENVERSACCUEIL = [{route: "/", nom: "retour à l'accueil", component: AccueilPage, exact: true}];
