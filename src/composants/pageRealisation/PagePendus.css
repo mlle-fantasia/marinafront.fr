@@ -55,6 +55,10 @@
     width: 75%;
     margin: auto;
 }
+.cadre a{
+    color: #fff;
+}
+
 .cadrereact{
     background-color:#a5dade8a;
     box-shadow: 5px 5px 5px #096777;

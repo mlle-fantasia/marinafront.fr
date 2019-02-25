@@ -7,7 +7,7 @@ class PagePendus extends Component{
 
     render(){
         return(
-            <Grid className="container-fluid backgroundColor">
+            <Grid className=" backgroundColor" fluid>
                 <div className="pendus">
                     <div className="container-fluid ">
                         <div className="container">
@@ -32,7 +32,7 @@ class PagePendus extends Component{
                             <Col md={6}>
                                 <div className="cadre cadrereact">
                                     <div className="text-center">
-                                        <Image className="imageLogo" src="../images/react-logo.png" alt="logo de Réact" fluid />
+                                        <Image className="imageLogo" src="../images/react-logo.png" alt="logo de React"  />
                                     </div>
                                     <button className="btn  btn-secondary btn-block btn-jouer btnReact"><a
                                         className="text-decoration-none text-uppercase">Jouer</a></button>
@@ -49,7 +49,7 @@ class PagePendus extends Component{
                             <Col md={6} >
                                 <div className="cadre cadreAngular">
                                     <div className="text-center">
-                                        <Image className="imageLogo" src="../images/angular.png" alt="logo de Angular" fluid/>
+                                        <Image className="imageLogo" src="../images/angular.png" alt="logo de Angular" />
                                     </div>
                                     <button className="btn btn-secondary btn-block btn-jouer btnAngular"><a
                                         className="text-decoration-none text-uppercase">Jouer</a></button>
