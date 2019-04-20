@@ -39,8 +39,8 @@ class PagePendus extends Component{
                                     <div className="text-center">
                                         <Image className="imageLogo" src="../images/react-logo.png" alt="logo de React"  />
                                     </div>
-                                    <button className="btn  btn-secondary btn-block btn-jouer btnReact"><a
-                                        className="text-decoration-none text-uppercase">Jouer</a></button>
+                                    <button className="btn  btn-secondary btn-block btn-jouer btnReact">
+                                        <a href="https://pendureact.exs3.com" target="bank" className="text-decoration-none text-uppercase">Jouer</a></button>
                                     <div className="details">
                                         <p>Syntaxe simplifiée avec JSX</p>
                                         <p>Optimisation du rendu avec une DOM virtuel</p>
@@ -57,7 +57,7 @@ class PagePendus extends Component{
                                         <Image className="imageLogo" src="../images/angular.png" alt="logo de Angular" />
                                     </div>
                                     <button className="btn btn-secondary btn-block btn-jouer btnAngular"><a
-                                        className="text-decoration-none text-uppercase">Jouer</a></button>
+                                        href="https://penduangular.exs3.com" className="text-decoration-none text-uppercase">Jouer</a></button>
                                     <div className="details">
                                         <p>Séparation du template et du code applicatif</p>
                                         <p>Composants dynamiques avec l'interpolation, Property binding et Two-way

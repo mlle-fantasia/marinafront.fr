@@ -11,7 +11,7 @@ import MyLightbox from "./MyLightbox";
 import ListeAsideRealisations from "./ListeAsideRealisations";
 import NavIcons from "../NavIcons";
 
-// const API = "http://api.marinafront.fr";
+//const API = "http://api.marinafront.fr";
 const API = "http://api-site-web";
 
 

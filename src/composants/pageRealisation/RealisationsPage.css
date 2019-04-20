@@ -9,9 +9,10 @@
 
 .uneRea {
     height: 167px;
-    background-size: 100%;
     margin-bottom: 20px;
     border: solid 5px #222;
+    background-size: cover;
+    background-position: center;
 }
 .resumeRea{
     font-size: 17px;
@@ -54,7 +55,9 @@
 .randonnee {
     background-image: url("../images/rando.png");
 }
-
+.voyagesCroises{
+    background-image: url("../images/VCminiature.JPG");
+}
 .ptidej {
     background-image: url("../images/ptidej.png");
 }
@@ -92,6 +95,9 @@
     width: 100%;
     margin-bottom: 30px;
 }
+#imgArchiPendu{
+    width: 65%;
+}
 h4 {
     font-family: Champagne;
     color: #30b4ac;
@@ -128,6 +134,28 @@ h5 {
 .btnRetour{
     background-color: #22807a;
     color : white;
+}
+code{
+    color: #ffffff;
+    background-color: #334a49;
+}
+.code{
+    background-color: #334a49;
+    color: white;
+    border-radius: 4px 4px;
+    padding: 5px;
+    width: max-content;
+    margin: 10px 0;
+}
+.alinea{
+    text-indent: 25px;
+}
+.alineaD{
+    text-indent: 50px;
+}
+.h6{
+    color:#30b4ac;
+    font-size: 16px;
 }
 @media (min-width: 400px) and (max-width: 770px) {
     .margin .uneRea {

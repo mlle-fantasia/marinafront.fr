@@ -97,14 +97,34 @@
         width: 100%;
     }
 }
+@media screen and (max-width: 992px){
+    .pendus h1{
+        font-size: 67px;
+    }
+    .cadre{
+        min-height: 490px;
+        width: 60%;
+    }
+    .cadrereact{
+        margin-bottom: 40px;
+    }
+}
 @media screen and (max-width: 764px){
     .cadre{
-        min-height: 626px;
+        min-height: 550px;
         width: 75%;
         margin: auto;
     }
     .cadrereact{
-        margin-bottom: 20px;
+        margin-bottom: 40px;
+    }
+}
+@media screen and (max-width: 502px){
+    .pendus h1{
+        font-size: 50px;
+    }
+    .marginTop{
+        padding: 50px 0 0 0;
     }
 }
 
