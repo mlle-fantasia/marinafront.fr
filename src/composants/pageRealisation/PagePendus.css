@@ -35,11 +35,17 @@
     border-radius: 20px 20px;
     background-color: #61dafb;
     box-shadow: 2px 2px 2px grey;
+    color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.btn-jouer:hover{
+    color: #fff;
 }
 .btnReact{
     border-color: #006884;
     background-color: #59d0f1;
-    color:#16323a;
+    //color:#16323a;
     box-shadow: 3px 3px 4px #096777b8;
 }
 .btnReact:hover{

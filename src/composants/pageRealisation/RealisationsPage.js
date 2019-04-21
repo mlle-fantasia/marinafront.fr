@@ -46,7 +46,7 @@ class RealisationsPage extends Component {
                                         <p className="resumeRea">{object.resume}</p>
                                         <Link to={"/realisations/" + object.id + "#top"}><button className="btn btn-rea btn-rea-suite">Lire la suite</button></Link>
                                             <span>{object.site ?
-                                        (<a href ={object.site} target ={object.target} rel="noopener noreferre"><button className="btn btn-rea">lien vers le site</button></a>)
+                                        (<a href ={object.site} target ={object.target} rel="noopener noreferre nofollow"><button className="btn btn-rea">lien vers le site</button></a>)
                                         : ("")}</span>
                                     </Col>
                                 <Col xs={12} sm={12} md={12} >
