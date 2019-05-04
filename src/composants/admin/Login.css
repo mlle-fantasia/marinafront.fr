@@ -1,0 +1,15 @@
+.login{
+    height: 50%;
+}
+.form{
+    width: 23%;
+    margin: auto;
+    text-align: center;
+    padding: 100px 0 200px 0;
+}
+.input{
+    margin-bottom: 20px;
+}
+.btn-rea{
+    margin: 0;
+}

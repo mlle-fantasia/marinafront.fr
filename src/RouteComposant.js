@@ -11,11 +11,14 @@ import RealisationsPage from "./composants/pageRealisation/RealisationsPage";
 import RealisationArticle from "./composants/pageRealisation/RealisationArticle";
 import MentionsLegalesPage from "./composants/MentionsLegalesPage";
 import PagePendus from "./composants/pageRealisation/PagePendus";
+import Login from "./composants/admin/Login";
+import Admin from "./composants/admin/Admin";
+
 import axios from 'axios';
 
 
-const API = "https://api.marinafront.fr";
-//const API = "http://api-site-web";
+//const API = "https://api.marinafront.fr";
+const API = "http://api-site-web";
 
 
 class RouteComposant extends Component {
@@ -44,7 +47,10 @@ class RouteComposant extends Component {
                 {route: "/realisations/:id", component: RealisationArticle, exact: false, link: false},
                 {route: "/contact", nom: "Contact", component: ContactPage, exact: true, icon: "Contact", link: true},
                 {route: "/mentions-legales", nom: "mentions-legales", component: MentionsLegalesPage, exact: true,  link: false},
-                {route: "/pendus", nom: "pendus", component: PagePendus, exact: true,  link: false}
+                {route: "/pendus", nom: "pendus", component: PagePendus, exact: true,  link: false},
+                {route: "/fantasia", nom: "login", component: Login, exact: true,  link: false},
+                {route: "/fantasia/admin", nom: "admin", component: Admin, exact: true,  link: false}
+
             ];
 
         let liensNavigation = LIENS.filter(function (element) {

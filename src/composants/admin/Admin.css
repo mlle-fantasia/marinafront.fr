@@ -1,0 +1,13 @@
+.admin h2{
+    color: #222222;
+}
+.admin-sousTitre{
+    font-size: 28px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    padding: 10px;
+}
+.admin-sousTitreTitre{
+    padding: 0 10px;
+}
