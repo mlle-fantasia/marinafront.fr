@@ -1,227 +1,235 @@
-.realisation .petitTitre, .realisation .glyfTitre {
-    color: #30b4ac;
+.realisation .petitTitre,
+.realisation .glyfTitre {
+	color: #30b4ac;
 }
-
+.rea {
+	padding: 30px 0 50px 20px;
+}
 .margin {
-    padding: 30px 0 50px 20px;
-
+	padding: 30px 0 50px 20px;
 }
-
 .uneRea {
-    height: 167px;
-    margin-bottom: 20px;
-    border: solid 5px #222;
-    background-size: cover;
-    background-position: center;
+	height: 167px;
+	margin-bottom: 20px;
+	border: solid 5px #222;
+	background-size: cover;
+	background-position: center;
 }
-.resumeRea{
-    font-size: 17px;
-    padding-top: 10px;
+.resumeRea {
+	font-size: 17px;
+	padding-top: 10px;
 }
-.titreRea{
-    color: #30b4ac;
+.titreRea {
+	color: #30b4ac;
 }
 
 .realisation .texte {
-    font-size: 22px;
-    font-family: champagneGras;
+	font-size: 22px;
+	font-family: champagneGras;
 }
-.langagesRea{
-    font-size: 19px;
-    color: gray;
+.langagesRea {
+	font-size: 19px;
+	color: gray;
 }
-.btn-rea{
-    margin-left: 20px;
-    background-color: #30b4ac;
-    color: #fff;
-    width: 150px;
+.btn-rea {
+	margin-left: 20px;
+	background-color: #30b4ac;
+	color: #fff;
+	width: 150px;
 }
-.btn-rea-suite{
-    background-color: #fff;
-    border: solid 1px #30b4ac;
-    color: #30b4ac;
+.btn-rea-suite {
+	background-color: #fff;
+	border: solid 1px #30b4ac;
+	color: #30b4ac;
 }
-.btn-lien-github{
-    width: 50%;
-    font-size: 17px;
+.btn-lien-github {
+	width: 50%;
+	font-size: 17px;
 }
-.github{
-    margin: 20px 0 80px 20px;
+.github {
+	margin: 20px 0 80px 20px;
 }
 
 .sitePerso {
-    background-image: url("../images/sitePerso.png");
+	background-image: url("../images/sitePerso.png");
 }
 .randonnee {
-    background-image: url("../images/rando.png");
+	background-image: url("../images/rando.png");
 }
-.voyagesCroises{
-    background-image: url("../images/VCminiature.JPG");
+.voyagesCroises {
+	background-image: url("../images/VCminiature.JPG");
 }
 .ptidej {
-    background-image: url("../images/ptidej.png");
+	background-image: url("../images/ptidej.png");
 }
 
 .pendu {
-    background-image: url("../images/pendu.png");
+	background-image: url("../images/pendu.png");
 }
 
 .cuisiner {
-    background-image: url("../images/cuisiner.png");
+	background-image: url("../images/cuisiner.png");
 }
 
 .domotique {
-    background-image: url("../images/homeControl.png");
+	background-image: url("../images/homeControl.png");
 }
 
 .unArticle p {
-    font-size: 18px;
-    text-align: justify;
-    font-weight: 500;
+	font-size: 18px;
+	text-align: justify;
+	font-weight: 500;
 }
-.titreArticle{
-    font-size: 60px;
-    font-family: Ink;
-    padding-left: 40px;
-    color: #30b4ac;
+.titreArticle {
+	font-size: 60px;
+	font-family: Ink;
+	padding-left: 40px;
+	color: #30b4ac;
 }
-.unArticle{
-    margin-bottom: 70px;
+.unArticle {
+	margin-bottom: 70px;
 }
-.texteArticle{
-    margin-bottom: 50px;
+.texteArticle {
+	margin-bottom: 50px;
 }
-.unArticle img{
-    width: 100%;
-    margin-bottom: 30px;
+.unArticle img {
+	width: 100%;
+	margin-bottom: 30px;
 }
-#imgArchiPendu{
-    width: 65%;
+#imgArchiPendu {
+	width: 65%;
 }
 h4 {
-    font-family: Champagne;
-    color: #30b4ac;
-    font-size: 25px;
-    text-indent: 2em;
+	font-family: Champagne;
+	color: #30b4ac;
+	font-size: 25px;
+	text-indent: 2em;
 }
 h5 {
-    font-family: Champagne;
-    font-size: 21px;
-    color: #30b4ac;
-    text-indent: 2em;
+	font-family: Champagne;
+	font-size: 21px;
+	color: #30b4ac;
+	text-indent: 2em;
 }
-.btn-lien{
-    background-color: #e2e1e1;
+.btn-lien {
+	background-color: #e2e1e1;
 }
-.images{
-    margin-top: 110px;
-    padding: 20px;
-    text-align: center;
+.images {
+	margin-top: 110px;
+	padding: 20px;
+	text-align: center;
 }
 
-.listeAsideCSS p{
-    font-size: 17px;
+.listeAsideCSS p {
+	font-size: 17px;
 }
-.galerieImages .btnLienAside{
-    margin-bottom: 6px;
+.galerieImages .btnLienAside {
+	margin-bottom: 6px;
 }
-.galerieImages,.asideTexte{
-    padding: 10px;
+.galerieImages,
+.asideTexte {
+	padding: 10px;
 }
 .galerieImages img {
-    width: 100%;
+	width: 100%;
 }
-.btnRetour{
-    background-color: #22807a;
-    color : white;
+.btnRetour {
+	background-color: #22807a;
+	color: white;
 }
-code{
-    color: #ffffff;
-    background-color: #334a49;
+code {
+	color: #ffffff;
+	background-color: #334a49;
 }
-.code{
-    background-color: #334a49;
-    color: white;
-    border-radius: 4px 4px;
-    padding: 5px;
-    width: max-content;
-    margin: 10px 0;
+.code {
+	background-color: #334a49;
+	color: white;
+	border-radius: 4px 4px;
+	padding: 5px;
+	width: max-content;
+	margin: 10px 0;
 }
-.alinea{
-    text-indent: 25px;
+.alinea {
+	text-indent: 25px;
 }
-.alineaD{
-    text-indent: 50px;
+.alineaD {
+	text-indent: 50px;
 }
-.h6{
-    color:#30b4ac;
-    font-size: 16px;
+.h6 {
+	color: #30b4ac;
+	font-size: 16px;
 }
 @media (min-width: 400px) and (max-width: 770px) {
-    .margin .uneRea {
-        margin: auto;
-    }
-
+	.rea .uneRea {
+		margin: auto;
+	}
 }
 
 @media only screen and (max-width: 990px) {
-    .unArticle p {
-        font-size: 16px;
-    }
-    .btn-lien{
-        width: 50%;
-    }
-    .images{
-        margin-top: 0px;
-    }
-    .galerieImages img {
-        width: 48%;
-        height: 150px;
-    }
-    .texteArticle{
-        margin-bottom: 20px;
-    }
-    .titreArticle {
-        font-size: 50px;
-    }
+	.unArticle p {
+		font-size: 16px;
+	}
+	.btn-lien {
+		width: 50%;
+	}
+	.images {
+		margin-top: 0px;
+	}
+	.galerieImages img {
+		width: 48%;
+		height: 150px;
+	}
+	.texteArticle {
+		margin-bottom: 20px;
+	}
+	.titreArticle {
+		font-size: 50px;
+	}
 }
 
 @media only screen and (max-width: 768px) {
-    .unArticle p {
-        font-size: 14px;
-    }
+	.unArticle p {
+		font-size: 14px;
+	}
 
-    h3 {
-        font-size: 23px;
-    }
+	h3 {
+		font-size: 23px;
+	}
 
-    h4 {
-        font-size: 19px;
-    }
-    .unArticle{
-        margin-bottom: 30px;
-    }
-    .btnRetour{
-        margin: 3px auto;
-    }
-    .titreArticle {
-        font-size: 40px;
-    }
+	h4 {
+		font-size: 19px;
+	}
+	.unArticle {
+		margin-bottom: 30px;
+	}
+	.btnRetour {
+		margin: 3px auto;
+	}
+	.titreArticle {
+		font-size: 40px;
+	}
 }
 @media (min-width: 400px) and (max-width: 768px) {
-    .btnRetour{
-        width: 300px;
-    }
+	.btnRetour {
+		width: 300px;
+	}
 }
 @media only screen and (max-width: 400px) {
-    .btn-lien{
-        width: 100%;
-    }
-    .galerieImages img {
-        width: 100%;
-        height: auto;
-    }
-    .titreArticle {
-        font-size: 35px;
-    }
+	.btn-lien {
+		width: 100%;
+	}
+	.galerieImages img {
+		width: 100%;
+		height: auto;
+	}
+	.titreArticle {
+		font-size: 35px;
+	}
+	.btn-lien-github {
+		width: auto;
+		font-size: 15px;
+	}
+	.rea {
+		padding: 0;
+	}
 }
