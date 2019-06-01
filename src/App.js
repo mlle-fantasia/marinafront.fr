@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import "reflect-metadata";
 //route
 import {Route, BrowserRouter} from 'react-router-dom'
 import {HashLink as Link} from 'react-router-hash-link';
