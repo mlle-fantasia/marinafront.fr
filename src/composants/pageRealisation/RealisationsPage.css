@@ -49,7 +49,11 @@
 .github {
 	margin: 20px 0 80px 20px;
 }
-
+.oc {
+    background-image: url("../images/ocMiniature.png");
+}.amc {
+     background-image: url("../images/AMCminiature.jpg");
+}
 .sitePerso {
 	background-image: url("../images/sitePerso.png");
 }
