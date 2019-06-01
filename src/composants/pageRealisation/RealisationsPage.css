@@ -49,9 +49,13 @@
 .github {
 	margin: 20px 0 80px 20px;
 }
+.colette {
+    background-image: url("../images/coletteMiniature.png");
+}
 .oc {
     background-image: url("../images/ocMiniature.png");
-}.amc {
+}
+.amc {
      background-image: url("../images/AMCminiature.jpg");
 }
 .sitePerso {

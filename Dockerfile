@@ -1,5 +1,5 @@
 # build environment
-FROM node:latest as builder
+FROM node:lts as builder
 RUN mkdir /usr/src/app
 WORKDIR /usr/src/app
 
