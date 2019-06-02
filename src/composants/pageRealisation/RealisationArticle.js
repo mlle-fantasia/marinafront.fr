@@ -21,7 +21,7 @@ class RealisationArticle extends Component {
         articleDemande: this.props.match.params.id,
         listeAside: [],
         photos: [],
-        tabProjets: [],
+
     };
 
     static contextTypes = {
@@ -100,7 +100,9 @@ class RealisationArticle extends Component {
         const oc = this.context.tabProjets.length > 0 ?
             (<div>
                 {this.context.tabProjets.map((object, i) => (
-                    <ProjetComponent projetID={object.id}/>
+                    <div key={i}>
+                        <ProjetComponent projetID={object.id} project={object} />
+                    </div>
                 ))}
 
             </div>)

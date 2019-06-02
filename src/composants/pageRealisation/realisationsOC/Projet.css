@@ -3,4 +3,17 @@
     background-color: #22807a1f;
     border-bottom:solid 2.5px #22807a;
     cursor: pointer;
+    margin-bottom: 10px;
+}
+.projectArticle{
+    border-bottom:solid 2.5px #22807a;
+    margin-bottom: 10px;
+}
+.linkToProject{
+    text-align: center;
+}
+.btnLinkProject{
+    margin: 15px auto 5px auto;
+    font-size: 16px;
+    width: 80%;
 }

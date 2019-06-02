@@ -3,64 +3,53 @@ import PropTypes from "prop-types";
 import "./Projet.css";
 import "@ladjs/bootstrap-social/bootstrap-social.css";
 import "font-awesome/css/font-awesome.css";
-import axios from "axios";
-import {Link} from "react-router-dom";
+import RawHtml from "react-raw-html"
+import {Col} from "react-bootstrap";
+
 
 
 class ProjetComponent extends Component {
 
     state = {
-        projets : [],
-        projet:[],
-        // projetDemande:this.props.match.params.id,
+        project:this.props.project,
+        idProjet:this.props.projetID,
+        projectClicked : false,
     };
 
     static contextTypes = {
-        api: PropTypes.string
+        api: PropTypes.string,
+        tabProjets:PropTypes.array
     };
-    
-    componentWillMount() {
-        this.getProjects();
-    }
-    
-    componentWillReceiveProps() {
-        this.getProjects();
+
+
+    hideShowDataProject() {
+        console.log(this.state.projectClicked);
+        if(this.state.projectClicked === true){
+            this.setState({projectClicked : false});
+        }else{
+            this.setState({projectClicked : true});
+        }
     }
 
-    getProjects() {
-        axios.get(this.context.api + "/realisation-oc.php").then((response) => {
-            if (response.data.error) {
-                console.log("il y a une erreur");
-                return true;
-            }
-            let projets = response.data.payload;
-            this.setState({projets});
-
-        });
-    }
-    getProject(projetDemande) {
-        axios.get(this.context.api + "/realisation-oc.php?id="+ projetDemande).then((response) => {
-            if (response.data.error) {
-                console.log("il y a une erreur");
-                return true;
-            }
-            let projet = response.data.payload;
-            this.setState({projet});
-
-        });
-    }
-    
     
     render() {
+
+        const article =  this.state.projectClicked ?(
+                <div className="projectArticle">
+                    <RawHtml.div className="texte">{this.state.project.article}</RawHtml.div>
+                    <div className="linkToProject">
+                    <a href={this.state.project.lien}><button className="form-control btnRetour btnLinkProject">{this.state.project.titre}</button></a>
+                    </div>
+                </div>
+            ):
+            (<div></div>);
+
         return (
             <div>
-                {/*{this.props.projets.map((object, i) => (*/}
-                    {/*<Link to={"/realisations/" + object.id + "#top"}>*/}
-                        <div className="projet">
-                            <h5>Projet 1<span className="glyphicon glyphicon-chevron-down"></span></h5>
-                        </div>
-                    {/*</Link>*/}
-                {/*))}*/}
+                <div className="projet" onClick={this.hideShowDataProject.bind(this)}>
+                    <h5> {this.state.project.titre}<span className="glyphicon glyphicon-chevron-down"></span></h5>
+                </div>
+                {article}
             </div>
         );
     }
