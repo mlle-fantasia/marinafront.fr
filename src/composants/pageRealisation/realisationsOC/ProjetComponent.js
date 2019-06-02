@@ -38,7 +38,7 @@ class ProjetComponent extends Component {
                 <div className="projectArticle">
                     <RawHtml.div className="texte">{this.state.project.article}</RawHtml.div>
                     <div className="linkToProject">
-                    <a href={this.state.project.lien}><button className="form-control btnRetour btnLinkProject">{this.state.project.titre}</button></a>
+                    <a href={this.state.project.lien} target="_blank"><button className="form-control btnRetour btnLinkProject">{this.state.project.titre}</button></a>
                     </div>
                 </div>
             ):
