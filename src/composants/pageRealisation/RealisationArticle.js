@@ -50,7 +50,7 @@ class RealisationArticle extends Component {
                 console.log("il y a une erreur");
                 return true;
             }
-            let article = response.data.payloadArticle;
+            let article = response.data.payload;
             this.setState({article});
 
         });
@@ -60,7 +60,7 @@ class RealisationArticle extends Component {
                 console.log("tu as une erreur");
                 return true;
             }
-            let photos = response.data.payloadImages;
+            let photos = response.data.payload;
             this.setState({photos});
         });
     }
