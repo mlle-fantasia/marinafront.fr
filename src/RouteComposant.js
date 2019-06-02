@@ -14,25 +14,37 @@ import PagePendus from "./composants/pageRealisation/PagePendus";
 import axios from 'axios';
 
 
-const API = "https://api.marinafront.fr";
-//const API = "http://api-site-web";
+//const API = "https://api.marinafront.fr"; //prod
+//const API = "http://api-site-web"; //local
 
 
 class RouteComposant extends Component {
 
     state = {
         realisations: [],
+        projets: [],
+        api:"https://api.marinafront.fr",
     };
 
-    componentDidMount() {
-        axios.get(API + "/realisation-article.php").then((response) => {
-            if (response.data.error) {
-                console.log("tu as une erreur");
-                return true;
-            }
-            const realisations = response.data.payload;
-            this.setState({realisations});
-        })
+    async componentDidMount()  {
+
+         const [firstResponse, secondResponse] = await Promise.all([
+             axios.get(this.state.api + "/realisation-article.php"),
+             axios.get(this.state.api + "/realisation-oc.php")
+         ]);
+
+        if (firstResponse.data.error) {
+            console.log("tu as une erreur dans la récupération des articles");
+            return true;
+        }
+        this.setState({realisations: firstResponse.data.payload});
+
+        if (secondResponse.data.error) {
+            console.log("tu as une erreur dans la récupération des projets");
+            return true;
+        }
+
+       await this.setState({projets: secondResponse.data.payload});
     }
 
     render() {
@@ -51,14 +63,13 @@ class RouteComposant extends Component {
                 return element.link ? element : false;
             });
 
-
         const
             listeLiensRouter = LIENS.map((element, i) => (
                 <Route key={i} path={element.route} exact={element.exact} component={element.component}/>
             ));
 
         return (
-            <Provider tabRea={this.state.realisations} tabLiens={liensNavigation}>
+            <Provider tabRea={this.state.realisations} tabProjets={this.state.projets } tabLiens={liensNavigation} api={this.state.api} >
                 <App tabRoute={listeLiensRouter}/>
             </Provider>
 

@@ -10,10 +10,7 @@ import PropTypes from 'prop-types';
 import MyLightbox from "./MyLightbox";
 import ListeAsideRealisations from "./ListeAsideRealisations";
 import NavIcons from "../NavIcons";
-
-const API = "https://api.marinafront.fr";
-//const API = "http://api-site-web";
-
+import ProjetComponent from "./realisationsOC/ProjetComponent";
 
 
 class RealisationArticle extends Component {
@@ -24,10 +21,13 @@ class RealisationArticle extends Component {
         articleDemande: this.props.match.params.id,
         listeAside: [],
         photos: [],
+
     };
 
     static contextTypes = {
-        tabRea: PropTypes.array
+        tabRea: PropTypes.array,
+        tabProjets: PropTypes.array,
+        api: PropTypes.string
     };
 
 
@@ -45,7 +45,7 @@ class RealisationArticle extends Component {
 
         // this.setState({articleDemande : articleDemande2});
 
-        axios.get(API + "/realisation-article.php?id=" + articleDemande).then((response) => {
+        axios.get(this.context.api + "/realisation-article.php?id=" + articleDemande).then((response) => {
             if (response.data.error) {
                 console.log("il y a une erreur");
                 return true;
@@ -55,7 +55,7 @@ class RealisationArticle extends Component {
 
         });
 
-        axios.get(API + "/realisation-images.php?id=" + articleDemande).then((response) => {
+        axios.get(this.context.api + "/realisation-images.php?id=" + articleDemande).then((response) => {
             if (response.data.error) {
                 console.log("tu as une erreur");
                 return true;
@@ -64,7 +64,6 @@ class RealisationArticle extends Component {
             this.setState({photos});
         });
     }
-
 
 
     render() {
@@ -87,13 +86,25 @@ class RealisationArticle extends Component {
                 <h3 className="galerieTitre">Les liens</h3>
                 <div>
                     <div className="mt-5 galerieImages">
-                        {article.liens.map ((a , i) =>
+                        {article.liens.map((a, i) =>
                             <div className="btnLienAside" key={i}>
-                                <a href ={a.lien} target ="_bank" rel="noopener noreferre" className="btn form-control btn-lien">{a.lienNom}</a>
+                                <a href={a.lien} target="_bank" rel="noopener noreferre"
+                                   className="btn form-control btn-lien">{a.lienNom}</a>
                             </div>
                         )}
                     </div>
                 </div>
+            </div>)
+            : (<div></div>);
+
+        const oc = this.context.tabProjets.length > 0 ?
+            (<div>
+                {this.context.tabProjets.map((object, i) => (
+                    <div key={i}>
+                        <ProjetComponent projetID={object.id} project={object} />
+                    </div>
+                ))}
+
             </div>)
             : (<div></div>);
 
@@ -109,10 +120,12 @@ class RealisationArticle extends Component {
                                         <div className="titreArticle">{article.titre}</div>
                                     </h2>
                                     <RawHtml.div className="texte">{article.contenu}</RawHtml.div>
+                                    {oc}
                                 </Col>
                                 <Col xs={12} md={6} sm={6}>
                                     <Link to={"/realisations#top"}>
-                                        <button className="form-control btnRetour">retour à la liste des réalisations</button>
+                                        <button className="form-control btnRetour">retour à la liste des réalisations
+                                        </button>
                                     </Link>
                                 </Col>
                                 <Col xs={12} md={6} sm={6}>
@@ -122,7 +135,7 @@ class RealisationArticle extends Component {
                                 </Col>
                             </Row>
                         </Col>
-                        <Col xs={12} sm={12}  md={3} className="images">
+                        <Col xs={12} sm={12} md={3} className="images">
 
                             {leLiens}
                             {galerie}

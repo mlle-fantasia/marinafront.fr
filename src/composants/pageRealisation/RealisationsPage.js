@@ -10,7 +10,8 @@ import NavIcons from "../NavIcons";
 
 class RealisationsPage extends Component {
 	static contextTypes = {
-		tabRea: PropTypes.array
+		tabRea: PropTypes.array,
+        api: PropTypes.string
 	};
 
 	render() {

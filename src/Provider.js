@@ -7,6 +7,8 @@ class Provider extends Component {
         return {
             tabRea: this.props.tabRea,
             tabLiens : this.props.tabLiens,
+            tabProjets : this.props.tabProjets,
+            api :  this.props.api,
         }
     }
 
@@ -14,6 +16,8 @@ class Provider extends Component {
     static childContextTypes = {
         tabRea: PropTypes.array,
         tabLiens: PropTypes.array,
+        tabProjets: PropTypes.array,
+        api : PropTypes.string,
     };
 
     // Rendu de l'application
