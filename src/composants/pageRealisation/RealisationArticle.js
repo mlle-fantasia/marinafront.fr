@@ -97,7 +97,7 @@ class RealisationArticle extends Component {
             </div>)
             : (<div></div>);
 
-        const oc = this.context.tabProjets.length > 0 ?
+        const oc = this.context.tabProjets.length > 0 && this.state.articleDemande === "8"?
             (<div>
                 {this.context.tabProjets.map((object, i) => (
                     <div key={i}>
