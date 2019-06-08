@@ -2,12 +2,30 @@
     color: #222222;
 }
 .admin-sousTitre{
-    font-size: 28px;
+    font-size: 20px;
     display: flex;
     flex-direction: row;
     justify-content: start;
     padding: 10px;
+    cursor: pointer;
+}
+.admin-sousTitre:hover{
+    background-color: #30b4ac;
+    color: #fff;
 }
 .admin-sousTitreTitre{
     padding: 0 10px;
+}
+.admin-btnAjouter{
+    padding:0 10px;
+    height: 35px;
+}
+.navAdmin{
+    border-bottom: solid 3px #30b4ac;
+}
+.imgReaAdmin{
+    height: 100px;
+}
+.titreReaAdmin{
+    margin-bottom: 20px;
 }

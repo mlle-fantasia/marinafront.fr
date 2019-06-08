@@ -3,9 +3,21 @@ import {Grid, Row, Col} from 'react-bootstrap';
 import React from "react";
 import './Login.css';
 import {Link} from "react-router-dom";
+import axios from "axios";
 
 
 class Login extends Component{
+
+    login(){
+
+        // axios.post("localhost:3001/login").then((response) => {
+        //     if (response.data.error) {
+        //         console.log("il y a une erreur");
+        //         return true;
+        //     }
+        //
+        // });
+    }
 
     render(){
         return(
@@ -15,6 +27,7 @@ class Login extends Component{
                         <Col md={12} className=" header ">
                             <h1 className="text-center">Salut Marina !</h1>
                             <div className="form">
+                                <h3 className="text-center">Prouve que tu es toi</h3>
                                 <form action="" >
                                     <div className="input formLogin">
                                         <label htmlFor="">login</label><br/>
@@ -25,10 +38,9 @@ class Login extends Component{
                                         <input type="password"/>
                                     </div>
                                     <div className="formBtn">
-                                        <Link to={"/fantasia/admin"}>
-                                            <button className="btn btn-rea-suite">Se connecter</button>
+                                        <Link to={"/fantasia/admin#top"}>
+                                             <button className="btn btn-rea-suite" onClick={this.login}>Se connecter</button>
                                         </Link>
-
                                     </div>
 
                                 </form>

@@ -1,13 +1,11 @@
-import {Component} from 'react';
-import {Grid, Row, Col} from 'react-bootstrap';
-import React from "react";
+import React, {Component} from 'react';
+import {Col, Row} from 'react-bootstrap';
 import './Admin.css';
 import {Link} from "react-router-dom";
-import PropTypes from 'prop-types';
 import axios from "axios";
 
 
-class AdminArticles extends Component{
+class AdminArticlesList extends Component{
 
     constructor() {
        super();
@@ -60,4 +58,4 @@ class AdminArticles extends Component{
         );
     }
 }
-export default AdminArticles;
+export default AdminArticlesList;
