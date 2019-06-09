@@ -49,18 +49,16 @@ class AdminArticlesList extends Component{
             (
                 articles.map((object, i) =>
                 <Row key={i}>
-                    <div className="margin" >
-                        <Col xs={12} sm={5} md={2} className="">
-                            <div className={`uneRea imgReaAdmin ${object.miniature}`}></div>
+                    <div className="margin itemListAdmin" >
+                        <Col xs={12} sm={5} md={1} className="">
+                            <div className={`uneRea imgReaAdmin ${object.miniature}`}/>
                         </Col>
-                        <Col xs={12} sm={7} md={10} className="admin-margin">
+                        <Col xs={12} sm={7} md={7} className="admin-margin">
                             <div className="texte titreRea titreReaAdmin">{object.title} </div>
-
-
+                        </Col>
+                        <Col xs={12} sm={7} md={4} className="admin-margin">
                             <Link to={"/fantasia/admin" + object.id + "#top"}><button className="btn btn-rea btn-rea-suite">Modifier</button></Link>
-                            <span>
-                                        <Link to={"/fantasia/admin" + object.id + "#top"}><button className="btn btn-rea btn-danger">Supprimer</button></Link>
-                                    </span>
+                            <Link to={"/fantasia/admin" + object.id + "#top"}><button className="btn btn-rea btn-danger">Supprimer</button></Link>
                         </Col>
                         <Col xs={12} sm={12} md={12} >
                             <hr/>
@@ -74,7 +72,7 @@ class AdminArticlesList extends Component{
             <Col xs={12} sm={12} md={12}>
                 <div>
                     <Row className="row-btnAjouter">
-                        <Col md={3} className="container-admin-btnAjouter">
+                        <Col md={12} className="container-admin-btnAjouter">
                             <button className=" btn btn-rea admin-btnAjouter" onClick={()=>this.ajouter()}>Ajouter</button>
                             <button className=" btn btn-rea admin-btnAjouter" onClick={()=>this.liste()}>Liste</button>
                         </Col>

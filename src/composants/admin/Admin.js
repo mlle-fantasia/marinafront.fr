@@ -31,7 +31,7 @@ class Admin extends Component{
                                 <Col md={3} className="admin-sousTitre" onClick={()=>this.majOnglet(1)}><p>Les articles</p></Col>
                                 <Col md={3} className="admin-sousTitre" onClick={()=>this.majOnglet(2)}><p>Les Posts</p></Col>
                                 <Col md={3} className="admin-sousTitre" onClick={()=>this.majOnglet(3)}><p>Les certificats</p></Col>
-                                <Col md={3} className="admin-sousTitre" onClick={()=>this.majOnglet(4)}><p>Les info perso</p></Col>
+                                <Col md={3} className="admin-sousTitre" onClick={()=>this.majOnglet(4)}><p>Infos perso</p></Col>
                             </Row>
 
                             <Row className="onglet">
@@ -46,7 +46,7 @@ class Admin extends Component{
                                         case 4:
                                             return 'infos';
                                         default:
-                                            return  <h1 className="text-center">Bienvenue dans l'espace admin !</h1>;
+                                            return  <h1 className="bienvenue">Bienvenue dans l'espace admin !</h1>;
                                     }
                                 })()}
                             </Row>

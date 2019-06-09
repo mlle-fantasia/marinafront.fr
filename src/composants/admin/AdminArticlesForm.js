@@ -2,28 +2,29 @@ import {Component} from 'react';
 import {Grid, Row, Col} from 'react-bootstrap';
 import React from "react";
 import './Admin.css';
-import {Link} from "react-router-dom";
-import PropTypes from 'prop-types';
 import axios from "axios";
-import AdminArticlesList from "./AdminArticlesList";
+import CKEditor from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
+
 
 
 class AdminArticlesForm extends Component{
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.showDataArticle();
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     state = {
-        title: "test",
+        title: "",
         miniature:"",
         site:"",
         langage:"",
         resume:"",
-        contenu:"",
+        contenu:"texte",
         articleAdded:false
 
     };
@@ -40,16 +41,21 @@ class AdminArticlesForm extends Component{
             [name]: value
         });
     }
+    handleChangeCKEditor(data){
+        this.setState({
+            contenu: data
+        });
+    }
 
-    handleSubmit(event) {
-        event.preventDefault();
+    handleSubmit() {
+        const {title,miniature,site, langage, resume, contenu } = this.state;
         axios.post("http://localhost:3001/admin/articles/add", {
-            title: this.state.title,
-            miniature:this.state.miniature,
-            site:this.state.site,
-            langage:this.state.langage,
-            resume:this.state.resume,
-            contenu:this.state.contenu,
+            title: title,
+            miniature:miniature,
+            site:site,
+            langage:langage,
+            resume:resume,
+            contenu:contenu,
         }).then((response) => {
             if (response.data.error) {
                 console.log("tu as une erreur");
@@ -76,9 +82,9 @@ class AdminArticlesForm extends Component{
                 <form className="formAdmin">
                     <Row className="">
                         <Col md={6}>
-                            <label>Titre
+                            <label htmlFor="titre">Titre</label>
                             <input id="title" name="title" value={this.state.title}  onChange={this.handleChange} className="form-control"/>
-                            </label>
+
                         </Col>
                         <Col md={6}>
                             <label htmlFor="miniature">Miniature</label>
@@ -98,19 +104,34 @@ class AdminArticlesForm extends Component{
                     <Row className="">
                         <Col md={12}>
                             <label htmlFor="resume">Résumé</label>
-                            <textarea name="resume" id="resume" rows="5" value={this.state.resume} onChange={this.handleChange}  className="form-control"></textarea>
+                            <textarea name="resume" id="resume" rows="5" value={this.state.resume} onChange={this.handleChange}  className="form-control"/>
                         </Col>
                     </Row>
                     <Row className="">
                         <Col md={12}>
                             <label htmlFor="contenu">Contenu</label>
-                            <textarea name="contenu" id="contenu" rows="50" value={this.state.contenu} onChange={this.handleChange} className="form-control"></textarea>
+                            <CKEditor
+                                editor={ ClassicEditor }
+                                data={this.state.contenu}
+                                onInit={ editor => {
+                                    // You can store the "editor" and use when it is needed.
+                                    console.log( 'Editor is ready to use!', editor );
+                                } }
+                                onChange={ ( event, editor ) => {
+                                    const data = editor.getData();
+                                    this.handleChangeCKEditor(data);
+                                } }
+                            />
                         </Col>
                     </Row>
                     <Row className="">
-                        <button type="submit" className="btn btn-rea" >Ajouter</button>
+                        <Col md={12}>
+                            <button className="btn btn-rea" onClick={this.handleSubmit}>Ajouter</button>
+                            <button className="btn btn-rea" >Afficher</button>
+                        </Col>
                     </Row>
                 </form>
+                {/*<script>var editor = new Jodit('#contenu');</script>*/}
             </Grid>
         );
     }

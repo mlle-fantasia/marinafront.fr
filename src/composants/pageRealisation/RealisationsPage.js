@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import CvHeader from '../pageCv/CvHeader.js';
 import './RealisationsPage.css';
 import '@ladjs/bootstrap-social/bootstrap-social.css';
