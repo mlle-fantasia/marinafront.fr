@@ -9,6 +9,9 @@
     padding: 10px;
     cursor: pointer;
 }
+.admin-sousTitre p{
+   margin: auto;
+}
 .admin-sousTitre:hover{
     background-color: #30b4ac;
     color: #fff;
@@ -16,16 +19,38 @@
 .admin-sousTitreTitre{
     padding: 0 10px;
 }
+.container-admin-btnAjouter{
+    text-align: center;
+}
 .admin-btnAjouter{
     padding:0 10px;
     height: 35px;
+    width: 40%;
+    margin:0 5px
 }
 .navAdmin{
+    margin: 50px 0 15px 0;
     border-bottom: solid 3px #30b4ac;
+}
+.row-btnAjouter{
+    padding-bottom: 8px;
+    border-bottom: solid 2px #30b4ac;
 }
 .imgReaAdmin{
     height: 100px;
 }
 .titreReaAdmin{
     margin-bottom: 20px;
+}
+.formAdmin{
+    padding: 50px 0;
+}
+.formAdmin input, .formAdmin textarea{
+    margin-bottom: 15px;
+}
+.AlertOK{
+    background-color:#30b4ac99;
+    padding-bottom: 10px;
+    text-align: center;
+    color: white;
 }

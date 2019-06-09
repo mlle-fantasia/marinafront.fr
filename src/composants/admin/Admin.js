@@ -14,7 +14,6 @@ class Admin extends Component{
     };
 
     majOnglet(onglet){
-        console.log(onglet);
          this.setState({onglet});
     }
 
@@ -29,13 +28,13 @@ class Admin extends Component{
 
 
                             <Row className="navAdmin d-flex flex-row justify-content-around">
-                                <Col md={3} className="admin-sousTitre" type="button" onClick={()=>this.majOnglet(1)}>Les articles</Col>
-                                <Col md={3} className="admin-sousTitre" type="button" onClick={()=>this.majOnglet(2)}>Les Posts</Col>
-                                <Col md={3} className="admin-sousTitre" type="button" onClick={()=>this.majOnglet(3)}>Les certificats</Col>
-                                <Col md={3} className="admin-sousTitre" type="button" onClick={()=>this.majOnglet(4)}>Les info perso</Col>
+                                <Col md={3} className="admin-sousTitre" onClick={()=>this.majOnglet(1)}><p>Les articles</p></Col>
+                                <Col md={3} className="admin-sousTitre" onClick={()=>this.majOnglet(2)}><p>Les Posts</p></Col>
+                                <Col md={3} className="admin-sousTitre" onClick={()=>this.majOnglet(3)}><p>Les certificats</p></Col>
+                                <Col md={3} className="admin-sousTitre" onClick={()=>this.majOnglet(4)}><p>Les info perso</p></Col>
                             </Row>
 
-                            <div className="divBlanche">
+                            <Row className="onglet">
                                 {(() => {
                                     switch(this.state.onglet) {
                                         case 1:
@@ -47,10 +46,10 @@ class Admin extends Component{
                                         case 4:
                                             return 'infos';
                                         default:
-                                            return  <h1 className="text-center">bienvenue dans l'espace admin !</h1>;
+                                            return  <h1 className="text-center">Bienvenue dans l'espace admin !</h1>;
                                     }
                                 })()}
-                            </div>
+                            </Row>
 
                         </Col>
                     </Row>

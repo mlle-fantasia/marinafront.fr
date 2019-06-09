@@ -7,15 +7,38 @@ import 'font-awesome/css/font-awesome.css';
 import {Grid, Row, Col} from 'react-bootstrap';
 import {Link} from 'react-router-dom'
 import NavIcons from "../NavIcons";
+import axios from "axios";
 
 
 class RealisationsPage extends Component {
 
 
 
-    static contextTypes = {
-        tabRea: PropTypes.array
+    // static contextTypes = {
+    //     tabRea: PropTypes.array
+    // };
+    constructor() {
+        super();
+        this.getArticleList();
+    }
+
+    state = {
+        articles: [],
     };
+
+    getArticleList() {
+        console.log("coucou");
+
+        axios.get("http://localhost:3001/articles/list").then((response) => {
+            if (response.data.error) {
+                console.log("tu as une erreur");
+                return true;
+            }
+            console.log(response.data[0].title);
+            let articles = response.data;
+            this.setState({articles});
+        });
+    }
 
 
     render() {
@@ -33,7 +56,7 @@ class RealisationsPage extends Component {
                         </Col>
                     </Row>
                     <Row>
-                        {this.context.tabRea.map((object, i) =>
+                        {this.state.articles.map((object, i) =>
                             <div className="margin" key={i}>
                                 <Link to={"/realisations/" + object.id + "#top"} >
                                     <Col xs={12} sm={5} md={4} className="margin">
