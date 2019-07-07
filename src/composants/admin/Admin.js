@@ -9,7 +9,7 @@ class Admin extends Component{
 
 
     state = {
-        onglet:0,
+        onglet:1,
 
     };
 
@@ -17,6 +17,9 @@ class Admin extends Component{
          this.setState({onglet});
     }
 
+    getStyleOngletActif(onglet){
+        return  onglet === this.state.onglet ? "onglet-actif" :"";
+    }
 
     render(){
 
@@ -28,10 +31,11 @@ class Admin extends Component{
 
 
                             <Row className="navAdmin d-flex flex-row justify-content-around">
-                                <Col md={3} className="admin-sousTitre" onClick={()=>this.majOnglet(1)}><p>Les articles</p></Col>
-                                <Col md={3} className="admin-sousTitre" onClick={()=>this.majOnglet(2)}><p>Les Posts</p></Col>
-                                <Col md={3} className="admin-sousTitre" onClick={()=>this.majOnglet(3)}><p>Les certificats</p></Col>
-                                <Col md={3} className="admin-sousTitre" onClick={()=>this.majOnglet(4)}><p>Infos perso</p></Col>
+                                <Col md={2} className={`"admin-sousTitre" ${this.getStyleOngletActif(1)}`} onClick={()=>this.majOnglet(1)}><p>Les articles</p></Col>
+                                <Col md={2} className={`"admin-sousTitre" ${this.getStyleOngletActif(2)}`} onClick={()=>this.majOnglet(2)}><p>Les projets oc</p></Col>
+                                <Col md={2} className={`"admin-sousTitre" ${this.getStyleOngletActif(3)}`} onClick={()=>this.majOnglet(3)}><p>Les Posts</p></Col>
+                                <Col md={2} className={`"admin-sousTitre" ${this.getStyleOngletActif(4)}`} onClick={()=>this.majOnglet(4)}><p>Les certificats</p></Col>
+                                <Col md={2} className={`"admin-sousTitre" ${this.getStyleOngletActif(5)}`} onClick={()=>this.majOnglet(5)}><p>Infos perso</p></Col>
                             </Row>
 
                             <Row className="onglet">
@@ -40,13 +44,15 @@ class Admin extends Component{
                                         case 1:
                                             return <AdminArticlesList/>;
                                         case 2:
-                                            return 'posts';
+                                            return <AdminArticlesList projetOC={true}/>;
                                         case 3:
-                                            return 'certif';
+                                            return 'posts';
                                         case 4:
+                                            return 'certif';
+                                        case 5:
                                             return 'infos';
                                         default:
-                                            return  <h1 className="bienvenue">Bienvenue dans l'espace admin !</h1>;
+                                            return  <AdminArticlesList/>;
                                     }
                                 })()}
                             </Row>

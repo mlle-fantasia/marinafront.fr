@@ -19,6 +19,10 @@
     background-color: #30b4ac;
     color: #fff;
 }
+.onglet-actif{
+    background-color: #30b4ac;
+    color: #fff;
+}
 .admin-sousTitreTitre{
     padding: 0 10px;
 }
@@ -31,13 +35,17 @@
     margin: 50px 0 15px 0;
     border-bottom: solid 3px #30b4ac;
 }
-.row-btnAjouter{
-    padding-bottom: 8px;
+.container-bordure{
+    padding: 10px;
     border-bottom: solid 2px #30b4ac;
 }
 .imgReaAdmin{
     height: 45px;
     margin:0;
+    border: solid 2px #222;
+}
+.ck p{
+    font-size: 16px;
 }
 .titreReaAdmin{
     margin: 10px 0;

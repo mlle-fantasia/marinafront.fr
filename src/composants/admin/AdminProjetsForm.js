@@ -10,43 +10,39 @@ import {HashLink as Link} from "react-router-hash-link";
 
 
 
-class AdminArticlesForm extends Component{
+class AdminProjetsForm extends Component{
 
     constructor(props) {
         super(props);
-        this.showDataArticle();
+        this.showDataProjet();
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     state = {
-        articlaAModifier: this.props.articlaAModifier,
+        projetAModifier: this.props.projetAModifier,
         title: "",
-        miniature:"",
         site:"",
         langage:"",
-        resume:"",
-        contenu:"texte",
+        contenu:"",
         message:false,
         messageText : ""
     };
 
-    showDataArticle(){
+    showDataProjet(){
         //mettre à jour le state avec les données de l'article à modifier si on veut modifier.
-        if(this.state.articlaAModifier){
-            axios.get("http://localhost:3001/articles/"+this.state.articlaAModifier, {
+        if(this.state.projetAModifier){
+            axios.get("http://localhost:3001/projets/"+this.state.projetAModifier, {
             }).then((response) => {
                 if (response.data.error) {
                     console.log("tu as une erreur");
                     return true;
                 }
-                const {title,miniature,site, langage, resume, contenu } = response.data;
+                const {title,site, langage, contenu } = response.data;
                 this.setState({
                     title: title,
-                    miniature:miniature,
                     site:site?site: "",
                     langage:langage,
-                    resume:resume,
                     contenu:contenu,
                 })
             });
@@ -68,17 +64,15 @@ class AdminArticlesForm extends Component{
     }
 
     handleSubmit() {
-        const {title,miniature,site, langage, resume, contenu } = this.state;
+        const {title,site, langage, contenu } = this.state;
         let url = "" ;
         let newMessage = "";
-        this.state.articlaAModifier ? url = "http://localhost:3001/admin/articles/modifier/"+this.state.articlaAModifier : url = "http://localhost:3001/admin/articles/add";
+        this.state.articlaAModifier ? url = "http://localhost:3001/admin/projets/modifier/"+this.state.articlaAModifier : url = "http://localhost:3001/admin/projets/add";
         this.state.articlaAModifier ? newMessage = "l'article à bien été modifié" : newMessage = "l'article à bien été ajouté";
         axios.post(url, {
             title: title,
-            miniature:miniature,
             site:site,
             langage:langage,
-            resume:resume,
             contenu:contenu,
         }).then((response) => {
             if (response.data.error) {
@@ -102,17 +96,15 @@ class AdminArticlesForm extends Component{
 
         return(
             <Grid className=" ">
-
+                <Row >
+                    {notificationMessage}
+                </Row>
                 <form className="formAdmin">
                     <Row className="">
                         <Col md={6}>
                             <label htmlFor="titre">Titre</label>
                             <input id="title" name="title" value={this.state.title}  onChange={this.handleChange} className="form-control"/>
 
-                        </Col>
-                        <Col md={6}>
-                            <label htmlFor="miniature">Miniature</label>
-                            <input type="text" id="miniature" name="miniature" value={this.state.miniature} onChange={this.handleChange} className="form-control"/>
                         </Col>
                     </Row>
                     <Row className="">
@@ -123,19 +115,6 @@ class AdminArticlesForm extends Component{
                         <Col md={6}>
                             <label htmlFor="site">Site</label>
                             <input type="text" id="site" name="site" value={this.state.site} onChange={this.handleChange} className="form-control"/>
-                        </Col>
-                    </Row>
-                    <Row className="">
-                        <Col md={6} >
-                            <label htmlFor="lien">Liens</label>
-                            <input type="text" id="lien" name="lien" value="ce champs ne fonctionne pas encore, remplir les liens direct dans la base" onChange={this.handleChange} className="form-control"/>
-                        </Col>
-
-                    </Row>
-                    <Row className="">
-                        <Col md={12}>
-                            <label htmlFor="resume">Résumé</label>
-                            <textarea name="resume" id="resume" rows="5" value={this.state.resume} onChange={this.handleChange}  className="form-control"/>
                         </Col>
                     </Row>
                     <Row className="">
@@ -161,12 +140,9 @@ class AdminArticlesForm extends Component{
                             <Link to={"/realisations/" +this.state.articlaAModifier + "#top"} ><button className="btn btn-rea" >Afficher</button></Link>
                         </Col>
                     </Row>
-                    <Row >
-                        {notificationMessage}
-                    </Row>
                 </form>
             </Grid>
         );
     }
 }
-export default AdminArticlesForm;
+export default AdminProjetsForm;
