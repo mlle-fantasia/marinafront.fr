@@ -16,7 +16,7 @@ class CvHeader extends Component {
                             <Row className="texte">
                                 <Col xs={12} md={12}>
                                     Mon CV est disponible au format PDF :
-                                    <a href={require('../../assets/pdf/CV2018+fiche.pdf')} target="_blank">
+                                    <a href={require('../../assets/pdf/CV2019.pdf')} target="_blank">
                                         <button className="btn">Mon CV</button>
                                     </a>
                                 </Col>

@@ -34,12 +34,17 @@ class ProjetComponent extends Component {
     
     render() {
 
+        const linkToProject = this.state.project.lien ? (
+            <div className="linkToProject" >
+                <a href={this.state.project.lien} target="_blank"><button className="form-control btnRetour btnLinkProject">{this.state.project.titre}</button></a>
+            </div>
+            ):
+            (<div></div>);
+
         const article =  this.state.projectClicked ?(
                 <div className="projectArticle">
                     <RawHtml.div className="texte">{this.state.project.article}</RawHtml.div>
-                    <div className="linkToProject">
-                    <a href={this.state.project.lien} target="_blank"><button className="form-control btnRetour btnLinkProject">{this.state.project.titre}</button></a>
-                    </div>
+                    {linkToProject}
                 </div>
             ):
             (<div></div>);
