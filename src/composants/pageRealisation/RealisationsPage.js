@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import CvHeader from '../pageCv/CvHeader.js';
 import './RealisationsPage.css';
 import '@ladjs/bootstrap-social/bootstrap-social.css';
@@ -7,15 +6,36 @@ import 'font-awesome/css/font-awesome.css';
 import {Grid, Row, Col} from 'react-bootstrap';
 import {Link} from 'react-router-dom'
 import NavIcons from "../NavIcons";
+import axios from "axios";
 
 
 class RealisationsPage extends Component {
 
 
 
-    static contextTypes = {
-        tabRea: PropTypes.array
+    // static contextTypes = {
+    //     tabRea: PropTypes.array
+    // };
+    constructor() {
+        super();
+        this.getArticleList();
+    }
+
+    state = {
+        articles: [],
     };
+
+    getArticleList() {
+
+        axios.get("http://localhost:3001/articles/list").then((response) => {
+            if (response.data.error) {
+                console.log("tu as une erreur");
+                return true;
+            }
+            let articles = response.data;
+            this.setState({articles});
+        });
+    }
 
 
     render() {
@@ -33,20 +53,20 @@ class RealisationsPage extends Component {
                         </Col>
                     </Row>
                     <Row>
-                        {this.context.tabRea.map((object, i) =>
-                            <div className="margin" key={i}>
+                        {this.state.articles.map((object) =>
+                            <div className="margin" key={object.id}>
                                 <Link to={"/realisations/" + object.id + "#top"} >
                                     <Col xs={12} sm={5} md={4} className="margin">
-                                        <div className={`uneRea ${object.image}`}></div>
+                                        <div className={`uneRea ${object.miniature}`}></div>
                                     </Col>
                                 </Link>
                                     <Col xs={12} sm={7} md={8} className="margin">
-                                        <div className="texte titreRea">{object.titre} <span className="langagesRea">({object.Langages})</span></div>
+                                        <div className="texte titreRea">{object.title} <span className="langagesRea">({object.langage})</span></div>
 
                                         <p className="resumeRea">{object.resume}</p>
                                         <Link to={"/realisations/" + object.id + "#top"}><button className="btn btn-rea btn-rea-suite">Lire la suite</button></Link>
                                             <span>{object.site ?
-                                        (<a href ={object.site} target ={object.target} rel="noopener noreferre nofollow"><button className="btn btn-rea">lien vers le site</button></a>)
+                                        (<a href ={object.site} target ="_blank" rel="noopener noreferre nofollow"><button className="btn btn-rea">lien vers le site</button></a>)
                                         : ("")}</span>
                                     </Col>
                                 <Col xs={12} sm={12} md={12} >

@@ -5,36 +5,39 @@ import 'font-awesome/css/font-awesome.css';
 
 import {HashLink as Link} from 'react-router-hash-link';
 
-import PropTypes from 'prop-types';
+import axios from "axios";
 
 
 class ListeAsideRealisations extends Component {
 
-
     state = {
         articleDemande: this.props.id,
+        article:[]
 
     };
+    componentWillMount() {
+        this.getListAside(this.state.articleDemande);
+    }
 
-    static contextTypes = {
-        tabRea: PropTypes.array
-    };
-
+    getListAside(){
+        console.log(this.props.id);
+        axios.get("http://localhost:3001/articles/listeaside/"+this.props.id, {
+        }).then((response) => {
+            if (response.data.error) {
+                console.log("tu as une erreur");
+                return true;
+            }
+            this.setState({article: response.data,})
+        });
+    }
 
     render() {
-        const {articleDemande} = this.state;
 
-        let listAside = this.context.tabRea.filter((object) => {
-            if (parseInt(object.id, 10) === parseInt(articleDemande, 10)) {
-                return false;
-            }
-            return object;
-        });
 
-        const rendu = listAside.map((object, i) => {
+        const rendu = this.state.article.map((object) => {
             return (
-                <Link to={"/realisations/" + object.id + "#top"} key={i}>
-                    {object.titre} <br/>
+                <Link to={"/realisations/" + object.id + "#top"} key={object.id}>
+                    {object.title} <br/>
                 </Link>
             )
         });
