@@ -15,7 +15,7 @@ class Login extends Component {
 	state = {
 		login: "marinafront2@gmail.com",
 		pass: "ddd",
-		loginOK: false
+		loginOK: false,
 	};
 
 	handleChange(event) {
@@ -24,17 +24,17 @@ class Login extends Component {
 		const name = target.name;
 
 		this.setState({
-			[name]: value
+			[name]: value,
 		});
 	}
 	handleSubmit() {
 		const { login, pass } = this.state;
 		axios
-			.post("http://localhost:3001/login", {
+			.post(process.env.REACT_APP_API_MARINAFRONT + "/login", {
 				login: login,
-				pass: pass
+				pass: pass,
 			})
-			.then(response => {
+			.then((response) => {
 				if (response.data.error) {
 					console.log("il y a une erreur");
 					return true;
