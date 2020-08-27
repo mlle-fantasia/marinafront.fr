@@ -17,7 +17,7 @@
     "react-raw-html": "^0.4.0",
     "react-router-dom": "^4.2.2",
     "react-router-hash-link": "^1.2.0",
-    "react-scripts": "1.1.4",
+    "react-scripts": "3.4.3",
     "reflect-metadata": "^0.1.13"
   },
   "scripts": {
@@ -25,5 +25,17 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
