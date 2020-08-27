@@ -12,12 +12,6 @@ class Login extends Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
 
-	state = {
-		login: "marinafront2@gmail.com",
-		pass: "ddd",
-		loginOK: false,
-	};
-
 	handleChange(event) {
 		const target = event.target;
 		const value = target.value;
@@ -61,7 +55,7 @@ class Login extends Component {
 						<Col md={12} className=" header ">
 							<h1 className="text-center">Salut Marina !</h1>
 							<div className="form">
-								<h3 className="text-center">Prouve que tu es toi</h3>
+								<h3 className="text-center">Prouve que tu es moi</h3>
 								<div>
 									<div className="input formLogin">
 										<label htmlFor="">login</label>
