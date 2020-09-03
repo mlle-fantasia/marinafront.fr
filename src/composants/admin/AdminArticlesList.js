@@ -48,15 +48,23 @@ class AdminArticlesList extends Component {
 			? process.env.REACT_APP_API_MARINAFRONT + "/admin/projets/list"
 			: process.env.REACT_APP_API_MARINAFRONT + "/admin/articles/list";
 
-		axios.get(url).then((response) => {
-			if (response.data.error) {
-				console.log("tu as une erreur");
-				return true;
+		axios.get(url, { headers: { Authorization: localStorage.getItem("token") } }).then(
+			(response) => {
+				if (response.data.error) {
+					console.log("tu as une erreur");
+					return true;
+				}
+				let articles = response.data;
+				this.setState({ articles });
+			},
+			(error) => {
+				// si erreur 400
+				if (error.response.status === 401) {
+					window.location.href = "/fantasia";
+				}
+				console.log(error.response.status);
 			}
-
-			let articles = response.data;
-			this.setState({ articles });
-		});
+		);
 	}
 	listOrAjout() {
 		const { ajouter, articles, projetOC } = this.state;

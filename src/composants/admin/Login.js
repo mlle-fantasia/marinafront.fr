@@ -11,6 +11,9 @@ class Login extends Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
+	state = {
+		loginOK: false,
+	};
 
 	handleChange(event) {
 		const target = event.target;
@@ -34,7 +37,8 @@ class Login extends Component {
 					return true;
 				}
 				console.log(response);
-				if (response.data === "ok") {
+				if (response.data.token) {
+					localStorage.setItem("token", response.data.token);
 					this.setState({ loginOK: true });
 				}
 			});
