@@ -7,7 +7,6 @@ import { HashLink as Link } from "react-router-hash-link";
 import axios from "axios";
 import RawHtml from "react-raw-html";
 import MyLightbox from "./MyLightbox";
-import ListeAsideRealisations from "./ListeAsideRealisations";
 import NavIcons from "../NavIcons";
 
 class RealisationArticle extends Component {
@@ -16,6 +15,7 @@ class RealisationArticle extends Component {
 		articleDemande: this.props.match.params.id,
 		photos: [],
 		liens: [],
+		listeAside: [],
 	};
 
 	componentWillMount() {
@@ -28,21 +28,26 @@ class RealisationArticle extends Component {
 	}
 
 	recupererInformationArticle(articleDemande) {
-		axios.get(process.env.REACT_APP_API_MARINAFRONT + "/articles/" + articleDemande, {}).then((response) => {
-			if (response.data.error) {
-				console.log("tu as une erreur");
-				return true;
-			}
-			this.setState({ article: response.data });
-		});
-		axios.get(process.env.REACT_APP_API_MARINAFRONT + "/articles/liens/" + articleDemande, {}).then((response) => {
+		axios
+			.get(process.env.REACT_APP_API_MARINAFRONT + "/articles/" + articleDemande, { headers: { Authorization: localStorage.getItem("token") } })
+			.then((response) => {
+				if (response.data.error) {
+					console.log("tu as une erreur");
+					return true;
+				}
+				this.setState({ article: response.data.article });
+				this.setState({ liens: response.data.article.liens });
+				this.setState({ listeAside: response.data.acticlesaside });
+				console.log(response.data.acticlesaside);
+			});
+		/* 		axios.get(process.env.REACT_APP_API_MARINAFRONT + "/articles/liens/" + articleDemande, {}).then((response) => {
 			if (response.data.error) {
 				console.log("tu as une erreur");
 				return true;
 			}
 			console.log(response);
 			this.setState({ liens: response.data });
-		});
+		}); */
 
 		// axios.get(API + "/realisation-images.php?id=" + articleDemande).then((response) => {
 		//     if (response.data.error) {
@@ -55,7 +60,7 @@ class RealisationArticle extends Component {
 	}
 
 	render() {
-		const { article, articleDemande, photos } = this.state;
+		const { article, articleDemande, photos, liens } = this.state;
 
 		// const galerie = photos.length !== 0 ?
 		//     (<div>
@@ -78,6 +83,26 @@ class RealisationArticle extends Component {
 								<a href={lien.url} target="_bank" rel="noopener noreferre" className="btn form-control btn-lien">
 									{lien.nom}
 								</a>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+		) : (
+			<div></div>
+		);
+
+		const autreRea = this.state.listeAside.length ? (
+			<div>
+				<h3 className="galerieTitre">Les autres réalisations</h3>
+				<div>
+					<div className="mt-5 galerieImages">
+						{this.state.listeAside.map((article, i) => (
+							<div className="btnLienAside" key={i}>
+								<Link to={"/realisations/" + article.id + "#top"} key={article.id}>
+									{article.title}
+									<br />
+								</Link>
 							</div>
 						))}
 					</div>
@@ -115,10 +140,7 @@ class RealisationArticle extends Component {
 							{leLiens}
 							{/*{galerie}*/}
 							<div className="listeAsideCSS">
-								<h3 className="asideTitre">Les autres réalisations</h3>
-								<div className="asideTexte">
-									<ListeAsideRealisations id={this.state.articleDemande} />
-								</div>
+								<div className="">{autreRea}</div>
 							</div>
 						</Col>
 					</Row>

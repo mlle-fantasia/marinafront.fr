@@ -59,7 +59,7 @@ class AdminArticlesList extends Component {
 			},
 			(error) => {
 				// si erreur 400
-				if (error.response.status === 401) {
+				if (error.response.status === 401 || error.response.status === 500) {
 					window.location.href = "/fantasia";
 				}
 				console.log(error.response.status);

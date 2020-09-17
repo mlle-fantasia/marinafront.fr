@@ -19,10 +19,10 @@ class RealisationsPage extends Component {
 
 	state = {
 		articles: [],
+		projets: [],
 	};
 
 	getArticleList() {
-		console.log("process.env", process.env);
 		axios.get(process.env.REACT_APP_API_MARINAFRONT + "/articles/list").then((response) => {
 			if (response.data.error) {
 				console.log("tu as une erreur");
@@ -30,6 +30,15 @@ class RealisationsPage extends Component {
 			}
 			let articles = response.data;
 			this.setState({ articles });
+		});
+		axios.get(process.env.REACT_APP_API_MARINAFRONT + "/projets/list").then((response) => {
+			if (response.data.error) {
+				console.log("tu as une erreur");
+				return true;
+			}
+			let projets = response.data;
+			console.log(projets);
+			this.setState({ projets });
 		});
 	}
 

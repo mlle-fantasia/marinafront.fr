@@ -21,14 +21,14 @@ class RouteComposant extends Component {
 	};
 
 	componentDidMount() {
-		axios.get(process.env.REACT_APP_API_MARINAFRONT + "/realisation-article.php").then((response) => {
+		/* 		axios.get(process.env.REACT_APP_API_MARINAFRONT + "/realisation-article.php").then((response) => {
 			if (response.data.error) {
 				console.log("tu as une erreur");
 				return true;
 			}
 			const realisations = response.data.payloadArticle;
 			this.setState({ realisations });
-		});
+		}); */
 	}
 
 	render() {

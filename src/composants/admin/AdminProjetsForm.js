@@ -28,19 +28,23 @@ class AdminProjetsForm extends Component {
 	showDataProjet() {
 		//mettre à jour le state avec les données de l'article à modifier si on veut modifier.
 		if (this.state.projetAModifier) {
-			axios.get(process.env.REACT_APP_API_MARINAFRONT + "/projets/" + this.state.projetAModifier, {}).then((response) => {
-				if (response.data.error) {
-					console.log("tu as une erreur");
-					return true;
-				}
-				const { title, site, langage, contenu } = response.data;
-				this.setState({
-					title: title,
-					site: site ? site : "",
-					langage: langage,
-					contenu: contenu,
+			axios
+				.get(process.env.REACT_APP_API_MARINAFRONT + "/projets/" + this.state.projetAModifier, {
+					headers: { Authorization: localStorage.getItem("token") },
+				})
+				.then((response) => {
+					if (response.data.error) {
+						console.log("tu as une erreur");
+						return true;
+					}
+					const { title, site, langage, contenu } = response.data;
+					this.setState({
+						title: title,
+						site: site ? site : "",
+						langage: langage,
+						contenu: contenu,
+					});
 				});
-			});
 		}
 	}
 	handleChange(event) {
@@ -67,12 +71,16 @@ class AdminProjetsForm extends Component {
 			: (url = process.env.REACT_APP_API_MARINAFRONT + "/admin/projets/add");
 		this.state.articlaAModifier ? (newMessage = "l'article à bien été modifié") : (newMessage = "l'article à bien été ajouté");
 		axios
-			.post(url, {
-				title: title,
-				site: site,
-				langage: langage,
-				contenu: contenu,
-			})
+			.post(
+				url,
+				{
+					title: title,
+					site: site,
+					langage: langage,
+					contenu: contenu,
+				},
+				{ headers: { Authorization: localStorage.getItem("token") } }
+			)
 			.then((response) => {
 				if (response.data.error) {
 					console.log("tu as une erreur");

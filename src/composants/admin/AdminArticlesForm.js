@@ -11,6 +11,7 @@ class AdminArticlesForm extends Component {
 	constructor(props) {
 		super(props);
 		this.showDataArticle();
+		this.handleChangeLien = this.handleChangeLien.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 	}
@@ -22,7 +23,8 @@ class AdminArticlesForm extends Component {
 		site: "",
 		langage: "",
 		resume: "",
-		contenu: "texte",
+		contenu: "",
+		liens: [],
 		message: false,
 		messageText: "",
 	};
@@ -30,28 +32,42 @@ class AdminArticlesForm extends Component {
 	showDataArticle() {
 		//mettre à jour le state avec les données de l'article à modifier si on veut modifier.
 		if (this.state.articlaAModifier) {
-			axios.get(process.env.REACT_APP_API_MARINAFRONT + "/articles/" + this.state.articlaAModifier, {}).then((response) => {
-				if (response.data.error) {
-					console.log("tu as une erreur");
-					return true;
-				}
-				const { title, miniature, site, langage, resume, contenu } = response.data;
-				this.setState({
-					title: title,
-					miniature: miniature,
-					site: site ? site : "",
-					langage: langage,
-					resume: resume,
-					contenu: contenu,
+			axios
+				.get(process.env.REACT_APP_API_MARINAFRONT + "/articles/" + this.state.articlaAModifier, {
+					headers: { Authorization: localStorage.getItem("token") },
+				})
+				.then((response) => {
+					if (response.data.error) {
+						console.log("tu as une erreur");
+						return true;
+					}
+					const { title, miniature, site, langage, resume, contenu, liens } = response.data.article;
+					this.setState({
+						title: title,
+						miniature: miniature,
+						site: site ? site : "",
+						langage: langage,
+						resume: resume,
+						contenu: contenu,
+						liens: liens,
+					});
 				});
-			});
 		}
+	}
+	handleChangeLien(event) {
+		const target = event.target;
+		const value = target.value;
+		const name = target.name;
+		const index = parseInt(target.id.split("_")[1]);
+		this.state.liens[index][name] = value;
+		this.setState({
+			liens: [...this.state.liens],
+		});
 	}
 	handleChange(event) {
 		const target = event.target;
 		const value = target.value;
 		const name = target.name;
-
 		this.setState({
 			[name]: value,
 		});
@@ -63,29 +79,57 @@ class AdminArticlesForm extends Component {
 	}
 
 	handleSubmit() {
-		const { title, miniature, site, langage, resume, contenu } = this.state;
-		let url = "";
+		const { title, miniature, site, langage, resume, contenu, liens } = this.state;
 		let newMessage = "";
-		this.state.articlaAModifier
-			? (url = process.env.REACT_APP_API_MARINAFRONT + "/admin/articles/modifier/" + this.state.articlaAModifier)
-			: (url = process.env.REACT_APP_API_MARINAFRONT + "/admin/articles/add");
-		this.state.articlaAModifier ? (newMessage = "l'article à bien été modifié") : (newMessage = "l'article à bien été ajouté");
-		axios
-			.post(url, {
-				title: title,
-				miniature: miniature,
-				site: site,
-				langage: langage,
-				resume: resume,
-				contenu: contenu,
-			})
-			.then((response) => {
-				if (response.data.error) {
-					console.log("tu as une erreur");
-					return true;
-				}
-				this.setState({ message: true, messageText: newMessage });
-			});
+		console.log("this.state.articlaAModifier", this.state.articlaAModifier);
+		if (this.state.articlaAModifier) {
+			newMessage = "l'article à bien été modifié";
+			console.log({ title: title, miniature: miniature, site: site, langage: langage, resume: resume, contenu: contenu });
+			axios
+				.put(
+					process.env.REACT_APP_API_MARINAFRONT + "/admin/articles/modifier/" + this.state.articlaAModifier,
+					{
+						title: title,
+						miniature: miniature,
+						site: site,
+						langage: langage,
+						resume: resume,
+						contenu: contenu,
+						liens: liens,
+					},
+					{ headers: { Authorization: localStorage.getItem("token") } }
+				)
+				.then((response) => {
+					if (response.data.error) {
+						console.log("tu as une erreur");
+						return true;
+					}
+					this.setState({ message: true, messageText: newMessage });
+				});
+		} else {
+			/* newMessage = "l'article à bien été ajouté";
+			axios
+				.post(
+					process.env.REACT_APP_API_MARINAFRONT + "/admin/articles/add",
+					{
+						title: title,
+						miniature: miniature,
+						site: site,
+						langage: langage,
+						resume: resume,
+						contenu: contenu,
+						liens:liens
+					},
+					{ headers: { Authorization: localStorage.getItem("token") } }
+				)
+				.then((response) => {
+					if (response.data.error) {
+						console.log("tu as une erreur");
+						return true;
+					}
+					this.setState({ message: true, messageText: newMessage });
+				}); */
+		}
 	}
 
 	render() {
@@ -97,6 +141,39 @@ class AdminArticlesForm extends Component {
 			</Col>
 		) : (
 			<div></div>
+		);
+
+		const boucleLink = this.state.liens ? (
+			this.state.liens.map((lien, i) => (
+				<Row className="" key={i}>
+					<Col md={6}>
+						<label htmlFor="lien">Liens</label>
+						<input type="text" id={"lien_" + i} name="lien" value={lien.url} onChange={this.handleChangeLien} className="form-control" />
+					</Col>
+					<Col md={6}>
+						<label htmlFor="lien">Nom du lien</label>
+						<input
+							type="text"
+							id={"nomlien_" + i}
+							name="nom"
+							value={lien.nom}
+							onChange={this.handleChangeLien}
+							className="form-control"
+						/>
+					</Col>
+				</Row>
+			))
+		) : (
+			<Row className="">
+				<Col md={6}>
+					<label htmlFor="lien">Liens</label>
+					<input type="text" id="newlien" name="lien" value="https://..." onChange={this.handleChange} className="form-control" />
+				</Col>
+				<Col md={6}>
+					<label htmlFor="lien">Nom du lien</label>
+					<input type="text" id="newnomlien" name="nomlien" value="" onChange={this.handleChange} className="form-control" />
+				</Col>
+			</Row>
 		);
 
 		return (
@@ -136,19 +213,15 @@ class AdminArticlesForm extends Component {
 							<input type="text" id="site" name="site" value={this.state.site} onChange={this.handleChange} className="form-control" />
 						</Col>
 					</Row>
-					<Row className="">
-						<Col md={6}>
-							<label htmlFor="lien">Liens</label>
-							<input
-								type="text"
-								id="lien"
-								name="lien"
-								value="ce champs ne fonctionne pas encore, remplir les liens direct dans la base"
-								onChange={this.handleChange}
-								className="form-control"
-							/>
+					<Row>
+						<Col md={2}>
+							<h3>Les liens</h3>
+						</Col>
+						<Col md={1}>
+							<button className="btn "> Ajouter </button>
 						</Col>
 					</Row>
+					{boucleLink}
 					<Row className="">
 						<Col md={12}>
 							<label htmlFor="resume">Résumé</label>
