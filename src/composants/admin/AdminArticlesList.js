@@ -16,8 +16,15 @@ class AdminArticlesList extends Component {
 	};
 
 	componentWillReceiveProps(nextProps) {
+		console.log("je passe dans componentWillReceiveProps");
 		this.setState({ projetOC: nextProps.projetOC });
 		this.getArticleList(nextProps.projetOC);
+	}
+
+	componentDidMount() {
+		console.log("je passe dans componentDidMount");
+		const { projetOC } = this.state;
+		this.getArticleList(projetOC);
 	}
 
 	ajouter(id) {
