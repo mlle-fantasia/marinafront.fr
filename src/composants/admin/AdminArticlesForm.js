@@ -5,6 +5,7 @@ import "./Admin.css";
 import axios from "axios";
 import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import { Redirect } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
 
 class AdminArticlesForm extends Component {
@@ -64,7 +65,6 @@ class AdminArticlesForm extends Component {
 		const value = target.value;
 		const name = target.name;
 		const index = parseInt(target.id.split("_")[1]);
-		console.log("name, index", name, index, value);
 		this.state.liens[index][name] = value;
 		this.setState({
 			liens: [...this.state.liens],
@@ -98,8 +98,6 @@ class AdminArticlesForm extends Component {
 			//[name]: value,
 			fileSelected: file,
 		});
-		console.log("file", file);
-		console.log("this.state.fileSelected", this.state.fileSelected);
 	}
 
 	handleChange(event) {
@@ -115,7 +113,22 @@ class AdminArticlesForm extends Component {
 			contenu: data,
 		});
 	}
-
+	DeleteArticle() {
+		if (this.state.articlaAModifier) {
+			axios
+				.delete(process.env.REACT_APP_API_MARINAFRONT + "/admin/articles/" + this.state.articlaAModifier, {
+					headers: { Authorization: localStorage.getItem("token") },
+				})
+				.then((response) => {
+					if (response.data.error) {
+						console.log("tu as une erreur");
+						return true;
+					}
+					this.setState({ redirection: true });
+					this.props.parentCallback();
+				});
+		}
+	}
 	handleSubmit(event) {
 		event.preventDefault();
 
@@ -151,7 +164,7 @@ class AdminArticlesForm extends Component {
 						await this.saveImage(response.data.id);
 					}
 					this.setState({ message: true, messageText: newMessage });
-					this.showDataArticle();
+					this.props.parentCallback();
 				});
 		} else {
 			newMessage = "l'article à bien été ajouté";
@@ -175,6 +188,7 @@ class AdminArticlesForm extends Component {
 						return true;
 					}
 					this.setState({ message: true, messageText: newMessage });
+					this.props.parentCallback();
 				});
 		}
 	}
@@ -312,7 +326,12 @@ class AdminArticlesForm extends Component {
 						</Col>
 					</Row>
 					<Row className="">
-						<Col md={12}>
+						<Col md={6}>
+							<button className="btn btn-rea btn-danger" onClick={() => this.DeleteArticle()}>
+								Supprimer
+							</button>
+						</Col>
+						<Col md={6}>
 							<button className="btn btn-rea">{textForBtnAdd}</button>
 							<Link to={"/realisations/" + this.state.articlaAModifier + "#top"}>
 								<button className="btn btn-rea">Afficher</button>
