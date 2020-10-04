@@ -60,7 +60,12 @@ class RealisationsPage extends Component {
 							<div className="margin" key={object.id}>
 								<Link to={"/realisations/" + object.id + "#top"}>
 									<Col xs={12} sm={5} md={4} className="margin">
-										<div className={`uneRea ${object.miniature}`}></div>
+										{/* <div className={`uneRea ${object.miniature}`}></div> */}
+										<img
+											className="uneRea img-fluid"
+											src={process.env.REACT_APP_API_MARINAFRONT + "/articles/" + object.id + "/miniature"}
+											alt="miniature projet"
+										/>
 									</Col>
 								</Link>
 								<Col xs={12} sm={7} md={8} className="margin">

@@ -16,19 +16,16 @@ class AdminArticlesList extends Component {
 	};
 
 	componentWillReceiveProps(nextProps) {
-		console.log("je passe dans componentWillReceiveProps");
 		this.setState({ projetOC: nextProps.projetOC });
 		this.getArticleList(nextProps.projetOC);
 	}
 
 	componentDidMount() {
-		console.log("je passe dans componentDidMount");
 		const { projetOC } = this.state;
 		this.getArticleList(projetOC);
 	}
 
 	ajouter(id) {
-		console.log(id);
 		const { projetOC } = this.state;
 		if (projetOC) {
 			if (id) {
@@ -50,6 +47,39 @@ class AdminArticlesList extends Component {
 		this.setState({ ajouter: false });
 	}
 
+	hiddenArticle(article) {
+		const { projetOC } = this.state;
+		console.log("article", article);
+		let url = projetOC
+			? process.env.REACT_APP_API_MARINAFRONT + "/admin/projects/hide/" + article.id
+			: process.env.REACT_APP_API_MARINAFRONT + "/admin/articles/hide/" + article.id;
+		axios.put(url, { hidden: !article.hidden }, { headers: { Authorization: localStorage.getItem("token") } }).then(async (response) => {
+			if (response.data.error) {
+				console.log("tu as une erreur");
+				return true;
+			}
+			// this.getArticleList(projetOC);
+		});
+	}
+	/* 	getArticleMiniature(id) {
+		axios.get(process.env.REACT_APP_API_MARINAFRONT + "/articles/" + id + "/miniature").then(
+			(response) => {
+				if (response.data.error) {
+					console.log("tu as une erreur");
+					return true;
+				}
+				let articles = response.data;
+				this.setState({ articles });
+			},
+			(error) => {
+				// si erreur 400
+				if (error.response.status === 401 || error.response.status === 500) {
+					window.location.href = "/fantasia";
+				}
+				console.log(error.response.status);
+			}
+		);
+	} */
 	getArticleList(projetOC) {
 		let url = projetOC
 			? process.env.REACT_APP_API_MARINAFRONT + "/admin/projets/list"
@@ -80,7 +110,12 @@ class AdminArticlesList extends Component {
 				<Row key={object.id}>
 					<div className="margin itemListAdmin">
 						<Col xs={12} sm={5} md={1} className="">
-							<div className={`uneRea imgReaAdmin ${object.miniature}`} />
+							{/* <div className={`uneRea imgReaAdmin ${object.miniature}`} /> */}
+							<img
+								className="uneRea imgReaAdmin img-fluid"
+								src={process.env.REACT_APP_API_MARINAFRONT + "/articles/" + object.id + "/miniature"}
+								alt="miniature projet"
+							/>
 						</Col>
 						<Col xs={12} sm={7} md={7} className="admin-margin">
 							<div className="texte titreRea titreReaAdmin">{object.title} </div>
@@ -90,7 +125,9 @@ class AdminArticlesList extends Component {
 								Modifier
 							</button>
 							<Link to={"/fantasia/admin" + object.id + "#top"}>
-								<button className="btn btn-rea btn-danger">Supprimer</button>
+								<button className="btn btn-rea btn-danger" type="button" onClick={() => this.hiddenArticle(object)}>
+									{object.hidden ? "Publier" : "Masquer"}
+								</button>
 							</Link>
 						</Col>
 						<Col xs={12} sm={12} md={12}>
