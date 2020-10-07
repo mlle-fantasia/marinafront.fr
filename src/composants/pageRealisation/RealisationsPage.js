@@ -9,9 +9,6 @@ import NavIcons from "../NavIcons";
 import axios from "axios";
 
 class RealisationsPage extends Component {
-	// static contextTypes = {
-	//     tabRea: PropTypes.array
-	// };
 	constructor() {
 		super();
 		this.getArticleList();

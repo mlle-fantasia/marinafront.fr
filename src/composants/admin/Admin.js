@@ -3,6 +3,7 @@ import { Grid, Row, Col } from "react-bootstrap";
 import React from "react";
 import "./Admin.css";
 import AdminArticlesList from "./AdminArticlesList";
+import AdminUserForm from "./AdminUserForm";
 import { Redirect } from "react-router-dom";
 
 class Admin extends Component {
@@ -67,7 +68,7 @@ class Admin extends Component {
 										case 5:
 											return "les certificats";
 										case 6:
-											return "les infos perso";
+											return <AdminUserForm />;
 										default:
 											return <AdminArticlesList />;
 									}

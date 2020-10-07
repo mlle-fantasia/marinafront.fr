@@ -17,10 +17,18 @@ import axios from "axios";
 
 class RouteComposant extends Component {
 	state = {
-		realisations: [],
+		user: {},
 	};
 
 	componentDidMount() {
+		axios.get(process.env.REACT_APP_API_MARINAFRONT + "/user").then((response) => {
+			if (response.data.error) {
+				console.log("tu as une erreur");
+				return true;
+			}
+			const user = response.data[0];
+			this.setState({ user });
+		});
 		/* 		axios.get(process.env.REACT_APP_API_MARINAFRONT + "/realisation-article.php").then((response) => {
 			if (response.data.error) {
 				console.log("tu as une erreur");
@@ -52,7 +60,7 @@ class RouteComposant extends Component {
 		));
 
 		return (
-			<Provider tabRea={this.state.realisations} tabLiens={liensNavigation}>
+			<Provider user={this.state.user} tabLiens={liensNavigation}>
 				<App tabRoute={listeLiensRouter} />
 			</Provider>
 		);
