@@ -29,6 +29,7 @@ class AdminArticlesForm extends Component {
 		resume: "",
 		contenu: "",
 		liens: [],
+		oc: false,
 		message: false,
 		messageText: "",
 		fileSelected: { image: null, binary: null },
@@ -46,7 +47,7 @@ class AdminArticlesForm extends Component {
 						console.log("tu as une erreur");
 						return true;
 					}
-					const { title, miniature, site, langage, resume, contenu, liens } = response.data.article;
+					const { title, miniature, site, langage, resume, contenu, liens, oc } = response.data.article;
 					this.setState({
 						title: title,
 						miniature: miniature,
@@ -55,6 +56,7 @@ class AdminArticlesForm extends Component {
 						resume: resume,
 						contenu: contenu,
 						liens: liens,
+						oc: oc,
 					});
 				});
 		}
@@ -102,8 +104,10 @@ class AdminArticlesForm extends Component {
 
 	handleChange(event) {
 		const target = event.target;
-		const value = target.value;
+		const value = target.type === "checkbox" ? target.checked : target.value;
 		const name = target.name;
+		console.log("name", name, value);
+		// if(name === "oc")
 		this.setState({
 			[name]: value,
 		});
@@ -132,14 +136,16 @@ class AdminArticlesForm extends Component {
 	handleSubmit(event) {
 		event.preventDefault();
 
-		let { title, miniature, site, langage, resume, contenu, liens, fileSelected } = this.state;
+		let { title, miniature, site, langage, resume, contenu, liens, fileSelected, oc } = this.state;
+		console.log("oc", oc);
 		let newMessage = "";
 		liens = liens.filter((lien) => {
 			return lien.url !== "url" && lien.non !== "nom";
 		});
 		if (this.state.articlaAModifier) {
 			newMessage = "l'article à bien été modifié";
-			console.log({ title: title, miniature: miniature, site: site, langage: langage, resume: resume, contenu: contenu });
+			// console.log({ title: title, miniature: miniature, site: site, langage: langage, resume: resume, contenu: contenu });
+			console.log("oc2", oc);
 			axios
 				.put(
 					process.env.REACT_APP_API_MARINAFRONT + "/admin/articles/modifier/" + this.state.articlaAModifier,
@@ -151,6 +157,7 @@ class AdminArticlesForm extends Component {
 						resume: resume,
 						contenu: contenu,
 						liens: liens,
+						oc: oc,
 					},
 					{ headers: { Authorization: localStorage.getItem("token") } }
 				)
@@ -179,6 +186,7 @@ class AdminArticlesForm extends Component {
 						resume: resume,
 						contenu: contenu,
 						liens: liens,
+						oc: oc,
 					},
 					{ headers: { Authorization: localStorage.getItem("token") } }
 				)
@@ -295,6 +303,14 @@ class AdminArticlesForm extends Component {
 						</Col>
 					</Row>
 					{boucleLink}
+					<Row>
+						<Col md={5}>
+							<label>
+								<input name="oc" type="checkbox" checked={this.state.oc} onChange={this.handleChange} />
+								Article projet OC :
+							</label>
+						</Col>
+					</Row>
 					<Row className="">
 						<Col md={12}>
 							<label htmlFor="resume">Résumé</label>

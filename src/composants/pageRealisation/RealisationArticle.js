@@ -11,11 +11,13 @@ import NavIcons from "../NavIcons";
 
 class RealisationArticle extends Component {
 	state = {
-		article: [],
+		article: {},
+		projets: [],
 		articleDemande: this.props.match.params.id,
 		photos: [],
 		liens: [],
 		listeAside: [],
+		projetVisible: 1000,
 	};
 
 	componentWillMount() {
@@ -38,7 +40,7 @@ class RealisationArticle extends Component {
 				this.setState({ article: response.data.article });
 				this.setState({ liens: response.data.article.liens });
 				this.setState({ listeAside: response.data.acticlesaside });
-				console.log(response.data.acticlesaside);
+				this.setState({ projets: response.data.projets });
 			});
 		/* 		axios.get(process.env.REACT_APP_API_MARINAFRONT + "/articles/liens/" + articleDemande, {}).then((response) => {
 			if (response.data.error) {
@@ -58,7 +60,22 @@ class RealisationArticle extends Component {
 		//     this.setState({photos});
 		// });
 	}
-
+	handleClickProjet(index) {
+		if (index === this.state.projetVisible) {
+			this.setState({ projetVisible: 1000 });
+			this.isArticleVisible(1000);
+		} else {
+			this.setState({ projetVisible: index });
+		}
+	}
+	isArticleVisible(i) {
+		let projet = this.state.projets[i];
+		if (this.state.projetVisible === i) {
+			return <RawHtml.div className="texte">{projet.contenu}</RawHtml.div>;
+		} else {
+			return;
+		}
+	}
 	render() {
 		const { article, articleDemande, photos, liens } = this.state;
 
@@ -112,6 +129,23 @@ class RealisationArticle extends Component {
 			<div></div>
 		);
 
+		const projects = this.state.projets.length ? (
+			<div className="mt-5 galerieImages">
+				{this.state.projets.map((projet, i) => (
+					<div className="li-projet" key={i}>
+						<div className="pointer" onClick={() => this.handleClickProjet(i)}>
+							<h5>
+								{projet.title} ({projet.langage})
+							</h5>
+						</div>
+						{this.isArticleVisible(i)}
+					</div>
+				))}
+			</div>
+		) : (
+			<div></div>
+		);
+
 		return (
 			<div>
 				<Grid className="article">
@@ -124,12 +158,13 @@ class RealisationArticle extends Component {
 									</h2>
 									<RawHtml.div className="texte">{article.contenu}</RawHtml.div>
 								</Col>
-								<Col xs={12} md={6} sm={6}>
+								{projects}
+								<Col className="btn-after-article" xs={12} md={6} sm={6}>
 									<Link to={"/realisations#top"}>
 										<button className="form-control btnRetour">retour à la liste des réalisations</button>
 									</Link>
 								</Col>
-								<Col xs={12} md={6} sm={6}>
+								<Col className="btn-after-article" xs={12} md={6} sm={6}>
 									<a href="#top">
 										<button className="form-control btnRetour">retour en haut de la page</button>
 									</a>
