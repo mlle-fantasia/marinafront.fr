@@ -5,7 +5,6 @@ import "./Admin.css";
 import axios from "axios";
 import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import { Redirect } from "react-router-dom";
 import { HashLink as Link } from "react-router-hash-link";
 
 class AdminArticlesForm extends Component {
@@ -167,7 +166,7 @@ class AdminArticlesForm extends Component {
 						return true;
 					}
 					if (fileSelected.image) {
-						console.log("fileSelected.image", fileSelected.image);
+						//console.log("fileSelected.image", fileSelected.image);
 						await this.saveImage(response.data.id);
 					}
 					this.setState({ message: true, messageText: newMessage });
@@ -190,10 +189,13 @@ class AdminArticlesForm extends Component {
 					},
 					{ headers: { Authorization: localStorage.getItem("token") } }
 				)
-				.then((response) => {
+				.then(async (response) => {
 					if (response.data.error) {
 						console.log("tu as une erreur");
 						return true;
+					}
+					if (fileSelected.image) {
+						await this.saveImage(response.data.id);
 					}
 					this.setState({ message: true, messageText: newMessage });
 					this.props.parentCallback();

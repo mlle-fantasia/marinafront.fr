@@ -6,7 +6,7 @@ import { Grid, Row, Col } from "react-bootstrap";
 import { HashLink as Link } from "react-router-hash-link";
 import axios from "axios";
 import RawHtml from "react-raw-html";
-import MyLightbox from "./MyLightbox";
+//import MyLightbox from "./MyLightbox";
 import NavIcons from "../NavIcons";
 
 class RealisationArticle extends Component {
@@ -20,7 +20,7 @@ class RealisationArticle extends Component {
 		projetVisible: 1000,
 	};
 
-	componentWillMount() {
+	componentDidMount() {
 		this.recupererInformationArticle(this.state.articleDemande);
 	}
 
@@ -77,7 +77,7 @@ class RealisationArticle extends Component {
 		}
 	}
 	render() {
-		const { article, articleDemande, photos, liens } = this.state;
+		const { article } = this.state;
 
 		// const galerie = photos.length !== 0 ?
 		//     (<div>

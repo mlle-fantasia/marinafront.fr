@@ -37,7 +37,7 @@ class Footer extends Component {
 						</Col>
 						<Col xs={12} sm={4} md={4}>
 							<h3>Mon CV :</h3>
-							<a href={require("../assets/pdf/CV2018+fiche.pdf")} target="_blank">
+							<a href={require("../assets/pdf/CV2018+fiche.pdf")} target="_blank" rel="noopener noreferrer">
 								<button className="btn">Mon CV</button>
 							</a>
 						</Col>

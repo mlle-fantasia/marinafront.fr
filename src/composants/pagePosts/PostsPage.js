@@ -37,7 +37,7 @@ class PostsPage extends Component {
 					<Row>
 						<Col xs={12} md={6}>
 							<h2>
-								<span className="glyfTitre glyphicon glyphicon-comment"></span>
+								<span className="glyfTitre glyphicon glyphicon-th"></span>
 								<div className="petitTitre">Posts techniques :</div>
 							</h2>
 						</Col>
@@ -51,7 +51,7 @@ class PostsPage extends Component {
 										<img
 											className="uneRea img-fluid"
 											src={process.env.REACT_APP_API_MARINAFRONT + "/posts/" + object.id + "/image"}
-											alt="image post"
+											alt=" post"
 										/>
 									</Col>
 								</Link>

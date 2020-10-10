@@ -75,8 +75,7 @@ class AdminArticlesForm extends Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
-
-		let { id, email, tel, city, address, area, cv, message, messageText, fileSelected } = this.state;
+		let { id, email, tel, city, address, area, fileSelected } = this.state;
 
 		let newMessage = "l'article à bien été modifié";
 		axios
@@ -117,8 +116,6 @@ class AdminArticlesForm extends Component {
 	}
 
 	render() {
-		const textForBtnAdd = this.state.articlaAModifier ? "Modifier" : "Ajouter";
-
 		const notificationMessage = this.state.message ? (
 			<Col md={12}>
 				<p className="AlertOK">{this.state.messageText}</p>

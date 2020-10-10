@@ -3,7 +3,7 @@ import { Grid, Row, Col } from "react-bootstrap";
 import React from "react";
 import "./Login.css";
 import axios from "axios";
-import { Redirect, Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 class Login extends Component {
 	constructor(props) {

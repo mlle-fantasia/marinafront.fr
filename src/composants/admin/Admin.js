@@ -3,6 +3,7 @@ import { Grid, Row, Col } from "react-bootstrap";
 import React from "react";
 import "./Admin.css";
 import AdminArticlesList from "./AdminArticlesList";
+import AdminPosts from "./AdminPosts";
 import AdminUserForm from "./AdminUserForm";
 import { Redirect } from "react-router-dom";
 
@@ -62,7 +63,7 @@ class Admin extends Component {
 										case 2:
 											return <AdminArticlesList projetOC={true} />;
 										case 3:
-											return "les posts";
+											return <AdminPosts />;
 										case 4:
 											return "page d'accueil";
 										case 5:

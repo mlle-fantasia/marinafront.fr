@@ -47,7 +47,7 @@ class RealisationsPage extends Component {
 					<Row>
 						<Col xs={12} md={6}>
 							<h2>
-								<span className="glyfTitre glyphicon glyphicon-comment"></span>
+								<span className="glyfTitre glyphicon glyphicon-cog"></span>
 								<div className="petitTitre">Quelques réalisations :</div>
 							</h2>
 						</Col>
