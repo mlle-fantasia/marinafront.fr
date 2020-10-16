@@ -13,6 +13,7 @@
     "react-bootstrap": "^0.32.1",
     "react-dom": "^16.3.2",
     "react-images": "^0.5.17",
+    "react-masonry-css": "^1.0.14",
     "react-photo-gallery": "^6.0.27",
     "react-raw-html": "^0.4.0",
     "react-router-dom": "^4.2.2",

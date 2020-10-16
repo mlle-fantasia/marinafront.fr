@@ -7,6 +7,7 @@ import { Grid, Row, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import NavIcons from "../NavIcons";
 import axios from "axios";
+import Masonry from "react-masonry-css";
 
 class PostsPage extends Component {
 	constructor() {
@@ -42,43 +43,31 @@ class PostsPage extends Component {
 							</h2>
 						</Col>
 					</Row>
-					<Row>
-						{this.state.posts.map((object) => (
-							<div className="margin" key={object.id}>
-								<Link to={"/realisations/" + object.id + "#top"}>
-									<Col xs={12} sm={5} md={4} className="margin">
-										{/* <div className={`uneRea ${object.miniature}`}></div> */}
-										<img
-											className="uneRea img-fluid"
-											src={process.env.REACT_APP_API_MARINAFRONT + "/posts/" + object.id + "/image"}
-											alt=" post"
-										/>
-									</Col>
-								</Link>
-								<Col xs={12} sm={7} md={8} className="margin">
-									<div className="texte titreRea">
-										{object.title} <span className="langagesRea">({object.langage})</span>
-									</div>
-
-									{/* <p className="resumeRea">{object.resume}</p> */}
-									<Link to={"/realisations/" + object.id + "#top"}>
-										<button className="btn btn-rea btn-rea-suite">Lire la suite</button>
+					<Row className="mb-5">
+						<Masonry breakpointCols={3} className="my-masonry-grid" columnClassName="masonry-col">
+							{this.state.posts.map((object) => (
+								<div key={object.id} className="card">
+									<Link to={"/posts/" + object.id + "#top"}>
+										<div>
+											<img
+												className="card-img-top img-fluid"
+												src={process.env.REACT_APP_API_MARINAFRONT + "/posts/" + object.id + "/image"}
+												alt="Card image cap"
+											/>
+											<div className="card-block">
+												<h4 className="card-title">{object.title}</h4>
+												<p className="card-text">
+													This card has supporting text below as a natural lead-in to additional content.
+												</p>
+												<p className="card-date">
+													<small className="text-muted">Last updated 3 mins ago</small>
+												</p>
+											</div>
+										</div>
 									</Link>
-									<span>
-										{object.site ? (
-											<a href={object.site} target="_blank" rel="noopener noreferre nofollow">
-												<button className="btn btn-rea">lien vers le site</button>
-											</a>
-										) : (
-											""
-										)}
-									</span>
-								</Col>
-								<Col xs={12} sm={12} md={12}>
-									<hr />
-								</Col>
-							</div>
-						))}
+								</div>
+							))}
+						</Masonry>
 					</Row>
 				</Grid>
 
