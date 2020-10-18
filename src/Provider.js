@@ -12,7 +12,7 @@ class Provider extends Component {
 
 	// Définition du type du contexte
 	static childContextTypes = {
-		user: PropTypes.array,
+		user: PropTypes.object,
 		tabLiens: PropTypes.array,
 	};
 

@@ -13,7 +13,9 @@ class AdminProjetsForm extends Component {
 		this.getPostsList();
 		this.handleChange = this.handleChange.bind(this);
 		this.handleChangeFile = this.handleChangeFile.bind(this);
+		this.handleChangeFile2 = this.handleChangeFile2.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.fileInput2 = React.createRef();
 		this.fileInput = React.createRef();
 	}
 
@@ -23,7 +25,7 @@ class AdminProjetsForm extends Component {
 		// post attributs
 		id: "",
 		title: "",
-		image: "",
+		//image: "",
 		contenu: "",
 		hidden: "",
 		order: 0,
@@ -39,7 +41,7 @@ class AdminProjetsForm extends Component {
 		this.setState({
 			id: "",
 			title: "",
-			image: "",
+			// image: "",
 			contenu: "",
 			hidden: "",
 			resume: "",
@@ -47,6 +49,7 @@ class AdminProjetsForm extends Component {
 			postAModifierId: "",
 			order: 0,
 			fileSelected: { image: null, binary: null },
+			fileSelected2: { image: null, binary: null },
 		});
 	}
 	getPostsList() {
@@ -73,7 +76,7 @@ class AdminProjetsForm extends Component {
 			ajouter: true,
 			id: post.id,
 			title: post.title,
-			image: post.image,
+			// image: post.image,
 			contenu: post.contenu,
 			hidden: post.hidden,
 			order: post.order,
@@ -110,7 +113,6 @@ class AdminProjetsForm extends Component {
 	//lorsqu'on selectionne un fichier
 	handleChangeFile(event) {
 		event.preventDefault();
-
 		let file = { image: null, binary: null };
 		file.image = this.fileInput.current.files[0];
 		var reader = new FileReader();
@@ -122,8 +124,25 @@ class AdminProjetsForm extends Component {
 		reader.readAsDataURL(this.fileInput.current.files[0]);
 
 		this.setState({
-			//[name]: value,
 			fileSelected: file,
+		});
+	}
+	//lorsqu'on selectionne un fichier 2
+	handleChangeFile2(event) {
+		event.preventDefault();
+		let file = { image: null, binary: null };
+		console.log("this.fileInput2", this.fileInput2.current);
+		file.image = this.fileInput2.current.files[0];
+		var reader = new FileReader();
+		reader.onload = (function (theFile) {
+			return function (e) {
+				file.binary = e.target.result;
+			};
+		})(this.fileInput2.current.files[0]);
+		reader.readAsDataURL(this.fileInput2.current.files[0]);
+
+		this.setState({
+			fileSelected2: file,
 		});
 	}
 	//losque qu'on change les champs du formulaire
@@ -144,7 +163,7 @@ class AdminProjetsForm extends Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
-		const { id, title, image, hidden, contenu, postAModifierId, fileSelected, order, resume, date } = this.state;
+		const { id, title, image, hidden, contenu, postAModifierId, fileSelected, fileSelected2, order, resume, date } = this.state;
 		let newMessage = "";
 		if (postAModifierId) {
 			newMessage = "Le post à bien été modifié";
@@ -154,7 +173,7 @@ class AdminProjetsForm extends Component {
 					{
 						id: id,
 						title: title,
-						image: image,
+						//	image: image,
 						contenu: contenu,
 						hidden: hidden,
 						order: order,
@@ -169,7 +188,10 @@ class AdminProjetsForm extends Component {
 						return true;
 					}
 					if (fileSelected.image) {
-						await this.saveImage(response.data.id, fileSelected.image);
+						await this.saveImage(response.data.id, fileSelected.image, 1);
+					}
+					if (fileSelected2.image) {
+						await this.saveImage(response.data.id, fileSelected2.image, 2);
 					}
 					this.setState({ message: true, messageText: newMessage });
 				});
@@ -181,7 +203,7 @@ class AdminProjetsForm extends Component {
 					{
 						id: id,
 						title: title,
-						image: image,
+						//	image: image,
 						contenu: contenu,
 						hidden: hidden,
 						order: order,
@@ -196,19 +218,26 @@ class AdminProjetsForm extends Component {
 						return true;
 					}
 					if (fileSelected.image) {
-						await this.saveImage(response.data.id, fileSelected.image);
+						await this.saveImage(response.data.id, fileSelected.image, 1);
+					}
+					if (fileSelected2.image) {
+						await this.saveImage(response.data.id, fileSelected2.image, 2);
 					}
 					this.setState({ message: true, messageText: newMessage });
 				});
 		}
 		this.resetDataPost();
 	}
-	async saveImage(id, file) {
+	async saveImage(id, file, numero) {
 		console.log("file", file);
 		let formData = new FormData();
 		formData.append("image", file, file.name);
 		console.log("formData", formData);
-		axios.post(process.env.REACT_APP_API_MARINAFRONT + "/admin/posts/" + id + "/image", formData, {
+		let url =
+			numero === 2
+				? process.env.REACT_APP_API_MARINAFRONT + "/admin/posts/" + id + "/image2"
+				: process.env.REACT_APP_API_MARINAFRONT + "/admin/posts/" + id + "/image";
+		axios.post(url, formData, {
 			headers: {
 				Authorization: localStorage.getItem("token"),
 				"Content-Type": "multipart/form-data",
@@ -226,16 +255,28 @@ class AdminProjetsForm extends Component {
 							<label htmlFor="titre">Titre</label>
 							<input id="title" name="title" value={this.state.title} onChange={this.handleChange} className="form-control" />
 						</Col>
+					</Row>
+					<Row className="">
 						<Col md={6}>
 							<label htmlFor="image">Image</label>
 							<input
 								type="file"
 								id="image"
 								name="image"
-								//value={this.state.image}
 								onChange={this.handleChangeFile}
 								className="form-control"
 								ref={this.fileInput}
+							/>
+						</Col>
+						<Col md={6}>
+							<label htmlFor="image2">Image pour la page du post (1200x500)</label>
+							<input
+								type="file"
+								id="image2"
+								name="image2"
+								onChange={this.handleChangeFile2}
+								className="form-control"
+								ref={this.fileInput2}
 							/>
 						</Col>
 					</Row>

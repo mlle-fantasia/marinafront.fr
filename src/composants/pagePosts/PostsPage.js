@@ -52,7 +52,7 @@ class PostsPage extends Component {
 											<img
 												className="card-img-top img-fluid"
 												src={process.env.REACT_APP_API_MARINAFRONT + "/posts/" + object.id + "/image"}
-												alt="Card image cap"
+												alt="le post"
 											/>
 											<div className="card-block">
 												<h4 className="card-title">{object.title}</h4>
