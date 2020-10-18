@@ -26,6 +26,9 @@ class AdminProjetsForm extends Component {
 		image: "",
 		contenu: "",
 		hidden: "",
+		order: 0,
+		resume: "",
+		date: "",
 		/////
 		message: false,
 		messageText: "",
@@ -39,7 +42,10 @@ class AdminProjetsForm extends Component {
 			image: "",
 			contenu: "",
 			hidden: "",
+			resume: "",
+			date: "",
 			postAModifierId: "",
+			order: 0,
 			fileSelected: { image: null, binary: null },
 		});
 	}
@@ -70,6 +76,9 @@ class AdminProjetsForm extends Component {
 			image: post.image,
 			contenu: post.contenu,
 			hidden: post.hidden,
+			order: post.order,
+			resume: post.resume,
+			date: post.date,
 			postAModifierId: post.id,
 		});
 	}
@@ -135,7 +144,7 @@ class AdminProjetsForm extends Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
-		const { id, title, image, hidden, contenu, postAModifierId, fileSelected } = this.state;
+		const { id, title, image, hidden, contenu, postAModifierId, fileSelected, order, resume, date } = this.state;
 		let newMessage = "";
 		if (postAModifierId) {
 			newMessage = "Le post à bien été modifié";
@@ -148,6 +157,9 @@ class AdminProjetsForm extends Component {
 						image: image,
 						contenu: contenu,
 						hidden: hidden,
+						order: order,
+						resume: resume,
+						date: date,
 					},
 					{ headers: { Authorization: localStorage.getItem("token") } }
 				)
@@ -172,6 +184,9 @@ class AdminProjetsForm extends Component {
 						image: image,
 						contenu: contenu,
 						hidden: hidden,
+						order: order,
+						resume: resume,
+						date: date,
 					},
 					{ headers: { Authorization: localStorage.getItem("token") } }
 				)
@@ -224,6 +239,36 @@ class AdminProjetsForm extends Component {
 							/>
 						</Col>
 					</Row>
+					<Row className="">
+						<Col md={6}>
+							<label htmlFor="date">Date</label>
+							<input type="date" id="date" name="date" value={this.state.date} onChange={this.handleChange} className="form-control" />
+						</Col>
+						<Col md={6}>
+							<label htmlFor="order">Ordre</label>
+							<input
+								type="number"
+								id="order"
+								name="order"
+								value={this.state.order}
+								onChange={this.handleChange}
+								className="form-control"
+							/>
+						</Col>
+					</Row>
+					<Row className="">
+						<Col md={12}>
+							<label htmlFor="resume">Résumé</label>
+							<textarea
+								name="resume"
+								id="resume"
+								rows="5"
+								value={this.state.resume}
+								onChange={this.handleChange}
+								className="form-control"
+							/>
+						</Col>
+					</Row>
 
 					<Row className="">
 						<Col md={12}>
@@ -243,11 +288,12 @@ class AdminProjetsForm extends Component {
 						</Col>
 					</Row>
 					<Row className="">
-						<Col md={12}>
+						<Col md={6}>
 							<input type="checkbox" id="hidden" name="hidden" value={this.state.hidden} onChange={this.handleChange} />
 							<label htmlFor="hidden">Invisible</label>
 						</Col>
 					</Row>
+
 					<Row className="">
 						<Col md={6}>
 							<button className="btn btn-rea btn-danger" onClick={() => this.deletePost()}>
@@ -290,7 +336,9 @@ class AdminProjetsForm extends Component {
 						/>
 					</Col>
 					<Col xs={12} sm={7} md={7} className="admin-margin">
-						<div className="texte titreRea titreReaAdmin">{object.title} </div>
+						<div className="texte titreRea titreReaAdmin">
+							{object.title} -- ORDRE : {object.order}
+						</div>
 					</Col>
 					<Col xs={12} sm={7} md={4} className="admin-margin">
 						<button className="btn btn-rea btn-rea-suite" onClick={() => this.showDataPost(object)}>

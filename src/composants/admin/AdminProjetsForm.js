@@ -110,6 +110,17 @@ class AdminProjetsForm extends Component {
 							<label htmlFor="titre">Titre</label>
 							<input id="title" name="title" value={this.state.title} onChange={this.handleChange} className="form-control" />
 						</Col>
+						<Col md={6}>
+							<label htmlFor="order">Ordre</label>
+							<input
+								type="number"
+								id="order"
+								name="order"
+								value={this.state.order}
+								onChange={this.handleChange}
+								className="form-control"
+							/>
+						</Col>
 					</Row>
 					<Row className="">
 						<Col md={6}>

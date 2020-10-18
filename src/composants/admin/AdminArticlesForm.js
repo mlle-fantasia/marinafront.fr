@@ -29,6 +29,7 @@ class AdminArticlesForm extends Component {
 		contenu: "",
 		liens: [],
 		oc: false,
+		order: "",
 		message: false,
 		messageText: "",
 		fileSelected: { image: null, binary: null },
@@ -46,7 +47,7 @@ class AdminArticlesForm extends Component {
 						console.log("tu as une erreur");
 						return true;
 					}
-					const { title, miniature, site, langage, resume, contenu, liens, oc } = response.data.article;
+					const { title, miniature, site, langage, resume, contenu, liens, oc, order } = response.data.article;
 					this.setState({
 						title: title,
 						miniature: miniature,
@@ -56,6 +57,7 @@ class AdminArticlesForm extends Component {
 						contenu: contenu,
 						liens: liens,
 						oc: oc,
+						order: order,
 					});
 				});
 		}
@@ -106,10 +108,10 @@ class AdminArticlesForm extends Component {
 		const value = target.type === "checkbox" ? target.checked : target.value;
 		const name = target.name;
 		console.log("name", name, value);
-		// if(name === "oc")
 		this.setState({
 			[name]: value,
 		});
+		console.log("this.state", this.state);
 	}
 	handleChangeCKEditor(data) {
 		this.setState({
@@ -135,8 +137,8 @@ class AdminArticlesForm extends Component {
 	handleSubmit(event) {
 		event.preventDefault();
 
-		let { title, miniature, site, langage, resume, contenu, liens, fileSelected, oc } = this.state;
-		console.log("oc", oc);
+		let { title, miniature, site, langage, resume, contenu, liens, fileSelected, oc, order } = this.state;
+		console.log("order sbmit", order);
 		let newMessage = "";
 		liens = liens.filter((lien) => {
 			return lien.url !== "url" && lien.non !== "nom";
@@ -157,6 +159,7 @@ class AdminArticlesForm extends Component {
 						contenu: contenu,
 						liens: liens,
 						oc: oc,
+						order: order,
 					},
 					{ headers: { Authorization: localStorage.getItem("token") } }
 				)
@@ -186,6 +189,7 @@ class AdminArticlesForm extends Component {
 						contenu: contenu,
 						liens: liens,
 						oc: oc,
+						order: order,
 					},
 					{ headers: { Authorization: localStorage.getItem("token") } }
 				)
@@ -306,11 +310,22 @@ class AdminArticlesForm extends Component {
 					</Row>
 					{boucleLink}
 					<Row>
-						<Col md={5}>
+						<Col md={6}>
 							<label>
 								<input name="oc" type="checkbox" checked={this.state.oc} onChange={this.handleChange} />
 								Article projet OC :
 							</label>
+						</Col>
+						<Col md={6}>
+							<label htmlFor="order">Ordre</label>
+							<input
+								type="number"
+								id="order"
+								name="order"
+								value={this.state.order}
+								onChange={this.handleChange}
+								className="form-control"
+							/>
 						</Col>
 					</Row>
 					<Row className="">

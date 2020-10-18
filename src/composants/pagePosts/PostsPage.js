@@ -56,11 +56,9 @@ class PostsPage extends Component {
 											/>
 											<div className="card-block">
 												<h4 className="card-title">{object.title}</h4>
-												<p className="card-text">
-													This card has supporting text below as a natural lead-in to additional content.
-												</p>
+												<p className="card-text">{object.resume}</p>
 												<p className="card-date">
-													<small className="text-muted">Last updated 3 mins ago</small>
+													<small className="text-muted"> Publié le {object.date}</small>
 												</p>
 											</div>
 										</div>

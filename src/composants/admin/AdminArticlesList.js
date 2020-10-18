@@ -104,20 +104,31 @@ class AdminArticlesList extends Component {
 		}
 	}
 
+	miniature(object) {
+		const { projetOC } = this.state;
+		return projetOC ? (
+			""
+		) : (
+			<img
+				className="uneRea imgReaAdmin img-fluid"
+				src={process.env.REACT_APP_API_MARINAFRONT + "/articles/" + object.id + "/miniature"}
+				alt="miniature projet"
+			/>
+		);
+	}
+
 	listArticles() {
 		const { articles } = this.state;
 		return articles.map((object) => (
 			<Row key={object.id}>
 				<div className="margin itemListAdmin">
 					<Col xs={12} sm={5} md={1} className="">
-						<img
-							className="uneRea imgReaAdmin img-fluid"
-							src={process.env.REACT_APP_API_MARINAFRONT + "/articles/" + object.id + "/miniature"}
-							alt="miniature projet"
-						/>
+						{this.miniature(object)}
 					</Col>
 					<Col xs={12} sm={7} md={7} className="admin-margin">
-						<div className="texte titreRea titreReaAdmin">{object.title} </div>
+						<div className="texte titreRea titreReaAdmin">
+							{object.title} -- ORDRE : {object.order}
+						</div>
 					</Col>
 					<Col xs={12} sm={7} md={4} className="admin-margin">
 						<button className="btn btn-rea btn-rea-suite" onClick={() => this.AddArticle(object.id)}>
