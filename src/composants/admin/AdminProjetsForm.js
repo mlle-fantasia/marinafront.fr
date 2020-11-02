@@ -13,6 +13,7 @@ class AdminProjetsForm extends Component {
 		this.showDataProjet();
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleCancel = this.handleCancel.bind(this);
 	}
 
 	state = {
@@ -21,9 +22,29 @@ class AdminProjetsForm extends Component {
 		site: "",
 		langage: "",
 		contenu: "",
+		order: 0,
 		message: false,
 		messageText: "",
 	};
+	handleCancel() {
+		this.props.parentCallback();
+	}
+	deleteProjet() {
+		if (this.state.projetAModifier) {
+			axios
+				.delete(process.env.REACT_APP_API_MARINAFRONT + "/admin/projets/" + this.state.projetAModifier, {
+					headers: { Authorization: localStorage.getItem("token") },
+				})
+				.then((response) => {
+					if (response.data.error) {
+						console.log("tu as une erreur");
+						return true;
+					}
+					this.setState({ redirection: true });
+					this.props.parentCallback();
+				});
+		}
+	}
 
 	showDataProjet() {
 		//mettre à jour le state avec les données de l'article à modifier si on veut modifier.
@@ -37,12 +58,13 @@ class AdminProjetsForm extends Component {
 						console.log("tu as une erreur");
 						return true;
 					}
-					const { title, site, langage, contenu } = response.data;
+					const { title, site, langage, contenu, order } = response.data;
 					this.setState({
 						title: title,
 						site: site ? site : "",
 						langage: langage,
 						contenu: contenu,
+						order: order,
 					});
 				});
 		}
@@ -63,35 +85,57 @@ class AdminProjetsForm extends Component {
 	}
 
 	handleSubmit() {
-		const { title, site, langage, contenu } = this.state;
-		let url = "";
+		const { title, site, langage, contenu, order } = this.state;
 		let newMessage = "";
-		this.state.articlaAModifier
-			? (url = process.env.REACT_APP_API_MARINAFRONT + "/admin/projets/modifier/" + this.state.articlaAModifier)
-			: (url = process.env.REACT_APP_API_MARINAFRONT + "/admin/projets/add");
-		this.state.articlaAModifier ? (newMessage = "l'article à bien été modifié") : (newMessage = "l'article à bien été ajouté");
-		axios
-			.post(
-				url,
-				{
-					title: title,
-					site: site,
-					langage: langage,
-					contenu: contenu,
-				},
-				{ headers: { Authorization: localStorage.getItem("token") } }
-			)
-			.then((response) => {
-				if (response.data.error) {
-					console.log("tu as une erreur");
-					return true;
-				}
-				this.setState({ message: true, messageText: newMessage });
-			});
+		if (this.state.projetAModifier) {
+			newMessage = "l'article à bien été modifié";
+			axios
+				.put(
+					process.env.REACT_APP_API_MARINAFRONT + "/admin/projets/modifier/" + this.state.projetAModifier,
+					{
+						title: title,
+						site: site,
+						langage: langage,
+						contenu: contenu,
+						order: order,
+					},
+					{ headers: { Authorization: localStorage.getItem("token") } }
+				)
+				.then((response) => {
+					if (response.data.error) {
+						console.log("tu as une erreur");
+						return true;
+					}
+					this.setState({ message: true, messageText: newMessage });
+					this.props.parentCallback();
+				});
+		} else {
+			newMessage = "l'article à bien été ajouté";
+			axios
+				.post(
+					process.env.REACT_APP_API_MARINAFRONT + "/admin/projets/add",
+					{
+						title: title,
+						site: site,
+						langage: langage,
+						contenu: contenu,
+						order: order,
+					},
+					{ headers: { Authorization: localStorage.getItem("token") } }
+				)
+				.then((response) => {
+					if (response.data.error) {
+						console.log("tu as une erreur");
+						return true;
+					}
+					this.setState({ message: true, messageText: newMessage });
+					this.props.parentCallback();
+				});
+		}
 	}
 
 	render() {
-		const textForBtnAdd = this.state.articlaAModifier ? "Modifier" : "Ajouter";
+		const textForBtnAdd = this.state.projetAModifier ? "Modifier" : "Ajouter";
 
 		const notificationMessage = this.state.message ? (
 			<Col md={12}>
@@ -157,11 +201,19 @@ class AdminProjetsForm extends Component {
 						</Col>
 					</Row>
 					<Row className="">
-						<Col md={12}>
+						<Col md={7}>
+							<button className="btn btn-rea btn-danger" onClick={() => this.deleteProjet()}>
+								Supprimer
+							</button>
+						</Col>
+						<Col md={5}>
+							<button className="btn btn-rea btn-secondary" onClick={this.handleCancel}>
+								Annuler
+							</button>
 							<button className="btn btn-rea" onClick={this.handleSubmit}>
 								{textForBtnAdd}
 							</button>
-							<Link to={"/realisations/" + this.state.articlaAModifier + "#top"}>
+							<Link to={"/realisations/" + this.state.projetAModifier + "#top"}>
 								<button className="btn btn-rea">Afficher</button>
 							</Link>
 						</Col>

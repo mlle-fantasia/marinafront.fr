@@ -15,6 +15,7 @@ class AdminArticlesForm extends Component {
 		this.handleChangeFile = this.handleChangeFile.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleCancel = this.handleCancel.bind(this);
 		this.addlink = this.addlink.bind(this);
 		this.fileInput = React.createRef();
 	}
@@ -29,7 +30,7 @@ class AdminArticlesForm extends Component {
 		contenu: "",
 		liens: [],
 		oc: false,
-		order: "",
+		order: 0,
 		message: false,
 		messageText: "",
 		fileSelected: { image: null, binary: null },
@@ -117,6 +118,9 @@ class AdminArticlesForm extends Component {
 		this.setState({
 			contenu: data,
 		});
+	}
+	handleCancel() {
+		this.props.parentCallback();
 	}
 	DeleteArticle() {
 		if (this.state.articlaAModifier) {
@@ -365,6 +369,9 @@ class AdminArticlesForm extends Component {
 							</button>
 						</Col>
 						<Col md={6}>
+							<button className="btn btn-rea" onClick={this.handleCancel}>
+								Annuler
+							</button>
 							<button className="btn btn-rea">{textForBtnAdd}</button>
 							<Link to={"/realisations/" + this.state.articlaAModifier + "#top"}>
 								<button className="btn btn-rea">Afficher</button>

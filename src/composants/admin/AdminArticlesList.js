@@ -26,10 +26,13 @@ class AdminArticlesList extends Component {
 	}
 
 	AddArticle(id) {
-		const { projetOC } = this.state;
+		const { projetOC, projetAModifier, articlaAModifier } = this.state;
 		if (projetOC) {
 			if (id) {
 				this.setState({ projetAModifier: id });
+				this.setState({ ajouter: true });
+			} else if (!id && projetAModifier) {
+				this.setState({ projetAModifier: null });
 				this.setState({ ajouter: true });
 			} else {
 				this.setState({ ajouter: true });
@@ -47,18 +50,19 @@ class AdminArticlesList extends Component {
 		this.setState({ ajouter: false });
 	} */
 
-	hiddenArticle(article) {
+	hiddenArticle(event, article) {
+		event.preventDefault();
 		const { projetOC } = this.state;
-		console.log("article", article);
+		//console.log("article", article);
 		let url = projetOC
-			? process.env.REACT_APP_API_MARINAFRONT + "/admin/projects/hide/" + article.id
+			? process.env.REACT_APP_API_MARINAFRONT + "/admin/projets/hide/" + article.id
 			: process.env.REACT_APP_API_MARINAFRONT + "/admin/articles/hide/" + article.id;
 		axios.put(url, { hidden: !article.hidden }, { headers: { Authorization: localStorage.getItem("token") } }).then(async (response) => {
 			if (response.data.error) {
 				console.log("tu as une erreur");
 				return true;
 			}
-			// this.getArticleList(projetOC);
+			this.getArticleList(projetOC);
 		});
 	}
 
@@ -87,6 +91,7 @@ class AdminArticlesList extends Component {
 	}
 	callbackFunction = () => {
 		this.setState({ articlaAModifier: null });
+		this.setState({ projetAModifier: null });
 		this.setState({ ajouter: false });
 		this.getArticleList(this.state.projetOC);
 	};
@@ -95,7 +100,7 @@ class AdminArticlesList extends Component {
 		const { ajouter, projetOC } = this.state;
 		if (ajouter) {
 			if (projetOC) {
-				return <AdminProjetsForm projetAModifier={this.state.projetAModifier} />;
+				return <AdminProjetsForm parentCallback={this.callbackFunction} projetAModifier={this.state.projetAModifier} />;
 			} else {
 				return <AdminArticlesForm parentCallback={this.callbackFunction} articlaAModifier={this.state.articlaAModifier} />;
 			}
@@ -135,7 +140,7 @@ class AdminArticlesList extends Component {
 							Modifier
 						</button>
 						<Link to={"/fantasia/admin" + object.id + "#top"}>
-							<button className="btn btn-rea btn-warning" type="button" onClick={() => this.hiddenArticle(object)}>
+							<button className="btn btn-rea btn-warning" type="button" onClick={(e) => this.hiddenArticle(e, object)}>
 								{object.hidden ? "Publier" : "Masquer"}
 							</button>
 						</Link>
