@@ -3,9 +3,8 @@ import { Grid, Row, Col } from "react-bootstrap";
 import React from "react";
 import "./Admin.css";
 import axios from "axios";
-import CKEditor from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { HashLink as Link } from "react-router-hash-link";
+import JoditEditor from "jodit-react";
 
 class AdminProjetsForm extends Component {
 	constructor(props) {
@@ -14,6 +13,7 @@ class AdminProjetsForm extends Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleCancel = this.handleCancel.bind(this);
+		this.handleChangeJodit = this.handleChangeJodit.bind(this);
 	}
 
 	state = {
@@ -78,7 +78,7 @@ class AdminProjetsForm extends Component {
 			[name]: value,
 		});
 	}
-	handleChangeCKEditor(data) {
+	handleChangeJodit(data) {
 		this.setState({
 			contenu: data,
 		});
@@ -133,7 +133,14 @@ class AdminProjetsForm extends Component {
 				});
 		}
 	}
-
+	/**
+	 * @property Jodit jodit instance of native Jodit
+	 */
+	jodit;
+	setRef = (jodit) => (this.jodit = jodit);
+	config = {
+		readonly: false,
+	};
 	render() {
 		const textForBtnAdd = this.state.projetAModifier ? "Modifier" : "Ajouter";
 
@@ -186,16 +193,14 @@ class AdminProjetsForm extends Component {
 					<Row className="">
 						<Col md={12}>
 							<label htmlFor="contenu">Contenu</label>
-							<CKEditor
-								editor={ClassicEditor}
-								data={this.state.contenu}
-								onInit={(editor) => {
-									// You can store the "editor" and use when it is needed.
-									console.log("Editor is ready to use!", editor);
-								}}
-								onChange={(event, editor) => {
-									const data = editor.getData();
-									this.handleChangeCKEditor(data);
+							<JoditEditor
+								value={this.state.contenu}
+								editorRef={this.setRef}
+								config={this.config}
+								tabIndex={1}
+								onBlur={(jodit) => {
+									const data = jodit.target.innerHTML;
+									this.handleChangeJodit(data);
 								}}
 							/>
 						</Col>

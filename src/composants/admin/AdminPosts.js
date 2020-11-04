@@ -3,9 +3,8 @@ import { Grid, Row, Col } from "react-bootstrap";
 import React from "react";
 import "./Admin.css";
 import axios from "axios";
-import CKEditor from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { HashLink as Link } from "react-router-hash-link";
+import JoditEditor from "jodit-react";
 
 class AdminProjetsForm extends Component {
 	constructor(props) {
@@ -15,6 +14,7 @@ class AdminProjetsForm extends Component {
 		this.handleChangeFile = this.handleChangeFile.bind(this);
 		this.handleChangeFile2 = this.handleChangeFile2.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleChangeJodit = this.handleChangeJodit.bind(this);
 		this.fileInput2 = React.createRef();
 		this.fileInput = React.createRef();
 	}
@@ -155,7 +155,7 @@ class AdminProjetsForm extends Component {
 			[name]: value,
 		});
 	}
-	handleChangeCKEditor(data) {
+	handleChangeJodit(data) {
 		this.setState({
 			contenu: data,
 		});
@@ -163,7 +163,7 @@ class AdminProjetsForm extends Component {
 
 	handleSubmit(event) {
 		event.preventDefault();
-		const { id, title, image, hidden, contenu, postAModifierId, fileSelected, fileSelected2, order, resume, date } = this.state;
+		const { id, title, hidden, contenu, postAModifierId, fileSelected, fileSelected2, order, resume, date } = this.state;
 		let newMessage = "";
 		if (postAModifierId) {
 			newMessage = "Le post à bien été modifié";
@@ -190,10 +190,12 @@ class AdminProjetsForm extends Component {
 					if (fileSelected.image) {
 						await this.saveImage(response.data.id, fileSelected.image, 1);
 					}
-					if (fileSelected2.image) {
+					if (fileSelected2 && fileSelected2.image) {
 						await this.saveImage(response.data.id, fileSelected2.image, 2);
 					}
 					this.setState({ message: true, messageText: newMessage });
+					this.resetDataPost();
+					this.CancelForm();
 				});
 		} else {
 			newMessage = "Le post à bien été ajouté";
@@ -220,13 +222,15 @@ class AdminProjetsForm extends Component {
 					if (fileSelected.image) {
 						await this.saveImage(response.data.id, fileSelected.image, 1);
 					}
+
 					if (fileSelected2.image) {
 						await this.saveImage(response.data.id, fileSelected2.image, 2);
 					}
 					this.setState({ message: true, messageText: newMessage });
+					this.resetDataPost();
+					this.CancelForm();
 				});
 		}
-		this.resetDataPost();
 	}
 	async saveImage(id, file, numero) {
 		console.log("file", file);
@@ -244,7 +248,11 @@ class AdminProjetsForm extends Component {
 			},
 		});
 	}
-
+	CancelForm() {
+		this.setState({ postAModifierId: null });
+		this.setState({ ajouter: false });
+		this.getPostsList();
+	}
 	showForm() {
 		const { ajouter, postAModifierId } = this.state;
 		if (ajouter) {
@@ -314,16 +322,14 @@ class AdminProjetsForm extends Component {
 					<Row className="">
 						<Col md={12}>
 							<label htmlFor="contenu">Contenu</label>
-							<CKEditor
-								editor={ClassicEditor}
-								data={this.state.contenu}
-								onInit={(editor) => {
-									// You can store the "editor" and use when it is needed.
-									console.log("Editor is ready to use!", editor);
-								}}
-								onChange={(event, editor) => {
-									const data = editor.getData();
-									this.handleChangeCKEditor(data);
+							<JoditEditor
+								value={this.state.contenu}
+								editorRef={this.setRef}
+								config={this.config}
+								tabIndex={1}
+								onBlur={(jodit) => {
+									const data = jodit.target.innerHTML;
+									this.handleChangeJodit(data);
 								}}
 							/>
 						</Col>
@@ -354,7 +360,14 @@ class AdminProjetsForm extends Component {
 			return "";
 		}
 	}
-
+	/**
+	 * @property Jodit jodit instance of native Jodit
+	 */
+	jodit;
+	setRef = (jodit) => (this.jodit = jodit);
+	config = {
+		readonly: false,
+	};
 	render() {
 		const { posts, message, messageText } = this.state;
 

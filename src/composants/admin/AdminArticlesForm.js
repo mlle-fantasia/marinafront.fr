@@ -3,9 +3,9 @@ import { Grid, Row, Col } from "react-bootstrap";
 import React from "react";
 import "./Admin.css";
 import axios from "axios";
-import CKEditor from "@ckeditor/ckeditor5-react";
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { HashLink as Link } from "react-router-hash-link";
+
+import JoditEditor from "jodit-react";
 
 class AdminArticlesForm extends Component {
 	constructor(props) {
@@ -16,6 +16,7 @@ class AdminArticlesForm extends Component {
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleCancel = this.handleCancel.bind(this);
+		this.handleChangeJodit = this.handleChangeJodit.bind(this);
 		this.addlink = this.addlink.bind(this);
 		this.fileInput = React.createRef();
 	}
@@ -114,7 +115,8 @@ class AdminArticlesForm extends Component {
 		});
 		console.log("this.state", this.state);
 	}
-	handleChangeCKEditor(data) {
+	handleChangeJodit(data) {
+		console.log("data", data);
 		this.setState({
 			contenu: data,
 		});
@@ -222,7 +224,14 @@ class AdminArticlesForm extends Component {
 			},
 		});
 	}
-
+	/**
+	 * @property Jodit jodit instance of native Jodit
+	 */
+	jodit;
+	setRef = (jodit) => (this.jodit = jodit);
+	config = {
+		readonly: false,
+	};
 	render() {
 		const textForBtnAdd = this.state.articlaAModifier ? "Modifier" : "Ajouter";
 
@@ -348,16 +357,19 @@ class AdminArticlesForm extends Component {
 					<Row className="">
 						<Col md={12}>
 							<label htmlFor="contenu">Contenu</label>
-							<CKEditor
-								editor={ClassicEditor}
-								data={this.state.contenu}
-								onInit={(editor) => {
-									// You can store the "editor" and use when it is needed.
-									console.log("Editor is ready to use!", editor);
-								}}
-								onChange={(event, editor) => {
-									const data = editor.getData();
-									this.handleChangeCKEditor(data);
+							<div>
+								Technique : copier coller le html dans source, revenir dans editeur normal, cliquer ailleur dans la page, puis
+								enregistrer. <br /> pour les images la mettre en html et l'ajouter dans public/images/...{" "}
+							</div>
+							<JoditEditor
+								value={this.state.contenu}
+								editorRef={this.setRef}
+								config={this.config}
+								tabIndex={1}
+								onBlur={(jodit) => {
+									console.log("editor", jodit);
+									const data = jodit.target.innerHTML;
+									this.handleChangeJodit(data);
 								}}
 							/>
 						</Col>

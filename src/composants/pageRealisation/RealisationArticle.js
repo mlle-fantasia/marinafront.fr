@@ -161,12 +161,12 @@ class RealisationArticle extends Component {
 								{projects}
 								<Col className="btn-after-article" xs={12} md={6} sm={6}>
 									<Link to={"/realisations#top"}>
-										<button className="form-control btnRetour">retour à la liste des réalisations</button>
+										<button className="form-control btnRetour">Retour à la liste des réalisations</button>
 									</Link>
 								</Col>
 								<Col className="btn-after-article" xs={12} md={6} sm={6}>
 									<a href="#top">
-										<button className="form-control btnRetour">retour en haut de la page</button>
+										<button className="form-control btnRetour">Retour en haut de la page</button>
 									</a>
 								</Col>
 							</Row>

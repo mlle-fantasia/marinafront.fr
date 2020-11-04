@@ -23,7 +23,7 @@ class Footer extends Component {
 								<br />
 								Région {this.context.user.area}
 								<br />
-								<Link to="/">retour à l'accueil</Link>
+								<Link to="/">Retour à l'accueil</Link>
 							</p>
 						</Col>
 						<Col xs={12} sm={4} md={4}>
