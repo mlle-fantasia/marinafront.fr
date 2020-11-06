@@ -15,6 +15,7 @@ class AdminProjetsForm extends Component {
 		this.handleChangeFile2 = this.handleChangeFile2.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChangeJodit = this.handleChangeJodit.bind(this);
+		this.handleChangeHidden = this.handleChangeHidden.bind(this);
 		this.fileInput2 = React.createRef();
 		this.fileInput = React.createRef();
 	}
@@ -25,9 +26,8 @@ class AdminProjetsForm extends Component {
 		// post attributs
 		id: "",
 		title: "",
-		//image: "",
 		contenu: "",
-		hidden: "",
+		hidden: true,
 		order: 0,
 		resume: "",
 		date: "",
@@ -41,9 +41,8 @@ class AdminProjetsForm extends Component {
 		this.setState({
 			id: "",
 			title: "",
-			// image: "",
 			contenu: "",
-			hidden: "",
+			hidden: true,
 			resume: "",
 			date: "",
 			postAModifierId: "",
@@ -72,6 +71,7 @@ class AdminProjetsForm extends Component {
 		);
 	}
 	showDataPost(post) {
+		console.log("post", post);
 		this.setState({
 			ajouter: true,
 			id: post.id,
@@ -85,7 +85,8 @@ class AdminProjetsForm extends Component {
 			postAModifierId: post.id,
 		});
 	}
-	deletePost() {
+	deletePost(event) {
+		event.preventDefault();
 		if (this.state.postAModifierId) {
 			axios
 				.delete(process.env.REACT_APP_API_MARINAFRONT + "/admin/posts/" + this.state.postAModifierId, {
@@ -96,8 +97,9 @@ class AdminProjetsForm extends Component {
 						console.log("tu as une erreur");
 						return true;
 					}
-					this.setState({ redirection: true });
-					this.props.parentCallback();
+					this.resetDataPost();
+					this.CancelForm();
+					this.getPostsList();
 				});
 		}
 	}
@@ -109,6 +111,13 @@ class AdminProjetsForm extends Component {
 			ajouter: ajouterYesOrNot,
 		});
 		this.resetDataPost();
+	}
+	//change la checkbox invisible
+	handleChangeHidden() {
+		const { hidden } = this.state;
+		this.setState({
+			hidden: !hidden,
+		});
 	}
 	//lorsqu'on selectionne un fichier
 	handleChangeFile(event) {
@@ -173,7 +182,6 @@ class AdminProjetsForm extends Component {
 					{
 						id: id,
 						title: title,
-						//	image: image,
 						contenu: contenu,
 						hidden: hidden,
 						order: order,
@@ -205,7 +213,6 @@ class AdminProjetsForm extends Component {
 					{
 						id: id,
 						title: title,
-						//	image: image,
 						contenu: contenu,
 						hidden: hidden,
 						order: order,
@@ -247,6 +254,23 @@ class AdminProjetsForm extends Component {
 				"Content-Type": "multipart/form-data",
 			},
 		});
+	}
+
+	hiddenArticle(event, item) {
+		event.preventDefault();
+		axios
+			.put(
+				process.env.REACT_APP_API_MARINAFRONT + "/admin/posts/hidden/" + item.id,
+				{ hidden: !item.hidden },
+				{ headers: { Authorization: localStorage.getItem("token") } }
+			)
+			.then(async (response) => {
+				if (response.data.error) {
+					console.log("tu as une erreur");
+					return true;
+				}
+				this.getPostsList();
+			});
 	}
 	CancelForm() {
 		this.setState({ postAModifierId: null });
@@ -336,14 +360,14 @@ class AdminProjetsForm extends Component {
 					</Row>
 					<Row className="">
 						<Col md={6}>
-							<input type="checkbox" id="hidden" name="hidden" value={this.state.hidden} onChange={this.handleChange} />
+							<input type="checkbox" id="hidden" name="hidden" checked={this.state.hidden} onChange={this.handleChangeHidden} />
 							<label htmlFor="hidden">Invisible</label>
 						</Col>
 					</Row>
 
 					<Row className="">
 						<Col md={6}>
-							<button className="btn btn-rea btn-danger" onClick={() => this.deletePost()}>
+							<button className="btn btn-rea btn-danger" onClick={(e) => this.deletePost(e)}>
 								Supprimer
 							</button>
 						</Col>
@@ -399,7 +423,7 @@ class AdminProjetsForm extends Component {
 							Modifier
 						</button>
 						<Link to={"/fantasia/admin" + object.id + "#top"}>
-							<button className="btn btn-rea btn-warning" type="button" onClick={() => this.hiddenArticle(object)}>
+							<button className="btn btn-rea btn-warning" type="button" onClick={(e) => this.hiddenArticle(e, object)}>
 								{object.hidden ? "Publier" : "Masquer"}
 							</button>
 						</Link>

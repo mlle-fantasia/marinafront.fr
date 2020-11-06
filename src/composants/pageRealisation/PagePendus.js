@@ -19,7 +19,7 @@ class PagePendus extends Component {
 										J'ai réalisé deux jeux du pendu, L'un en utilisant <strong>ReactJs</strong> et l'autre en utilisant{" "}
 										<strong>Angular 6</strong>. Les deux jeux sont presque identiques. J'ai ainsi pu observer les différences
 										entre les deux langages.
-										<Link to={"/realisations/4#top"}>
+										<Link to={"/realisations/3#top"}>
 											<span> Article React VS Angular</span>
 										</Link>
 									</p>
