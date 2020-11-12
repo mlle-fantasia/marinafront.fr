@@ -29,13 +29,22 @@ class CvPage extends Component {
 					</Row>
 					<Row className="competencesDecription">
 						<Col xs={12} md={12}>
-							<p>
-								Les Compétences listées ci-dessous, je les ai acquises : <br /> - Premièrement grâce à de nombreux cours et
-								documentations sur internet (openclassrooms, developpez.com, stack overflow, W3schools et bien d'autres) et en
-								imaginant et créant divers sites internet que vous pourrez observer dans l'onglet "Réalisations". <br />-
-								Deuxièmement, grâce à la formation Développement et Administration Systèmes d'Informations Expert que j'ai suivie avec
-								grand intérêt de janvier à mai 2018.
-							</p>
+							<p>Les Compétences listées ci-dessous, je les ai acquises : </p>
+							<ul>
+								<li>
+									Grâce à de nombreux cours et documentations sur internet (openclassrooms, developpez.com, stack overflow,
+									W3schools et bien d'autres) et en imaginant et créant divers sites internet que vous pourrez observer dans
+									l'onglet "Réalisations".
+								</li>
+								<li>
+									Grâce à la formation Développement et Administration Systèmes d'Informations Expert que j'ai suivie avec grand
+									intérêt de janvier à mai 2018.
+								</li>
+								<li>
+									Gràce à deux ans d'alternance dans l'entreprise 3doubleV où j'ai réalisé beaucoup de projets très variés avec
+									différentes technologies comme Javascript, nodejs, express, vueJs, un framework maison...
+								</li>
+							</ul>
 						</Col>
 					</Row>
 					<Row className="competenceListe">
@@ -43,27 +52,29 @@ class CvPage extends Component {
 							<h3>Je maitrise :</h3>
 							<p>HTML/CSS</p>
 							<p>Bootstrap</p>
+							<p>JS/jQuery</p>
+							<p>NodeJs/ExpressJs</p>
+							<p>VueJs</p>
 							<p>Suite Adobe</p>
 						</Col>
 						<Col xs={12} md={3}>
 							<h3>J'ai une marge de progression sur :</h3>
-							<p>PHP</p>
 							<p>SQL</p>
 							<p>React</p>
-							<p>JS/jQuery</p>
 							<p>Angular</p>
 							<p>WordPress</p>
+							<p>Git</p>
 						</Col>
 						<Col xs={12} md={3}>
 							<h3>J'ai les bases en :</h3>
-							<p>Git</p>
 							<p>Java</p>
 							<p>Methode Agile</p>
 							<p>Symfony 4 / Doctrine / Twig</p>
+							<p>Sass</p>
 						</Col>
 						<Col xs={12} md={3}>
 							<h3>J'apprendrai prochainement :</h3>
-							<p>Sass</p>
+							<p>Réact 16</p>
 						</Col>
 					</Row>
 					<hr />
@@ -172,6 +183,23 @@ class CvPage extends Component {
 					<Row className="ligne">
 						<Col xs={12} md={5}></Col>
 					</Row>
+					<Row className="bordure facebookMF">
+						<Col xs={12} md={12}>
+							<p>
+								Actuellement en formation en alternace avec OpenClassroom. Je prépare le parcours dévelopeur d'applications frontend
+								et je suis en alternance dans l'entreprise 3doubleV à Sophia Antipolis
+							</p>
+							<a
+								href="https://www.3doublev.com"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="btn btn-block btn-social btn-facebook"
+							>
+								<span className="fa fa-check-circle-o"></span>
+								Site 3doubleV
+							</a>
+						</Col>
+					</Row>
 					<Row className="bordure">
 						<Col xs={12} md={12}>
 							<p>Validation de la Formation Développement et Administration Système d’Information Expert (DASIE), Greta du var</p>
@@ -181,9 +209,10 @@ class CvPage extends Component {
 						<Col xs={12} md={12}>
 							<p>
 								Quelques expériences de vendeuse en magasin :<br />
-								-Vendeuse caissière dans les magasins Casa (Grasse et Villeneuve-Loubet(06))
+								- Vendeuse caissière dans les magasins Casa (Grasse et Villeneuve-Loubet(06))
 								<br />
-								-Conseillère vendeuse en mobilier et responsable du rayon libre service (décoration) dans le magasin Fly (Antibes(06))
+								- Conseillère vendeuse en mobilier et responsable du rayon libre service (décoration) dans le magasin Fly
+								(Antibes(06))
 								<br />
 								<br />
 								Ceci en me formant chez moi dans le développement Web en vue d’une réorientation professionnelle
@@ -207,7 +236,7 @@ class CvPage extends Component {
 							</a>
 						</Col>
 					</Row>
-					<Row className="bordure facebookMF">
+					<Row className="bordure ">
 						<Col xs={12} md={12}>
 							<p>Etudes en architecture intérieure, BTS et Diplôme Supérieur d'Arts Appliqués</p>
 						</Col>

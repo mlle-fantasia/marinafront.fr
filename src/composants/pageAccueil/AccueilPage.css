@@ -1,143 +1,146 @@
 @font-face {
-    font-family: 'MlleCamille';
-    src: url('../font/Mademoiselle Camille L.ttf');
+	font-family: "MlleCamille";
+	src: url("../font/Mademoiselle Camille L.ttf");
 }
 
 @font-face {
-    font-family: 'ChampagneGras';
-    src: url('../font/Champagne & Limousines Bold.ttf');
+	font-family: "ChampagneGras";
+	src: url("../font/Champagne & Limousines Bold.ttf");
 }
 
 @font-face {
-    font-family: 'Champagne';
-    src: url('../font/Champagne & Limousines.ttf');
+	font-family: "Champagne";
+	src: url("../font/Champagne & Limousines.ttf");
 }
 
 @font-face {
-    font-family: 'Ink';
-    src: url('../font/Inkfree.ttf');
+	font-family: "Ink";
+	src: url("../font/Inkfree.ttf");
 }
 
 h2 {
-    margin-top: 50px;
-    margin-bottom: 20px;
-    color: #fff;
+	margin-top: 50px;
+	margin-bottom: 20px;
+	color: #fff;
 }
 
-
 .sansPadding {
-    padding: 0;
+	padding: 0;
 }
 
 .quelquesMots h2 {
-    color: #fff;
-    margin-bottom: 20px;
+	color: #fff;
+	margin-bottom: 20px;
 }
 
 .quelquesMots {
-    background-color: #30b4ac;
-
+	background-color: #30b4ac;
 }
 
-.quelquesMots .texte, .actuellemnt .texte {
-    padding-bottom: 60px;
-    text-align: justify;
+.quelquesMots .texte,
+.actuellemnt .texte {
+	padding-bottom: 60px;
+	text-align: justify;
 }
 
-p {
-    font-size: 22px;
-    font-family: 'ChampagneGras';
+p,
+ul,
+li {
+	font-size: 22px;
+	font-family: "ChampagneGras";
 }
 
 .glyfTitre {
-    float: left;
+	float: left;
 }
 
 .actuellemnt {
-    background-color: #fff;
+	background-color: #fff;
 }
 
 .actuellemnt h2 {
-    color: #30b4ac;
+	color: #30b4ac;
 }
 
 .petitTitre {
-    font-family: Ink;
-    padding-left: 40px;
-    font-size: 50px;
+	font-family: Ink;
+	padding-left: 40px;
+	font-size: 50px;
 }
 
 .identite {
-    padding: 0;
-    height: 675px;
-    background-image: url(../images/identite2.jpg);
-    background-size: 100%;
-    background-repeat: no-repeat;
-
+	padding: 0;
+	height: 675px;
+	background-image: url(../images/identite2.jpg);
+	background-size: 100%;
+	background-repeat: no-repeat;
 }
 
-.quelquesMots .petitTitre, .quelquesMots .glyfTitre {
-    color: #fff;
+.quelquesMots .petitTitre,
+.quelquesMots .glyfTitre {
+	color: #fff;
 }
 .navbar-inverse .navbar-toggle {
-    border-color: #969595;
-    background-color: #d6d3d3;
+	border-color: #969595;
+	background-color: #d6d3d3;
 }
 
 @media only screen and (max-width: 600px) {
-    .petitTitre {
-        font-size: 32px;
-    }
+	.petitTitre {
+		font-size: 32px;
+	}
 }
 
 @media only screen and (max-width: 1024px) {
-    .petitTitre {
-        font-size: 32px;
-    }
+	.petitTitre {
+		font-size: 32px;
+	}
 
-    p {
-        font-size: 15px;
-    }
+	p {
+		font-size: 15px;
+	}
 
-    .identite {
-        height: 458px;
-    }
+	.identite {
+		height: 458px;
+	}
 
-    .quelquesMots .texte, .actuellemnt .texte {
-        padding-bottom: 10px;
-    }
+	.quelquesMots .texte,
+	.actuellemnt .texte {
+		padding-bottom: 10px;
+	}
 
-    h2 {
-        margin-top: 50px;
-    }
+	h2 {
+		margin-top: 50px;
+	}
 }
 
 @media (min-width: 400px) and (max-width: 767px) {
-    .identite {
-        width: 400px;
-        margin: auto;
-    }
-    .sansPadding {
-        background-color: #a9a8a8;
-    }
+	.identite {
+		width: 400px;
+		margin: auto;
+	}
+	.sansPadding {
+		background-color: #a9a8a8;
+	}
 }
 
 @media (min-width: 1024px) and (max-width: 1440px) {
-    .petitTitre {
-        font-size: 32px;
-    }
-    p {
-        font-size: 18px;
-    }
-    .identite {
-        height: 500px;
-    }
-    .quelquesMots .texte, .actuellemnt .texte{
-        padding-bottom: 10px;
-    }
+	.petitTitre {
+		font-size: 32px;
+	}
+	p {
+		font-size: 18px;
+	}
+	.identite {
+		height: 500px;
+	}
+	.quelquesMots .texte,
+	.actuellemnt .texte {
+		padding-bottom: 10px;
+	}
 }
 @media only screen and (max-width: 400px) {
-    .identite {
-        height: 429px;
-    }
+	.identite {
+		height: 429px;
+	}
 }

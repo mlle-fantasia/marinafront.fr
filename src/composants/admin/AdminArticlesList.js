@@ -26,7 +26,7 @@ class AdminArticlesList extends Component {
 	}
 
 	async AddArticle(id) {
-		const { projetOC, projetAModifier, articlaAModifier } = this.state;
+		const { projetOC, projetAModifier } = this.state;
 		await this.callbackFunction();
 		if (projetOC) {
 			if (id) {

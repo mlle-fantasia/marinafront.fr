@@ -67,7 +67,7 @@ class RealisationsPage extends Component {
 									</Link>
 									<span>
 										{object.site ? (
-											<a href={object.site} target="_blank" rel="noopener noreferre nofollow">
+											<a href={object.site} target="_blank" rel="noopener noreferrer nofollow">
 												<button className="btn btn-rea">lien vers le site</button>
 											</a>
 										) : (
