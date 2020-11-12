@@ -167,6 +167,9 @@ code {
 .alineaD {
 	text-indent: 50px;
 }
+.commentaire {
+	color: #949292;
+}
 .h6 {
 	color: #30b4ac;
 	font-size: 16px;

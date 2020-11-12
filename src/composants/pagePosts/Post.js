@@ -11,21 +11,15 @@ class Post extends Component {
 		postDemande: null,
 	};
 
-	/* componentDidMount() {
-		const { postDemande } = this.props.match.params.id;
-		this.setState({ postDemande });
-		this.getPost(postDemande);
-	} */
-
-	componentWillMount() {
-		console.log("componentDidMount :", this.state.articleDemande);
-		this.getPost(this.state.articleDemande);
+	componentDidMount() {
+		console.log("componentDidMount :", this.props.match.params.id);
+		this.setState({ postDemande: this.props.match.params.id });
+		this.getPost(this.props.match.params.id);
 	}
-	componentWillReceiveProps(nextProps) {
+	/* 	componentWillReceiveProps(nextProps) {
 		console.log("componentWillReceiveProps : ", nextProps.match.params.id);
-		this.setState({ postDemande: nextProps.match.params.id });
 		this.getPost(nextProps.match.params.id);
-	}
+	} */
 
 	getPost(postDemandeId) {
 		axios.get(process.env.REACT_APP_API_MARINAFRONT + "/posts/" + postDemandeId).then((response) => {
