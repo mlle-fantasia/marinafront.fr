@@ -36,19 +36,22 @@ class RouteComposant extends Component {
 
 	render() {
 		const LIENS = [
-			{ route: "/cv", nom: "CV", component: CvPage, exact: true, icon: "CV", link: true },
-			{ route: "/realisations", nom: "Réalisations", component: RealisationsPage, exact: true, icon: "Realisations", link: true },
-			{ route: "/posts", nom: "Posts techniques", component: PostsPage, exact: true, link: false },
-			{ route: "/posts/:id", component: Post, exact: false, link: false },
-			{ route: "/realisations/:id", component: RealisationArticle, exact: false, link: false },
-			{ route: "/contact", nom: "Contact", component: ContactPage, exact: true, icon: "Contact", link: true },
-			{ route: "/mentions-legales", nom: "mentions-legales", component: MentionsLegalesPage, exact: true, link: false },
-			{ route: "/pendus", nom: "pendus", component: PagePendus, exact: true, link: false },
-			{ route: "/fantasia", nom: "login", component: Login, exact: true, link: false },
-			{ route: "/fantasia/admin", nom: "admin", component: Admin, exact: true, link: false },
+			{ route: "/cv", nom: "CV", component: CvPage, exact: true, icon: "CV", link: true, nav: true },
+			{ route: "/realisations", nom: "Réalisations", component: RealisationsPage, exact: true, icon: "Realisations", link: true, nav: true },
+			{ route: "/posts", nom: "Posts techniques", component: PostsPage, exact: true, link: false, nav: true },
+			{ route: "/posts/:id", component: Post, exact: false, link: false, nav: false },
+			{ route: "/realisations/:id", component: RealisationArticle, exact: false, link: false, nav: false },
+			{ route: "/contact", nom: "Contact", component: ContactPage, exact: true, icon: "Contact", link: true, nav: true },
+			{ route: "/mentions-legales", nom: "mentions-legales", component: MentionsLegalesPage, exact: true, link: false, nav: false },
+			{ route: "/pendus", nom: "pendus", component: PagePendus, exact: true, link: false, nav: false },
+			{ route: "/fantasia", nom: "login", component: Login, exact: true, link: false, nav: false },
+			{ route: "/fantasia/admin", nom: "admin", component: Admin, exact: true, link: false, nav: false },
 		];
 
 		let liensNavigation = LIENS.filter(function (element) {
+			return element.nav ? element : false;
+		});
+		let liensIcons = LIENS.filter(function (element) {
 			return element.link ? element : false;
 		});
 
@@ -57,7 +60,7 @@ class RouteComposant extends Component {
 		));
 
 		return (
-			<Provider user={this.state.user} tabLiens={liensNavigation}>
+			<Provider user={this.state.user} tabLiens={liensNavigation} tabLiensIcons={liensIcons}>
 				<App tabRoute={listeLiensRouter} />
 			</Provider>
 		);

@@ -33,7 +33,7 @@ class App extends Component {
 				{element.nom}
 			</NavItem>
 		));
-		console.log("listeLiensNav", this.context.tabLiens, listeLiensNav);
+		//console.log("listeLiensNav", this.context.tabLiens, listeLiensNav);
 
 		const LienAccueil = LIENVERSACCUEIL.map((element, i) => (
 			<Link to={element.route} key={i}>

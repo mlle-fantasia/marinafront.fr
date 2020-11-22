@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import "./Admin.css";
 import { Link } from "react-router-dom";
@@ -6,68 +6,14 @@ import axios from "axios";
 import AdminArticlesForm from "./AdminArticlesForm";
 import AdminProjetsForm from "./AdminProjetsForm";
 
-class AdminArticlesList extends Component {
-	state = {
-		articles: [],
-		ajouter: false,
-		articlaAModifier: null,
-		projetAModifier: null,
-		projetOC: this.props.projetOC,
-	};
+function AdminArticlesList(props) {
+	const [articles, setArticles] = useState([]);
+	const [ajouter, setAjouter] = useState(false);
+	const [articlaAModifier, setArticleAModifier] = useState(null);
+	const [projetAModifier, setProjetAModifier] = useState(null);
+	const [projetOC] = useState(props.projetOC);
 
-	componentWillReceiveProps(nextProps) {
-		this.setState({ projetOC: nextProps.projetOC });
-		this.getArticleList(nextProps.projetOC);
-	}
-
-	componentDidMount() {
-		const { projetOC } = this.state;
-		this.getArticleList(projetOC);
-	}
-
-	async AddArticle(id) {
-		const { projetOC, projetAModifier } = this.state;
-		await this.callbackFunction();
-		if (projetOC) {
-			if (id) {
-				this.setState({ projetAModifier: id });
-				this.setState({ ajouter: true });
-			} else if (!id && projetAModifier) {
-				this.setState({ projetAModifier: null });
-				this.setState({ ajouter: true });
-			} else {
-				this.setState({ ajouter: true });
-			}
-		} else {
-			if (id) {
-				this.setState({ articlaAModifier: id });
-				this.setState({ ajouter: true });
-			} else {
-				this.setState({ ajouter: true });
-			}
-		}
-	}
-	/* 	liste() {
-		this.setState({ ajouter: false });
-	} */
-
-	hiddenArticle(event, article) {
-		event.preventDefault();
-		const { projetOC } = this.state;
-		//console.log("article", article);
-		let url = projetOC
-			? process.env.REACT_APP_API_MARINAFRONT + "/admin/projets/hide/" + article.id
-			: process.env.REACT_APP_API_MARINAFRONT + "/admin/articles/hide/" + article.id;
-		axios.put(url, { hidden: !article.hidden }, { headers: { Authorization: localStorage.getItem("token") } }).then(async (response) => {
-			if (response.data.error) {
-				console.log("tu as une erreur");
-				return true;
-			}
-			this.getArticleList(projetOC);
-		});
-	}
-
-	getArticleList(projetOC) {
+	useEffect(() => {
 		let url = projetOC
 			? process.env.REACT_APP_API_MARINAFRONT + "/admin/projets/list"
 			: process.env.REACT_APP_API_MARINAFRONT + "/admin/articles/list";
@@ -78,98 +24,124 @@ class AdminArticlesList extends Component {
 					console.log("tu as une erreur");
 					return true;
 				}
-				let articles = response.data;
-				this.setState({ articles });
+				setArticles(response.data);
 			},
 			(error) => {
-				// si erreur 400
-				if (error.response.status === 401 || error.response.status === 500) {
-					window.location.href = "/fantasia";
-				}
-				console.log(error.response.status);
+				// si erreur
+				window.location.href = "/fantasia";
+				/* if (error.response.status === 401 || error.response.status === 500) {
+				} */
+				console.log(error);
 			}
 		);
-	}
-	callbackFunction = () => {
-		this.setState({ articlaAModifier: null });
-		this.setState({ projetAModifier: null });
-		this.setState({ ajouter: false });
-		this.getArticleList(this.state.projetOC);
-	};
+	}, []);
 
-	showFormAddArticle() {
-		const { ajouter, projetOC } = this.state;
+	/**
+	 *
+	 * set la variable ajouter à true ce qui va ouvrir le formulaire
+	 * set l'id de l'article à modifier soit avec l'id soit avec null si on a appuyé sur le bouton "ajouter nouvel article"
+	 *
+	 * @param {number} id id de l'article ou du projet ou rien
+	 */
+	async function AddArticle(id) {
+		await callbackFunction();
+		if (projetOC) {
+			if (id) {
+				setProjetAModifier(id);
+			} else if (!id && projetAModifier) {
+				setProjetAModifier(null);
+			}
+		} else {
+			if (id) {
+				setArticleAModifier(id);
+			} else if (!id && articlaAModifier) {
+				setArticleAModifier(null);
+			}
+		}
+		setAjouter(true);
+	}
+
+	function hiddenArticle(event, article) {
+		event.preventDefault();
+		let url = projetOC
+			? process.env.REACT_APP_API_MARINAFRONT + "/admin/projets/hide/" + article.id
+			: process.env.REACT_APP_API_MARINAFRONT + "/admin/articles/hide/" + article.id;
+		axios.put(url, { hidden: !article.hidden }, { headers: { Authorization: localStorage.getItem("token") } }).then(async (response) => {
+			if (response.data.error) {
+				console.log("tu as une erreur");
+				return true;
+			}
+			//this.getArticleList(projetOC);
+		});
+	}
+
+	function callbackFunction() {
+		setArticleAModifier(null);
+		setProjetAModifier(null);
+		setAjouter(false);
+		//this.getArticleList(this.state.projetOC);
+	}
+
+	function showFormAddArticle() {
 		if (ajouter) {
 			if (projetOC) {
-				return <AdminProjetsForm parentCallback={this.callbackFunction} projetAModifier={this.state.projetAModifier} />;
+				return <AdminProjetsForm parentCallback={callbackFunction} projetAModifier={projetAModifier} />;
 			} else {
-				return <AdminArticlesForm parentCallback={this.callbackFunction} articlaAModifier={this.state.articlaAModifier} />;
+				return <AdminArticlesForm parentCallback={callbackFunction} articleId={articlaAModifier} />;
 			}
 		} else {
 			return "";
 		}
 	}
 
-	miniature(object) {
-		const { projetOC } = this.state;
-		return projetOC ? (
-			""
-		) : (
-			<img
-				className="uneRea imgReaAdmin img-fluid"
-				src={process.env.REACT_APP_API_MARINAFRONT + "/articles/" + object.id + "/miniature"}
-				alt="miniature projet"
-			/>
-		);
-	}
-
-	listArticles() {
-		const { articles } = this.state;
-		return articles.map((object) => (
-			<Row key={object.id}>
-				<div className="margin itemListAdmin">
-					<Col xs={12} sm={5} md={1} className="">
-						{this.miniature(object)}
-					</Col>
-					<Col xs={12} sm={7} md={7} className="admin-margin">
-						<div className="texte titreRea titreReaAdmin">
-							{object.title} -- ORDRE : {object.order}
-						</div>
-					</Col>
-					<Col xs={12} sm={7} md={4} className="admin-margin">
-						<button className="btn btn-rea btn-rea-suite" onClick={() => this.AddArticle(object.id)}>
-							Modifier
-						</button>
-						<Link to={"/fantasia/admin" + object.id + "#top"}>
-							<button className="btn btn-rea btn-warning" type="button" onClick={(e) => this.hiddenArticle(e, object)}>
-								{object.hidden ? "Publier" : "Masquer"}
+	return (
+		<Col xs={12} sm={12} md={12}>
+			{articles.map((object) => (
+				<Row key={object.id}>
+					<div className="margin itemListAdmin">
+						<Col xs={12} sm={5} md={1}>
+							{projetOC ? (
+								""
+							) : (
+								<img
+									className="uneRea imgReaAdmin img-fluid"
+									src={process.env.REACT_APP_API_MARINAFRONT + "/articles/" + object.id + "/miniature"}
+									alt="miniature projet"
+								/>
+							)}
+						</Col>
+						<Col xs={12} sm={7} md={7} className="admin-margin">
+							<div className="texte titreRea titreReaAdmin">
+								{object.title} -- ORDRE : {object.order}
+							</div>
+						</Col>
+						<Col xs={12} sm={7} md={4} className="admin-margin">
+							<button className="btn btn-rea btn-rea-suite" onClick={() => AddArticle(object.id)}>
+								Modifier
 							</button>
-						</Link>
-					</Col>
-					<Col xs={12} sm={12} md={12}>
-						<hr />
-					</Col>
-				</div>
-			</Row>
-		));
-	}
-
-	render() {
-		return (
-			<Col xs={12} sm={12} md={12}>
-				{this.listArticles()}
-				<Row className="row-btnAjouter">
-					<Col md={12} className="container-admin-btnAjouter">
-						<div className="container-bordure">
-							<button className=" btn btn-rea admin-btnAjouter" onClick={() => this.AddArticle()}>
-								Ajouter
-							</button>
-						</div>
-					</Col>
+							<Link to={"/fantasia/admin" + object.id + "#top"}>
+								<button className="btn btn-rea btn-warning" type="button" onClick={(e) => hiddenArticle(e, object)}>
+									{object.hidden ? "Publier" : "Masquer"}
+								</button>
+							</Link>
+						</Col>
+						<Col xs={12} sm={12} md={12}>
+							<hr />
+						</Col>
+					</div>
 				</Row>
-				{this.showFormAddArticle()}
-			</Col>
-		);
-	}
+			))}
+			<Row className="row-btnAjouter">
+				<Col md={12} className="container-admin-btnAjouter">
+					<div className="container-bordure">
+						<button className=" btn btn-rea admin-btnAjouter" onClick={() => AddArticle()}>
+							Ajouter
+						</button>
+					</div>
+				</Col>
+			</Row>
+			{showFormAddArticle()}
+		</Col>
+	);
 }
 export default AdminArticlesList;

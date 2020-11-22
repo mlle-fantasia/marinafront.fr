@@ -7,6 +7,7 @@ class Provider extends Component {
 		return {
 			user: this.props.user,
 			tabLiens: this.props.tabLiens,
+			tabLiensIcons: this.props.tabLiensIcons,
 		};
 	}
 
@@ -14,6 +15,7 @@ class Provider extends Component {
 	static childContextTypes = {
 		user: PropTypes.object,
 		tabLiens: PropTypes.array,
+		tabLiensIcons: PropTypes.array,
 	};
 
 	// Rendu de l'application
