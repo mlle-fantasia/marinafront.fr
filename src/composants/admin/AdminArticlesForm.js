@@ -264,7 +264,6 @@ function AdminArticlesForm(props) {
 								const data = jodit.target.innerHTML;
 								handleChangeJodit(data);
 							}}
-							onChange={() => {}}
 						/>
 					</Col>
 				</Row>

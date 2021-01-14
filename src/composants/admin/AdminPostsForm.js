@@ -30,10 +30,6 @@ function AdminProjetsForm(props) {
 		}
 	}, [props.id]);
 
-	function showDataPost(post) {
-		setPost(post);
-		//setAjouter(true);
-	}
 	function deletePost(event) {
 		event.preventDefault();
 		if (post.id) {
@@ -146,7 +142,7 @@ function AdminProjetsForm(props) {
 		let url =
 			numero === 2
 				? process.env.REACT_APP_API_MARINAFRONT + "/admin/posts/" + id + "/image2"
-				: process.env.REACT_APP_API_MARINAFRONT + "/admin/posts/" + id + "/miniature";
+				: process.env.REACT_APP_API_MARINAFRONT + "/admin/posts/" + id + "/image";
 		axios.post(url, formData, {
 			headers: {
 				Authorization: localStorage.getItem("token"),
