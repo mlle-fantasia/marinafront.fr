@@ -17,7 +17,7 @@ class AdminProjetsForm extends Component {
 	}
 
 	state = {
-		projetAModifier: this.props.projetAModifier,
+		projetAModifier: this.props.id,
 		title: "",
 		site: "",
 		langage: "",

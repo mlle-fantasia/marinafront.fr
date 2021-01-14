@@ -7,31 +7,17 @@ import { HashLink as Link } from "react-router-hash-link";
 import JoditEditor from "jodit-react";
 
 function AdminArticlesForm(props) {
-	/* constructor(props) {
-		super(props);
-		this.showDataArticle();
-		this.handleChangeLien = this.handleChangeLien.bind(this);
-		this.handleChangeFile = this.handleChangeFile.bind(this);
-		this.handleChange = this.handleChange.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
-		this.handleCancel = this.handleCancel.bind(this);
-		this.handleChangeJodit = this.handleChangeJodit.bind(this);
-		this.addlink = this.addlink.bind(this);
-		this.fileInput = React.createRef();
-	} */
-
-	const [articleId] = useState(props.articleId);
-	const [liens, setliens] = useState([]);
+	const [articleId] = useState(props.id);
 	const [article, setArticle] = useState({});
+	const [liens, setliens] = useState([]);
 	const [message, setMessage] = useState({ value: false, txt: "" });
 	const [fileSelected, setfileSelected] = useState({ image: null, binary: null });
 
 	useEffect(() => {
 		//mettre à jour le state avec les données de l'article à modifier si on veut modifier.
-		//console.log("articleId", articleId);
-		if (articleId) {
+		if (props.id) {
 			axios
-				.get(process.env.REACT_APP_API_MARINAFRONT + "/articles/" + articleId, {
+				.get(process.env.REACT_APP_API_MARINAFRONT + "/articles/" + props.id, {
 					headers: { Authorization: localStorage.getItem("token") },
 				})
 				.then((response) => {
@@ -42,8 +28,9 @@ function AdminArticlesForm(props) {
 					setArticle(response.data.article);
 					setliens(response.data.article.liens);
 				});
+			//console.log("article", article);
 		}
-	}, []);
+	}, [props.id]);
 
 	// lorsqu'on change un lien
 	function handleChangeLien(event) {
@@ -90,12 +77,12 @@ function AdminArticlesForm(props) {
 		setArticle({ ...article, contenu: data });
 	}
 	function handleCancel() {
-		props.parentCallback();
+		props.resetForm();
 	}
 	function DeleteArticle() {
-		if (articleId) {
+		if (props.id) {
 			axios
-				.delete(process.env.REACT_APP_API_MARINAFRONT + "/admin/articles/" + articleId, {
+				.delete(process.env.REACT_APP_API_MARINAFRONT + "/admin/articles/" + props.id, {
 					headers: { Authorization: localStorage.getItem("token") },
 				})
 				.then((response) => {
@@ -103,7 +90,8 @@ function AdminArticlesForm(props) {
 						console.log("tu as une erreur");
 						return true;
 					}
-					props.parentCallback();
+					props.resetForm();
+					props.reloadList();
 				});
 		}
 	}
@@ -115,11 +103,11 @@ function AdminArticlesForm(props) {
 			return lien.url !== "url" || lien.url !== "" || lien.non !== "nom" || lien.non !== "";
 		});
 		article.liens = lesLiens;
-		if (articleId) {
+		if (props.id) {
 			newMessage = "l'article à bien été modifié";
 			console.log("article", article);
 			axios
-				.put(process.env.REACT_APP_API_MARINAFRONT + "/admin/articles/modifier/" + articleId, article, {
+				.put(process.env.REACT_APP_API_MARINAFRONT + "/admin/articles/modifier/" + props.id, article, {
 					headers: { Authorization: localStorage.getItem("token") },
 				})
 				.then(async (response) => {
@@ -132,7 +120,8 @@ function AdminArticlesForm(props) {
 						await saveImage(response.data.id);
 					}
 					setMessage({ value: true, txt: newMessage });
-					props.parentCallback();
+					props.resetForm();
+					props.reloadList();
 				});
 		} else {
 			newMessage = "l'article à bien été ajouté";
@@ -149,14 +138,15 @@ function AdminArticlesForm(props) {
 						await saveImage(response.data.id);
 					}
 					setMessage({ value: true, txt: newMessage });
-					props.parentCallback();
+					props.resetForm();
+					props.reloadList();
 				});
 		}
 	}
 	function saveImage(id) {
 		let formData = new FormData();
 		formData.append("image", fileSelected.image, fileSelected.image.name);
-		axios.post(process.env.REACT_APP_API_MARINAFRONT + "/admin/articles/" + articleId + "/image", formData, {
+		axios.post(process.env.REACT_APP_API_MARINAFRONT + "/admin/articles/" + props.id + "/image", formData, {
 			headers: {
 				Authorization: localStorage.getItem("token"),
 				"Content-Type": "multipart/form-data",
@@ -171,7 +161,7 @@ function AdminArticlesForm(props) {
 	const config = { readonly: false };
 	const editor = useRef(null);
 
-	const textForBtnAdd = articleId ? "Modifier" : "Ajouter";
+	const textForBtnAdd = props.id ? "Modifier" : "Ajouter";
 	const fileInput = React.createRef();
 	const notificationMessage = message.value ? (
 		<Col md={12}>
@@ -274,6 +264,7 @@ function AdminArticlesForm(props) {
 								const data = jodit.target.innerHTML;
 								handleChangeJodit(data);
 							}}
+							onChange={() => {}}
 						/>
 					</Col>
 				</Row>
@@ -288,7 +279,7 @@ function AdminArticlesForm(props) {
 							Annuler
 						</button>
 						<button className="btn btn-rea">{textForBtnAdd}</button>
-						<Link to={"/realisations/" + articleId + "#top"}>
+						<Link to={"/realisations/" + props.id + "#top"}>
 							<button className="btn btn-rea">Afficher</button>
 						</Link>
 					</Col>

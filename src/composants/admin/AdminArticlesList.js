@@ -12,8 +12,10 @@ function AdminArticlesList(props) {
 	const [articlaAModifier, setArticleAModifier] = useState(null);
 	const [projetAModifier, setProjetAModifier] = useState(null);
 	const [projetOC] = useState(props.projetOC);
+	const [reloadList, setReloadList] = useState(0);
 
 	useEffect(() => {
+		console.log("projetOC", projetOC);
 		let url = projetOC
 			? process.env.REACT_APP_API_MARINAFRONT + "/admin/projets/list"
 			: process.env.REACT_APP_API_MARINAFRONT + "/admin/articles/list";
@@ -34,7 +36,7 @@ function AdminArticlesList(props) {
 				console.log(error);
 			}
 		);
-	}, []);
+	}, [projetOC]);
 
 	/**
 	 *
