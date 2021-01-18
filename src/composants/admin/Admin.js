@@ -16,24 +16,31 @@ function Admin() {
 	const [articleAModifier, setArticleAModifier] = useState(null);
 
 	useEffect(() => {
-		axios
-			.get(process.env.REACT_APP_API_MARINAFRONT + "/admin/" + onglet + "/list", { headers: { Authorization: localStorage.getItem("token") } })
-			.then(
-				(response) => {
-					if (response.data.error) {
-						console.log("tu as une erreur");
-						return true;
-					}
-					setArticles(response.data);
-				},
-				(error) => {
-					// si erreur
-					window.location.href = "/fantasia";
-					/* if (error.response.status === 401 || error.response.status === 500) {
+		if (onglet !== "infoperso" && onglet !== "4") {
+			axios
+				.get(process.env.REACT_APP_API_MARINAFRONT + "/admin/" + onglet + "/list", {
+					headers: { Authorization: localStorage.getItem("token") },
+				})
+				.then(
+					(response) => {
+						if (response.data.error) {
+							console.log("tu as une erreur");
+							return true;
+						}
+						setArticles(response.data);
+					},
+					(error) => {
+						// si erreur
+						window.location.href = "/fantasia";
+						/* if (error.response.status === 401 || error.response.status === 500) {
 				} */
-					console.log(error);
-				}
-			);
+						console.log(error);
+					}
+				);
+		} else {
+			setArticles([]);
+			setShowform(true);
+		}
 	}, [onglet, reload]);
 
 	function hiddenArticle(event, article) {
@@ -62,6 +69,11 @@ function Admin() {
 	 */
 	async function AddArticle() {
 		setArticleAModifier(null);
+		setShowform(true);
+	}
+
+	function ongletPerso() {
+		setOnglet("infoperso");
 		setShowform(true);
 	}
 
@@ -108,7 +120,11 @@ function Admin() {
 							<Col md={2} className={`"admin-sousTitre" ${onglet === "4" ? "onglet-actif" : ""}`} onClick={() => setOnglet("4")}>
 								<p>Les certificats</p>
 							</Col>
-							<Col md={2} className={`"admin-sousTitre" ${onglet === "5" ? "onglet-actif" : ""}`} onClick={() => setOnglet("5")}>
+							<Col
+								md={2}
+								className={`"admin-sousTitre" ${onglet === "5" ? "onglet-actif" : ""}`}
+								onClick={() => setOnglet("infoperso")}
+							>
 								<p>Infos perso</p>
 							</Col>
 						</Row>
@@ -147,15 +163,19 @@ function Admin() {
 								</div>
 							</Row>
 						))}
-						<Row className="row-btnAjouter">
-							<Col md={12} className="container-admin-btnAjouter">
-								<div className="container-bordure">
-									<button className=" btn btn-rea admin-btnAjouter" onClick={() => AddArticle()}>
-										Ajouter
-									</button>
-								</div>
-							</Col>
-						</Row>
+						{onglet !== "infoperso" ? (
+							<Row className="row-btnAjouter">
+								<Col md={12} className="container-admin-btnAjouter">
+									<div className="container-bordure">
+										<button className=" btn btn-rea admin-btnAjouter" onClick={() => AddArticle()}>
+											Ajouter
+										</button>
+									</div>
+								</Col>
+							</Row>
+						) : (
+							""
+						)}
 						{showform ? (
 							<Row>
 								{(() => {
@@ -186,7 +206,7 @@ function Admin() {
 											);
 										case "4":
 											return "les certificats";
-										case "5":
+										case "infoperso":
 											return <AdminUserForm />;
 									}
 								})()}
