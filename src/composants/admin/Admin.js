@@ -72,13 +72,7 @@ function Admin() {
 		setShowform(true);
 	}
 
-	function ongletPerso() {
-		setOnglet("infoperso");
-		setShowform(true);
-	}
-
 	async function editArticle(id) {
-		console.log("id", id);
 		setArticleAModifier(id);
 		//setShowform(false);
 		setShowform(true);
