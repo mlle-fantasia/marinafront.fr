@@ -3,12 +3,15 @@ import React, { Component } from "react";
 import "./ContactPage.css";
 import "@ladjs/bootstrap-social/bootstrap-social.css";
 import "font-awesome/css/font-awesome.css";
-import Grid from "react-bootstrap/lib/Grid";
-import Row from "react-bootstrap/lib/Row";
-import Col from "react-bootstrap/lib/Col";
+import { Col, Grid, Row } from "react-bootstrap";
+import PropTypes from "prop-types";
 import NavIcons from "../NavIcons";
 
 class ContactPage extends Component {
+	static contextTypes = {
+		user: PropTypes.object,
+	};
+
 	render() {
 		return (
 			<div>
@@ -19,7 +22,7 @@ class ContactPage extends Component {
 								<Row>
 									<Col xs={12} md={12}>
 										<h2>
-											<span className="glyfTitre glyphicon glyphicon-comment" />
+											<span className="glyfTitre glyphicon glyphicon-comment"></span>
 											<div className="petitTitre">Me contacter :</div>
 										</h2>
 									</Col>
@@ -34,14 +37,14 @@ class ContactPage extends Component {
 							<div className="meSuivre">
 								<h3 className="titreMeContacter">Me contacter :</h3>
 								<p>
-									<span className="glyphicon glyphicon-envelope" /> marinafront2@gmail.com
+									<span className="glyphicon glyphicon-envelope"></span> {this.context.user.email}
 								</p>
 								<p>
-									<span className="glyphicon glyphicon-earphone" /> 06 02 10 85 07
+									<span className="glyphicon glyphicon-earphone"></span> {this.context.user.tel}
 								</p>
 								<p>
-									<span className="glyphicon glyphicon-home" /> 33 rue de la soulane
-									<br /> 06250 MOUGINS
+									<span className="glyphicon glyphicon-home"></span> {this.context.user.address}
+									<br /> {this.context.user.city}
 								</p>
 
 								<h3>Me suivre :</h3>
@@ -51,7 +54,7 @@ class ContactPage extends Component {
 									rel="noopener noreferrer"
 									className="btn btn-block btn-social btn-linkedin"
 								>
-									<span className="fa fa-linkedin" />
+									<span className="fa fa-linkedin"></span>
 									Suivez moi sur LinkedIn
 								</a>
 								<a
@@ -60,7 +63,7 @@ class ContactPage extends Component {
 									rel="noopener noreferrer"
 									className="btn btn-block btn-social btn-github"
 								>
-									<span className="fa fa-github" />
+									<span className="fa fa-github"></span>
 									Suivez moi sur GitHub
 								</a>
 							</div>

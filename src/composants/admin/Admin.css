@@ -1,0 +1,78 @@
+.admin h2 {
+	color: #222222;
+}
+.admin .btn-rea {
+	margin: 10px 5px 0 0;
+}
+.btn-ajouter-link {
+	margin-top: 20px;
+}
+.admin-sousTitre {
+	font-size: 20px;
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+	padding: 10px;
+	cursor: pointer;
+}
+.admin-sousTitre p {
+	margin: auto;
+}
+.admin-sousTitre:hover {
+	background-color: #30b4ac;
+	color: #fff;
+}
+.onglet-actif {
+	background-color: #30b4ac;
+	color: #fff;
+}
+.admin-sousTitreTitre {
+	padding: 0 10px;
+}
+
+.admin-btnAjouter {
+	padding: 0 10px;
+	height: 35px;
+}
+.navAdmin {
+	margin: 50px 0 15px 0;
+	border-bottom: solid 3px #30b4ac;
+}
+.container-bordure {
+	padding: 10px;
+	border-bottom: solid 2px #30b4ac;
+}
+.imgReaAdmin {
+	height: 45px;
+	margin: 0;
+	border: solid 2px #222;
+}
+.ck p {
+	font-size: 16px;
+}
+.titreReaAdmin {
+	margin: 10px 0;
+}
+.formAdmin {
+	padding: 50px 0;
+}
+.formAdmin input,
+.formAdmin textarea {
+	margin-bottom: 15px;
+}
+.AlertOK {
+	background-color: #30b4ac99;
+	padding-bottom: 10px;
+	text-align: center;
+	color: white;
+}
+.bienvenue {
+	text-align: center;
+	padding-bottom: 52vh;
+}
+.btn-danger {
+	margin-left: 10px;
+}
+.itemListAdmin hr {
+	margin-bottom: 0;
+}

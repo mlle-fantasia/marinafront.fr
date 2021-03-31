@@ -2,9 +2,6 @@
 .realisation .glyfTitre {
 	color: #30b4ac;
 }
-.rea {
-	padding: 30px 0 50px 20px;
-}
 .margin {
 	padding: 30px 0 50px 20px;
 }
@@ -49,15 +46,6 @@
 .github {
 	margin: 20px 0 80px 20px;
 }
-.colette {
-    background-image: url("../images/coletteMiniature.png");
-}
-.oc {
-    background-image: url("../images/ocMiniature.png");
-}
-.amc {
-     background-image: url("../images/AMCminiature.jpg");
-}
 .sitePerso {
 	background-image: url("../images/sitePerso.png");
 }
@@ -98,7 +86,15 @@
 	margin-bottom: 70px;
 }
 .texteArticle {
-	margin-bottom: 50px;
+}
+.btn-after-article {
+	margin-top: 50px;
+}
+.pointer {
+	cursor: pointer;
+}
+.li-projet {
+	border-bottom: 1px solid #30b4ac;
 }
 .unArticle img {
 	width: 100%;
@@ -117,7 +113,7 @@ h5 {
 	font-family: Champagne;
 	font-size: 21px;
 	color: #30b4ac;
-	text-indent: 2em;
+	text-indent: 1em;
 }
 .btn-lien {
 	background-color: #e2e1e1;
@@ -147,15 +143,20 @@ h5 {
 }
 code {
 	color: #ffffff;
-	background-color: #334a49;
+	background-color: #525252;
+	border-radius: 0;
+	padding: 3px 8px;
+	font-size: 16px;
+	font-family: "Courier New", Courier, monospace;
 }
 .code {
-	background-color: #334a49;
+	background-color: #525252;
 	color: white;
-	border-radius: 4px 4px;
-	padding: 5px;
-	width: max-content;
+	padding: 5px 5px 5px 20px;
 	margin: 10px 0;
+	border-left: 8px solid #bdbdbd;
+	font-size: 16px;
+	font-family: "Courier New", Courier, monospace;
 }
 .alinea {
 	text-indent: 25px;
@@ -163,12 +164,15 @@ code {
 .alineaD {
 	text-indent: 50px;
 }
+.commentaire {
+	color: #949292;
+}
 .h6 {
 	color: #30b4ac;
 	font-size: 16px;
 }
 @media (min-width: 400px) and (max-width: 770px) {
-	.rea .uneRea {
+	.margin .uneRea {
 		margin: auto;
 	}
 }
@@ -232,12 +236,5 @@ code {
 	}
 	.titreArticle {
 		font-size: 35px;
-	}
-	.btn-lien-github {
-		width: auto;
-		font-size: 15px;
-	}
-	.rea {
-		padding: 0;
 	}
 }

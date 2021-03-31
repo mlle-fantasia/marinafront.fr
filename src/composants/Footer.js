@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./Footer.css";
-import Grid from "react-bootstrap/lib/Grid";
-import Row from "react-bootstrap/lib/Row";
-import Col from "react-bootstrap/lib/Col";
+import { Col, Grid, Row } from "react-bootstrap";
+import PropTypes from "prop-types";
 
 class Footer extends Component {
+	static contextTypes = {
+		user: PropTypes.object,
+	};
+
 	render() {
 		return (
 			<div className="footer">
@@ -18,24 +21,23 @@ class Footer extends Component {
 								<br />
 								Développeuse Web
 								<br />
-								région Sophia Antipolis
+								Région {this.context.user.area}
 								<br />
-								<Link to="/">retour à l'accueil</Link>
+								<Link to="/">Retour à l'accueil</Link>
 							</p>
 						</Col>
 						<Col xs={12} sm={4} md={4}>
 							<h3>Me contacter :</h3>
 							<p>
-								{" "}
-								marinafront2@gmail.com
+								{this.context.user.email}
 								<br />
-								06 02 10 85 07
+								{this.context.user.tel}
 								<br />
 							</p>
 						</Col>
 						<Col xs={12} sm={4} md={4}>
 							<h3>Mon CV :</h3>
-							<a href={require("../assets/pdf/CV2018+fiche.pdf")} target="_blank">
+							<a href={require("../assets/pdf/CV2018+fiche.pdf")} target="_blank" rel="noopener noreferrer">
 								<button className="btn">Mon CV</button>
 							</a>
 						</Col>

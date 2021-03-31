@@ -1,83 +1,70 @@
-import React, {Component} from 'react';
+import React, { Component } from "react";
+import App from "./App";
+import { Route } from "react-router-dom";
+import Provider from "./Provider";
 
-
-import App from './App';
-import {Route} from 'react-router-dom'
-import Provider from './Provider';
-
+// les composants
 import CvPage from "./composants/pageCv/CvPage";
 import ContactPage from "./composants/pageContact/ContactPage";
 import RealisationsPage from "./composants/pageRealisation/RealisationsPage";
+import PostsPage from "./composants/pagePosts/PostsPage";
+import Post from "./composants/pagePosts/Post";
 import RealisationArticle from "./composants/pageRealisation/RealisationArticle";
 import MentionsLegalesPage from "./composants/MentionsLegalesPage";
 import PagePendus from "./composants/pageRealisation/PagePendus";
-import axios from 'axios';
+import Login from "./composants/admin/Login";
+import Admin from "./composants/admin/Admin";
 
-
-//const API = "https://api.marinafront.fr"; //prod
-//const API = "http://api-site-web"; //local
-
+import axios from "axios";
 
 class RouteComposant extends Component {
+	state = {
+		user: {},
+	};
 
-    state = {
-        realisations: [],
-        projets: [],
-        api:"https://api.marinafront.fr",
-        //api:"http://api-site-web"
-    };
+	componentDidMount() {
+		// on récupère l'utilisateur, pour afficher les infos sur tout le site (footer, page contact)
+		axios.get(process.env.REACT_APP_API_MARINAFRONT + "/user").then((response) => {
+			if (response.data.error) {
+				console.log("tu as une erreur");
+				return true;
+			}
+			const user = response.data[0];
+			this.setState({ user });
+		});
+	}
 
-    async componentDidMount()  {
+	render() {
+		const LIENS = [
+			{ route: "/cv", nom: "CV", component: CvPage, exact: true, icon: "CV", link: true, nav: true },
+			{ route: "/realisations", nom: "Réalisations", component: RealisationsPage, exact: true, icon: "Realisations", link: true, nav: true },
+			{ route: "/posts", nom: "Posts techniques", component: PostsPage, exact: true, link: false, nav: true },
+			{ route: "/posts/:id", component: Post, exact: false, link: false, nav: false },
+			{ route: "/realisations/:id", component: RealisationArticle, exact: false, link: false, nav: false },
+			{ route: "/contact", nom: "Contact", component: ContactPage, exact: true, icon: "Contact", link: true, nav: true },
+			{ route: "/mentions-legales", nom: "mentions-legales", component: MentionsLegalesPage, exact: true, link: false, nav: false },
+			{ route: "/pendus", nom: "pendus", component: PagePendus, exact: true, link: false, nav: false },
+			{ route: "/fantasia", nom: "login", component: Login, exact: true, link: false, nav: false },
+			{ route: "/fantasia/admin", nom: "admin", component: Admin, exact: true, link: false, nav: false },
+		];
 
-         const [firstResponse, secondResponse] = await Promise.all([
-             axios.get(this.state.api + "/realisation-article.php"),
-             axios.get(this.state.api + "/realisation-oc.php")
-         ]);
+		let liensNavigation = LIENS.filter(function (element) {
+			return element.nav ? element : false;
+		});
+		let liensIcons = LIENS.filter(function (element) {
+			return element.link ? element : false;
+		});
 
-        if (firstResponse.data.error) {
-            console.log("tu as une erreur dans la récupération des articles");
-            return true;
-        }
-        this.setState({realisations: firstResponse.data.payload});
+		const listeLiensRouter = LIENS.map((element, i) => (
+			<Route key={i} path={element.route} exact={element.exact} component={element.component} />
+		));
 
-        if (secondResponse.data.error) {
-            console.log("tu as une erreur dans la récupération des projets");
-            return true;
-        }
-
-       await this.setState({projets: secondResponse.data.payload});
-    }
-
-    render() {
-
-        const
-            LIENS = [
-                {route: "/cv", nom: "CV", component: CvPage, exact: true, icon: "CV", link: true},
-                {route: "/realisations", nom: "Réalisations", component: RealisationsPage, exact: true, icon: "Realisations", link: true},
-                {route: "/realisations/:id", component: RealisationArticle, exact: false, link: false},
-                {route: "/contact", nom: "Contact", component: ContactPage, exact: true, icon: "Contact", link: true},
-                {route: "/mentions-legales", nom: "mentions-legales", component: MentionsLegalesPage, exact: true,  link: false},
-                {route: "/pendus", nom: "pendus", component: PagePendus, exact: true,  link: false}
-            ];
-
-        let liensNavigation = LIENS.filter(function (element) {
-                return element.link ? element : false;
-            });
-
-        const
-            listeLiensRouter = LIENS.map((element, i) => (
-                <Route key={i} path={element.route} exact={element.exact} component={element.component}/>
-            ));
-
-        return (
-            <Provider tabRea={this.state.realisations} tabProjets={this.state.projets } tabLiens={liensNavigation} api={this.state.api} >
-                <App tabRoute={listeLiensRouter}/>
-            </Provider>
-
-        );
-    }
-
+		return (
+			<Provider user={this.state.user} tabLiens={liensNavigation} tabLiensIcons={liensIcons}>
+				<App tabRoute={listeLiensRouter} />
+			</Provider>
+		);
+	}
 }
-
 
 export default RouteComposant;

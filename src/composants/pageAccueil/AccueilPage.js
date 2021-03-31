@@ -18,7 +18,7 @@ class AccueilPage extends Component {
 						<Row className="quelquesMots">
 							<Col xs={12} md={8} mdOffset={2} className="texte">
 								<h2>
-									<span className="glyfTitre glyphicon glyphicon-comment" />
+									<span className="glyfTitre glyphicon glyphicon-comment"></span>
 									<div className="petitTitre">En quelques mots :</div>
 								</h2>
 								<p>
@@ -31,19 +31,20 @@ class AccueilPage extends Component {
 						<Row className="actuellemnt">
 							<Col xs={12} md={8} mdOffset={2} className="texte">
 								<h2>
-									<span className="glyfTitre glyphicon glyphicon-refresh" />
+									<span className="glyfTitre glyphicon glyphicon-refresh"></span>
 									<div className="petitTitre">Actuellement :</div>
 								</h2>
 								<p>
-									Je suis actuellement développeuse web (front-end / back-end) en alternance chez 3doubleV, une agence web basée à
-									Sophia Antipolis. Nous nous occupons à créer des sites Internet et des logiciels de gestion pour divers clients.
-									Dans le même temps, je suis la formation de développeur d'application Front-end avec OpenClassroom.
+									Je suis actuellement en formation avec OpenClassroom et en alternance dans une agence web qui s'occupe
+									principalement de créer des logiciels de gestion (extranet) sur mesure pour les entreprises.
+									<br />
+									Je fais du backend avec nodejs et expressjs et du frontend avec vuejs.
 								</p>
 							</Col>
 						</Row>
 					</Col>
 					<Col xs={12} sm={5} md={4} className="sansPadding">
-						<div className="identite" />
+						<div className="identite"></div>
 					</Col>
 				</Grid>
 
