@@ -27,22 +27,10 @@ function AdminArticlesForm(props) {
 	//lorsqu'on selectionne un fichier
 	function handleChangeFile(event) {
 		event.preventDefault();
-
 		let file = { cv: null };
-		file.cv = this.fileInput.current.files[0];
+		file.cv = fileInput.current.files[0];
 		console.log("file", file);
-		/* var reader = new FileReader();
-		reader.onload = (function (theFile) {
-			return function (e) {
-				file.binary = e.target.result;
-			};
-		})(this.fileInput.current.files[0]);
-		reader.readAsDataURL(this.fileInput.current.files[0]); */
-
 		setfileSelected(file);
-		/* 		this.setState({
-			fileSelected: file,
-		}); */
 	}
 
 	function handleChange(event) {

@@ -52,14 +52,14 @@ function AdminProjetsForm(props) {
 	function handleChangeFile(event) {
 		event.preventDefault();
 		let file = { image: null, binary: null };
-		file.image = this.fileInput.current.files[0];
+		file.image = fileInput.current.files[0];
 		var reader = new FileReader();
 		reader.onload = (function (theFile) {
 			return function (e) {
 				file.binary = e.target.result;
 			};
-		})(this.fileInput.current.files[0]);
-		reader.readAsDataURL(this.fileInput.current.files[0]);
+		})(fileInput.current.files[0]);
+		reader.readAsDataURL(fileInput.current.files[0]);
 
 		setfileSelected(file);
 	}
@@ -67,14 +67,14 @@ function AdminProjetsForm(props) {
 	function handleChangeFile2(event) {
 		event.preventDefault();
 		let file = { image: null, binary: null };
-		file.image = this.fileInput2.current.files[0];
+		file.image = fileInput2.current.files[0];
 		var reader = new FileReader();
 		reader.onload = (function (theFile) {
 			return function (e) {
 				file.binary = e.target.result;
 			};
-		})(this.fileInput2.current.files[0]);
-		reader.readAsDataURL(this.fileInput2.current.files[0]);
+		})(fileInput2.current.files[0]);
+		reader.readAsDataURL(fileInput2.current.files[0]);
 
 		setfileSelected2(file);
 	}

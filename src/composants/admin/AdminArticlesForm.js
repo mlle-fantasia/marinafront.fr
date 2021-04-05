@@ -56,14 +56,14 @@ function AdminArticlesForm(props) {
 		event.preventDefault();
 
 		let file = { image: null, binary: null };
-		file.image = this.fileInput.current.files[0];
+		file.image = fileInput.current.files[0];
 		var reader = new FileReader();
 		reader.onload = (function (theFile) {
 			return function (e) {
 				file.binary = e.target.result;
 			};
-		})(this.fileInput.current.files[0]);
-		reader.readAsDataURL(this.fileInput.current.files[0]);
+		})(fileInput.current.files[0]);
+		reader.readAsDataURL(fileInput.current.files[0]);
 		setfileSelected(file);
 	}
 
@@ -214,7 +214,14 @@ function AdminArticlesForm(props) {
 					</Col>
 					<Col md={6}>
 						<label htmlFor="site">Site</label>
-						<input type="text" id="site" name="site" value={article.site} onChange={handleChange} className="form-control" />
+						<input
+							type="text"
+							id="site"
+							name="site"
+							value={article.site ? article.site : ""}
+							onChange={handleChange}
+							className="form-control"
+						/>
 					</Col>
 				</Row>
 				<Row className="d-flex flex-row align-items-end">
