@@ -130,13 +130,24 @@ class RealisationArticle extends Component {
 		);
 
 		const projects = this.state.projets.length ? (
-			<div className="mt-5 galerieImages">
+			<div className="">
 				{this.state.projets.map((projet, i) => (
 					<div className="li-projet" key={i}>
 						<div className="pointer" onClick={() => this.handleClickProjet(i)}>
-							<h5>
-								{projet.title} ({projet.langage})
-							</h5>
+							{this.state.projetVisible !== i ? (
+								<h5>
+									{projet.title} {projet.langage ? "(" + projet.langage + ")" : ""}
+								</h5>
+							) : (
+								""
+							)}
+							{this.state.projetVisible === i ? (
+								<h4>
+									{projet.title} {projet.langage ? "(" + projet.langage + ")" : ""}
+								</h4>
+							) : (
+								""
+							)}
 						</div>
 						{this.isArticleVisible(i)}
 					</div>
@@ -158,7 +169,11 @@ class RealisationArticle extends Component {
 									</h2>
 									<RawHtml.div className="texte">{article.contenu}</RawHtml.div>
 								</Col>
-								{projects}
+							</Row>
+							<Row>
+								<Col>{projects}</Col>
+							</Row>
+							<Row>
 								<Col className="btn-after-article" xs={12} md={6} sm={6}>
 									<Link to={"/realisations#top"}>
 										<button className="form-control btnRetour">Retour à la liste des réalisations</button>

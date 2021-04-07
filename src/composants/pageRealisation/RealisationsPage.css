@@ -95,6 +95,11 @@
 }
 .li-projet {
 	border-bottom: 1px solid #30b4ac;
+	background-color: #30b4ac33;
+	padding-top: 10px;
+}
+.li-projet h4 {
+	padding-left: 20px;
 }
 .unArticle img {
 	width: 100%;
@@ -140,6 +145,9 @@ h5 {
 .btnRetour {
 	background-color: #22807a;
 	color: white;
+}
+.contenu-projet {
+	padding: 0 20px;
 }
 code {
 	color: #ffffff;
